@@ -1,27 +1,26 @@
-import joblib
-import pandas as pd
+-- Table to store predictions
+CREATE TABLE IF NOT EXISTS predictions (
+    id SERIAL PRIMARY KEY,
+    customer_id INT,
+    feature_1 FLOAT,
+    feature_2 FLOAT,
+    feature_3 FLOAT,
+    geography VARCHAR(50),
+    gender VARCHAR(10),
+    prediction FLOAT,
+    source VARCHAR(20),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-# Load model and encoders/scalers
-model = joblib.load("fastapi_app/churn_model.pkl")
-scaler = joblib.load("fastapi_app/scaler.pkl")
-geo_enc = joblib.load("fastapi_app/geo_enc.pkl")
-gender_enc = joblib.load("fastapi_app/gender_enc.pkl")
-
-def preprocess_and_predict(input_data):
-    """
-    input_data: pandas DataFrame with raw features
-    returns: predictions
-    """
-    df = input_data.copy()
-
-    # Encode categorical variables
-    df['Geography'] = geo_enc.transform(df['Geography'])
-    df['Gender'] = gender_enc.transform(df['Gender'])
-
-    # Scale numeric features
-    numeric_cols = ['CreditScore','Age','Tenure','Balance','NumOfProducts','HasCrCard','IsActiveMember','EstimatedSalary']
-    df[numeric_cols] = scaler.transform(df[numeric_cols])
-
-    # Predict
-    preds = model.predict(df)
-    return preds.tolist()
+-- Table to store data quality issues
+CREATE TABLE IF NOT EXISTS data_issues (
+    id SERIAL PRIMARY KEY,
+    filename VARCHAR(255),
+    issue_type VARCHAR(50),
+    criticality VARCHAR(20),
+    description TEXT,
+    nb_rows INT,
+    nb_valid INT,
+    nb_invalid INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

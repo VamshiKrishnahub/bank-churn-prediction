@@ -1,1 +1,7 @@
-pip install fastapi uvicorn pandas scikit-learn joblib
+pandas
+scikit-learn
+joblib
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
