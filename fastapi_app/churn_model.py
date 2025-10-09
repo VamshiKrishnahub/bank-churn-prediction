@@ -3,13 +3,14 @@ import pandas as pd
 import numpy as np
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Point to the model directory (mounted via docker-compose volumes)
+MODEL_DIR = "/workspace/model"
 
 # Load model and encoders
-model = joblib.load(os.path.join(BASE_DIR, "churn_model.pkl"))
-scaler = joblib.load(os.path.join(BASE_DIR, "scaler.pkl"))
-geo_enc = joblib.load(os.path.join(BASE_DIR, "Geography_encoder.pkl"))
-gen_enc = joblib.load(os.path.join(BASE_DIR, "Gender_encoder.pkl"))
+model = joblib.load(os.path.join(MODEL_DIR, "churn_model.pkl"))
+scaler = joblib.load(os.path.join(MODEL_DIR, "scaler.pkl"))
+geo_enc = joblib.load(os.path.join(MODEL_DIR, "Geography_encoder.pkl"))
+gen_enc = joblib.load(os.path.join(MODEL_DIR, "Gender_encoder.pkl"))
 
 def safe_transform(encoder, values):
     """Transform unseen categories as -1"""
@@ -21,30 +22,6 @@ def safe_transform(encoder, values):
         else:
             transformed.append(-1)
     return np.array(transformed)
-
-# def preprocess_and_predict(input_data: pd.DataFrame):
-#     """
-#     input_data: pandas DataFrame
-#     returns: list of predictions
-#     """
-#     df = input_data.copy()
-#     df["Geography"] = safe_transform(geo_enc, df["Geography"])
-#     df["Gender"] = safe_transform(gen_enc, df["Gender"])
-#
-#     feature_cols = [
-#         "CreditScore", "Geography", "Gender", "Age", "Tenure",
-#         "Balance", "NumOfProducts", "HasCrCard", "IsActiveMember", "EstimatedSalary"
-#     ]
-#
-#     df = df[feature_cols]
-#
-#     # Keep feature names for scaler
-#     df_scaled = pd.DataFrame(scaler.transform(df), columns=feature_cols)
-#
-#     # Convert to numpy for model
-#     preds = model.predict(df_scaled.to_numpy())
-#
-#     return preds.tolist()
 
 def preprocess_and_predict(input_data: pd.DataFrame):
     try:

@@ -1,0 +1,10 @@
+_pycache_/
+*.pyc
+*.pyo
+*.pkl
+*.db
+*.sqlite3
+.env
+.git
+.gitignore
+.DS_Store

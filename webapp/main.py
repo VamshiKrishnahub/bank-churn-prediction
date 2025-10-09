@@ -1,10 +1,13 @@
 import streamlit as st
 import pandas as pd
 import requests
+import os
 from datetime import datetime
 
-# API URL
-API_URL = "http://127.0.0.1:8000/predict"
+# API URL - Use environment variable for Docker, fallback to localhost for local dev
+API_BASE_URL = os.getenv("FASTAPI_URL", "http://localhost:8000")
+API_URL = f"{API_BASE_URL}/predict"
+PAST_PREDICTIONS_URL = f"{API_BASE_URL}/past-predictions"
 
 st.set_page_config(page_title="Churn Prediction", layout="wide")
 st.title("Churn Prediction Webapp")
@@ -56,7 +59,7 @@ elif choice == "Batch Prediction":
     st.header("Upload CSV for Batch Predictions")
     uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
     if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)  # read directly from uploaded file
+        df = pd.read_csv(uploaded_file)
         st.write("Uploaded Data:")
         st.dataframe(df)
 
@@ -76,7 +79,7 @@ elif choice == "Past Predictions":
 
     if st.button("Fetch Past Predictions"):
         try:
-            response = requests.get("http://127.0.0.1:8000/past-predictions")
+            response = requests.get(PAST_PREDICTIONS_URL)
             data = response.json()
 
             if "past_predictions" in data:

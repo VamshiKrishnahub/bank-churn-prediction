@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi_app.churn_model import preprocess_and_predict
+from churn_model import preprocess_and_predict
 from database.db import SessionLocal, Prediction
 from datetime import datetime
 
@@ -45,28 +45,35 @@ def predict(data: CustomerData):
         prediction = int(preds[0])
 
         # Save to DB
-        db = SessionLocal()
-        new_pred = Prediction(
-            credit_score=data.CreditScore,
-            geography=data.Geography,
-            gender=data.Gender,
-            age=data.Age,
-            tenure=data.Tenure,
-            balance=data.Balance,
-            num_of_products=data.NumOfProducts,
-            has_cr_card=data.HasCrCard,
-            is_active_member=data.IsActiveMember,
-            estimated_salary=data.EstimatedSalary,
-            prediction=prediction,
-            created_at=datetime.now()
-        )
-        db.add(new_pred)
-        db.commit()
-        db.close()
+        try:
+            db = SessionLocal()
+            new_pred = Prediction(
+                credit_score=data.CreditScore,
+                geography=data.Geography,
+                gender=data.Gender,
+                age=data.Age,
+                tenure=data.Tenure,
+                balance=data.Balance,
+                num_of_products=data.NumOfProducts,
+                has_cr_card=data.HasCrCard,
+                is_active_member=data.IsActiveMember,
+                estimated_salary=data.EstimatedSalary,
+                prediction=prediction,
+                created_at=datetime.now()
+            )
+            db.add(new_pred)
+            db.commit()
+            db.close()
+        except Exception as db_error:
+            print(f"Database error (non-critical): {db_error}")
+            # Continue even if DB save fails
 
         return {"prediction": prediction}
 
     except Exception as e:
+        import traceback
+        error_detail = f"{str(e)}\n{traceback.format_exc()}"
+        print(f"Prediction error: {error_detail}")
         raise HTTPException(status_code=400, detail=str(e))
 
 @app.get("/past-predictions")
