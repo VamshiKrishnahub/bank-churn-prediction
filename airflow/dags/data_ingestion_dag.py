@@ -1,6 +1,6 @@
 """
 Simple Ingestion DAG (Follow-up Session 1)
-Moves one random file from Data/raw → Data/good_data
+Moves one random file from Data/raw → Data/good_data / Data/bad_data (after validation)
 """
 
 from airflow import DAG
@@ -8,10 +8,12 @@ from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 import os, random, shutil
 from airflow.utils.dates import days_ago
+import pandas as pd  # NEW: Required for validation
 
 # Adjust these if needed via env vars in docker-compose
 RAW_DIR = os.environ.get("RAW_DATA_DIR", "/opt/airflow/Data/raw")
 GOOD_DIR = os.environ.get("GOOD_DATA_DIR", "/opt/airflow/Data/good_data")
+BAD_DIR = os.environ.get("BAD_DATA_DIR", "/opt/airflow/Data/bad_data")  # NEW
 
 default_args = {
     "owner": "team",
@@ -43,15 +45,34 @@ with DAG(
         context['ti'].xcom_push(key="picked_file", value=full_path)
         return full_path
 
-    def save_file(**context):
+    def validate_and_save(**context):
         picked = context['ti'].xcom_pull(key="picked_file")
         if not picked:
             return "no_file"
 
         os.makedirs(GOOD_DIR, exist_ok=True)
-        dest = os.path.join(GOOD_DIR, os.path.basename(picked))
-        shutil.move(picked, dest)
-        return dest
+        os.makedirs(BAD_DIR, exist_ok=True)
+
+        df = pd.read_csv(picked)
+
+        # ---- VALIDATION RULE: Drop rows with missing values ----
+        good_df = df.dropna()
+        bad_df = df[df.isnull().any(axis=1)]
+
+        file_name = os.path.basename(picked)
+
+        if not good_df.empty:
+            good_path = os.path.join(GOOD_DIR, file_name)
+            good_df.to_csv(good_path, index=False)
+            print(f"Saved GOOD data → {good_path}")
+
+        if not bad_df.empty:
+            bad_path = os.path.join(BAD_DIR, f"BAD_{file_name}")
+            bad_df.to_csv(bad_path, index=False)
+            print(f"Saved BAD data → {bad_path}")
+
+        os.remove(picked)  # Remove original raw file
+        return {"good_rows": len(good_df), "bad_rows": len(bad_df)}
 
     read_task = PythonOperator(
         task_id="read_data",
@@ -59,10 +80,10 @@ with DAG(
         provide_context=True
     )
 
-    save_task = PythonOperator(
-        task_id="save_file",
-        python_callable=save_file,
+    validate_task = PythonOperator(
+        task_id="validate_and_save",
+        python_callable=validate_and_save,
         provide_context=True
     )
 
-    read_task >> save_task
+    read_task >> validate_task
