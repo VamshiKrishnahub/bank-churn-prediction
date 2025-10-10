@@ -92,7 +92,9 @@ def predict(data: CustomerData, db=Depends(get_db)):
         db.commit()
         db.refresh(new_pred)
 
-        return {"prediction": prediction}
+        prediction_label = "Will churn" if prediction == 1 else "Will not churn"
+        return {"prediction": prediction, "prediction_label": prediction_label}
+
 
     except Exception as e:
         import traceback
@@ -122,6 +124,7 @@ def get_past_predictions(db=Depends(get_db)):
                 "is_active_member": r.is_active_member,
                 "estimated_salary": r.estimated_salary,
                 "prediction": r.prediction,
+                "prediction_label": "Will churn" if r.prediction == 1 else "Will not churn",
                 "created_at": r.created_at.strftime("%Y-%m-%d %H:%M:%S")
             }
             for r in records

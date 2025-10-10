@@ -50,7 +50,14 @@ if choice == "Single Prediction":
         try:
             response = requests.post(API_URL, json=payload)
             result = response.json()
-            st.success(f"Prediction: {result['prediction']}")
+            if 'prediction_label' in result:
+                if result['prediction'] == 1:
+                    st.error(f"🚨 {result['prediction_label']}")
+                else:
+                    st.success(f"✅ {result['prediction_label']}")
+            else:
+                st.info(f"Prediction: {result['prediction']}")
+
         except Exception as e:
             st.error(f"API call failed: {e}")
 
@@ -69,7 +76,8 @@ elif choice == "Batch Prediction":
                 payload = row.to_dict()
                 response = requests.post(API_URL, json=payload)
                 predictions.append(response.json()["prediction"])
-            df["Prediction"] = predictions
+            labels = ["Will churn" if p == 1 else "Will not churn" for p in predictions]
+            df["Prediction"] = labels
             st.success("Predictions Added:")
             st.dataframe(df)
 
