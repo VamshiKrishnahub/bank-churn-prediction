@@ -1,6 +1,9 @@
-#version: "3.9"
+version: "3.9"
 
 services:
+  # ------------------------------
+  # PostgreSQL database
+  # ------------------------------
   db:
     image: postgres:15
     container_name: defence_db
@@ -12,31 +15,10 @@ services:
       POSTGRES_DB: defence_db
     volumes:
       - db_data:/var/lib/postgresql/data
-    command: >
-      bash -c "
-      docker-entrypoint.sh postgres &
-      sleep 5 &&
-      PGPASSWORD=admin psql -U admin -d defence_db -c 'CREATE DATABASE airflow_db;' || true &&
-      wait
-      "
 
-  airflow:
-    build: ./airflow
-    container_name: defence_airflow
-    depends_on:
-      - db
-    ports:
-      - "8080:8080"
-    environment:
-      - AIRFLOW__CORE__LOAD_EXAMPLES=False
-      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://admin:admin@db:5432/airflow_db
-    volumes:
-      - ./airflow/dags:/opt/airflow/dags
-      - ./airflow/config:/opt/airflow/config
-      - ./airflow/great_expectations:/opt/airflow/great_expectations
-    command: ["airflow", "standalone"]
-
+  # ------------------------------
+  # FastAPI backend
+  # ------------------------------
   fastapi:
     build: ./fastapi_app
     container_name: defence_api
@@ -45,8 +27,8 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql://admin:admin@db:5432/defence_db
-      - PYTHONPATH=/app:/workspace
+      DATABASE_URL: postgresql+psycopg2://admin:admin@db:5432/defence_db
+      PYTHONPATH: /app:/workspace
     volumes:
       - ./fastapi_app:/app
       - ./database:/workspace/database
@@ -54,6 +36,9 @@ services:
     working_dir: /app
     command: ["uvicorn", "main_api:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 
+  # ------------------------------
+  # Streamlit frontend
+  # ------------------------------
   webapp:
     build: ./webapp
     container_name: defence_streamlit
@@ -62,7 +47,7 @@ services:
     ports:
       - "8501:8501"
     environment:
-      - FASTAPI_URL=http://fastapi:8000
+      FASTAPI_URL: http://fastapi:8000
     volumes:
       - ./webapp:/app
     command: ["streamlit", "run", "main.py", "--server.address=0.0.0.0"]

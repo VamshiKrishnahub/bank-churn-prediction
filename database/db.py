@@ -1,16 +1,19 @@
+import os
+from datetime import datetime
 from sqlalchemy import create_engine, Column, Integer, Float, String, TIMESTAMP
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from datetime import datetime
 
-# PostgreSQL connection (update password if needed)
-# DATABASE_URL = "postgresql+psycopg2://postgres:postgres@localhost/dsp_project"
-DATABASE_URL = "postgresql+psycopg2://sujith:@localhost/dsp_project"
-
+# Use environment variable DATABASE_URL (Docker friendly)
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    "postgresql+psycopg2://admin:admin@db:5432/defence_db"
+)
 
 engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(bind=engine)
+SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 Base = declarative_base()
+
 
 class Prediction(Base):
     __tablename__ = "predictions"
@@ -27,4 +30,4 @@ class Prediction(Base):
     is_active_member = Column(Integer)
     estimated_salary = Column(Float)
     prediction = Column(Integer)
-    created_at = Column(TIMESTAMP, default=datetime.now())
+    created_at = Column(TIMESTAMP, default=datetime.now)  # function, not value

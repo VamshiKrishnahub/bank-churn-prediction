@@ -1,14 +1,22 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel
 import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
-from churn_model import preprocess_and_predict
-from database.db import SessionLocal, Prediction
+from database.db import SessionLocal, Base, engine, Prediction
 from datetime import datetime
+from churn_model import preprocess_and_predict  # your model logic
 
+# ------------------------------
+# Create tables if not exist
+# ------------------------------
+Base.metadata.create_all(bind=engine)
+
+# ------------------------------
+# FastAPI app
+# ------------------------------
 app = FastAPI(title="Churn Prediction API")
 
-# Allow requests from any origin (for Streamlit frontend)
+# Allow requests from any origin (for Streamlit)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -17,7 +25,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# ------------------------------
 # Input schema
+# ------------------------------
 class CustomerData(BaseModel):
     CreditScore: float
     Geography: str
@@ -30,12 +40,31 @@ class CustomerData(BaseModel):
     IsActiveMember: int
     EstimatedSalary: float
 
+
+# ------------------------------
+# DB session dependency
+# ------------------------------
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+# ------------------------------
+# Home endpoint
+# ------------------------------
 @app.get("/")
 def home():
     return {"message": "Welcome to the Churn Prediction API"}
 
+
+# ------------------------------
+# Predict endpoint
+# ------------------------------
 @app.post("/predict")
-def predict(data: CustomerData):
+def predict(data: CustomerData, db=Depends(get_db)):
     try:
         # Convert input to DataFrame
         df = pd.DataFrame([data.dict()])
@@ -45,28 +74,23 @@ def predict(data: CustomerData):
         prediction = int(preds[0])
 
         # Save to DB
-        try:
-            db = SessionLocal()
-            new_pred = Prediction(
-                credit_score=data.CreditScore,
-                geography=data.Geography,
-                gender=data.Gender,
-                age=data.Age,
-                tenure=data.Tenure,
-                balance=data.Balance,
-                num_of_products=data.NumOfProducts,
-                has_cr_card=data.HasCrCard,
-                is_active_member=data.IsActiveMember,
-                estimated_salary=data.EstimatedSalary,
-                prediction=prediction,
-                created_at=datetime.now()
-            )
-            db.add(new_pred)
-            db.commit()
-            db.close()
-        except Exception as db_error:
-            print(f"Database error (non-critical): {db_error}")
-            # Continue even if DB save fails
+        new_pred = Prediction(
+            credit_score=data.CreditScore,
+            geography=data.Geography,
+            gender=data.Gender,
+            age=data.Age,
+            tenure=data.Tenure,
+            balance=data.Balance,
+            num_of_products=data.NumOfProducts,
+            has_cr_card=data.HasCrCard,
+            is_active_member=data.IsActiveMember,
+            estimated_salary=data.EstimatedSalary,
+            prediction=prediction,
+            created_at=datetime.now()
+        )
+        db.add(new_pred)
+        db.commit()
+        db.refresh(new_pred)
 
         return {"prediction": prediction}
 
@@ -76,17 +100,16 @@ def predict(data: CustomerData):
         print(f"Prediction error: {error_detail}")
         raise HTTPException(status_code=400, detail=str(e))
 
-@app.get("/past-predictions")
-def get_past_predictions():
-    try:
-        db = SessionLocal()
-        records = db.query(Prediction).order_by(Prediction.created_at.desc()).all()
-        db.close()
 
-        # Convert records to list of dicts
-        result = []
-        for r in records:
-            result.append({
+# ------------------------------
+# Past predictions endpoint
+# ------------------------------
+@app.get("/past-predictions")
+def get_past_predictions(db=Depends(get_db)):
+    try:
+        records = db.query(Prediction).order_by(Prediction.created_at.desc()).all()
+        result = [
+            {
                 "id": r.id,
                 "credit_score": r.credit_score,
                 "geography": r.geography,
@@ -100,8 +123,9 @@ def get_past_predictions():
                 "estimated_salary": r.estimated_salary,
                 "prediction": r.prediction,
                 "created_at": r.created_at.strftime("%Y-%m-%d %H:%M:%S")
-            })
-
+            }
+            for r in records
+        ]
         return {"past_predictions": result}
 
     except Exception as e:

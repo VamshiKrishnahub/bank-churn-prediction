@@ -1,11 +1,23 @@
-FROM postgres:15
+services:
+  defence_db:
+    image: postgres:15
+    container_name: defence_db
+    environment:
+      POSTGRES_USER: sujith
+      POSTGRES_PASSWORD: ""
+      POSTGRES_DB: dsp_project
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
 
-# Copy initialization scripts
-COPY db.sql /docker-entrypoint-initdb.d/
+  defence_fastapi:
+    build: ./fastapi
+    container_name: defence_fastapi
+    depends_on:
+      - defence_db
+    environment:
+      DATABASE_URL: postgresql+psycopg2://sujith:@defence_db:5432/dsp_project
 
-# Set environment variables
-ENV POSTGRES_USER=admin
-ENV POSTGRES_PASSWORD=admin
-ENV POSTGRES_DB=defence_db
-
-EXPOSE 5432
+volumes:
+  pg_data:
