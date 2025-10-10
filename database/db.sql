@@ -24,3 +24,10 @@ CREATE TABLE IF NOT EXISTS data_issues (
     nb_invalid INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- database/db.sql (append)
+CREATE TABLE IF NOT EXISTS processed_files (
+  id SERIAL PRIMARY KEY,
+  filename VARCHAR(512) UNIQUE NOT NULL,
+  processed_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
