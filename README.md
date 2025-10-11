@@ -1,18 +1,19 @@
-                                                                     🏦 Bank Churn Prediction with ML Pipeline & API
+                                                   
 
+  **Bank Churn Prediction**
 This project predicts whether a bank customer is likely to churn (leave the bank) using a Random Forest Classifier. It includes a data ingestion pipeline, model training, FastAPI deployment, and Docker support.
 GitHub link: https://github.com/VamshiKrishnahub/bank-churn-prediction
 
 
 
-1. Project Overview
+**1. Project Overview**
    Customer churn is a significant issue for banks. Predicting churn allows banks to retain valuable customers by offering personalized incentives or services. This project provides an end-to-end pipeline from      data ingestion to deployment:
                        1.	Data ingestion and preprocessing
                        2.	Model training (Random Forest Classifier)
                        3.	Prediction API using FastAPI
                        4.	Deployment-ready Docker setup
 
-2. Repo Structure
+**2. Repo Structure**
 defence/
 │
 ├─ airflow/
@@ -50,7 +51,7 @@ defence/
 │
 └─ README.md
 
-3. Project Workflow
+**3. Project Workflow**
    Step 1: Data Ingestion
          •	Airflow DAG (data_ingestion_dag.py) automates loading raw data into the pipeline.
          •	Data is stored in the Data/raw folder.
@@ -70,7 +71,7 @@ defence/
          •	Airflow DAG (prediction_dag.py) schedules predictions on new data.
          •	Integrates seamlessly with the database for storing results.
 
-4. Technologies Used
+**4. Technologies Used**
          •	Python: Data processing, modeling, and API.
          •	Scikit-learn: Random Forest Classifier and preprocessing.
          •	FastAPI: REST API for serving predictions.
@@ -78,7 +79,7 @@ defence/
          •	Docker: Containerization for deployment.
          •	Great Expectations: Data quality and validation (placeholder in repo).
 
-5. How to Run
+**5. How to Run**
    Clone the repo:
                  git clone https://github.com/VamshiKrishnahub/bank-churn-prediction.git
                  cd defence
@@ -96,7 +97,7 @@ defence/
             docker build -t churn-api .
             docker run -p 8000:8000 churn-api
 
-6. Results & Insights
+**6. Results & Insights**
     •	Random Forest model predicts churn with high accuracy.
     •	Most important features:
           o	Credit Score
@@ -104,7 +105,7 @@ defence/
           o	Balance
           o	Tenure
     •	Banks can target at-risk customers proactively to reduce churn.
-7. Conclusion
+**7. Conclusion**
     •Full end-to-end ML pipeline from ingestion → training → deployment.
     •Predictive model with explainable results.
     •Ready for integration in real-world banking environments.
