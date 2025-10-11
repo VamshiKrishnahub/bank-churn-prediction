@@ -6,17 +6,11 @@ from database.db import SessionLocal, Base, engine, Prediction
 from datetime import datetime
 from churn_model import preprocess_and_predict  # your model logic
 
-# ------------------------------
-# Create tables if not exist
-# ------------------------------
 Base.metadata.create_all(bind=engine)
 
-# ------------------------------
-# FastAPI app
-# ------------------------------
+
 app = FastAPI(title="Churn Prediction API")
 
-# Allow requests from any origin (for Streamlit)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -25,9 +19,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ------------------------------
-# Input schema
-# ------------------------------
 class CustomerData(BaseModel):
     CreditScore: float
     Geography: str
@@ -41,9 +32,7 @@ class CustomerData(BaseModel):
     EstimatedSalary: float
 
 
-# ------------------------------
-# DB session dependency
-# ------------------------------
+
 def get_db():
     db = SessionLocal()
     try:
@@ -51,29 +40,22 @@ def get_db():
     finally:
         db.close()
 
-
-# ------------------------------
-# Home endpoint
-# ------------------------------
 @app.get("/")
 def home():
     return {"message": "Welcome to the Churn Prediction API"}
 
 
-# ------------------------------
-# Predict endpoint
-# ------------------------------
+
 @app.post("/predict")
 def predict(data: CustomerData, db=Depends(get_db)):
     try:
-        # Convert input to DataFrame
+
         df = pd.DataFrame([data.dict()])
 
-        # Predict
         preds = preprocess_and_predict(df)
         prediction = int(preds[0])
 
-        # Save to DB
+
         new_pred = Prediction(
             credit_score=data.CreditScore,
             geography=data.Geography,
@@ -95,7 +77,6 @@ def predict(data: CustomerData, db=Depends(get_db)):
         prediction_label = "Will churn" if prediction == 1 else "Will not churn"
         return {"prediction": prediction, "prediction_label": prediction_label}
 
-
     except Exception as e:
         import traceback
         error_detail = f"{str(e)}\n{traceback.format_exc()}"
@@ -103,9 +84,6 @@ def predict(data: CustomerData, db=Depends(get_db)):
         raise HTTPException(status_code=400, detail=str(e))
 
 
-# ------------------------------
-# Past predictions endpoint
-# ------------------------------
 @app.get("/past-predictions")
 def get_past_predictions(db=Depends(get_db)):
     try:

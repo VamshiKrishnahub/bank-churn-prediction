@@ -1,4 +1,4 @@
--- Table to store predictions
+
 CREATE TABLE IF NOT EXISTS predictions (
     id SERIAL PRIMARY KEY,
     customer_id INT,
@@ -12,7 +12,6 @@ CREATE TABLE IF NOT EXISTS predictions (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Table to store data quality issues
 CREATE TABLE IF NOT EXISTS data_issues (
     id SERIAL PRIMARY KEY,
     filename VARCHAR(255),
@@ -25,7 +24,7 @@ CREATE TABLE IF NOT EXISTS data_issues (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- database/db.sql (append)
+
 CREATE TABLE IF NOT EXISTS processed_files (
   id SERIAL PRIMARY KEY,
   filename VARCHAR(512) UNIQUE NOT NULL,

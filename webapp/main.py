@@ -4,7 +4,6 @@ import requests
 import os
 from datetime import datetime
 
-# API URL - Use environment variable for Docker, fallback to localhost for local dev
 API_BASE_URL = os.getenv("FASTAPI_URL", "http://localhost:8000")
 API_URL = f"{API_BASE_URL}/predict"
 PAST_PREDICTIONS_URL = f"{API_BASE_URL}/past-predictions"
@@ -15,7 +14,6 @@ st.title("Churn Prediction Webapp")
 menu = ["Single Prediction", "Batch Prediction", "Past Predictions"]
 choice = st.sidebar.selectbox("Menu", menu)
 
-# ---------------- SINGLE PREDICTION ---------------- #
 if choice == "Single Prediction":
     st.header("Make a Single Prediction")
 
@@ -61,7 +59,6 @@ if choice == "Single Prediction":
         except Exception as e:
             st.error(f"API call failed: {e}")
 
-# ---------------- BATCH PREDICTION ---------------- #
 elif choice == "Batch Prediction":
     st.header("Upload CSV for Batch Predictions")
     uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
@@ -81,7 +78,6 @@ elif choice == "Batch Prediction":
             st.success("Predictions Added:")
             st.dataframe(df)
 
-# ---------------- PAST PREDICTIONS ---------------- #
 elif choice == "Past Predictions":
     st.header("View Past Predictions from DB")
 

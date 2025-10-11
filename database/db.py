@@ -4,7 +4,6 @@ from sqlalchemy import create_engine, Column, Integer, Float, String, TIMESTAMP
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# Use environment variable DATABASE_URL (Docker friendly)
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
     "postgresql+psycopg2://admin:admin@db:5432/defence_db"
