@@ -1,4 +1,4 @@
-                                                   
+                                                  
 
   **Bank Churn Prediction**
 This project predicts whether a bank customer is likely to churn (leave the bank) using a Random Forest Classifier. It includes a data ingestion pipeline, model training, FastAPI deployment, and Docker support.
