@@ -97,6 +97,71 @@ defence/
             docker build -t churn-api .
             docker run -p 8000:8000 churn-api
 
+### Run everything together (recommended)
+
+You can bring up the database, FastAPI backend, Streamlit UI, and Airflow services at once with Docker Compose. This works both
+on GitHub Codespaces and on a local machine with Docker/Compose installed.
+
+1. Ensure Docker is running and ports `5432`, `8000`, `8080`, and `8501` are free.
+2. From the repository root, start all services:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+3. Service URLs once the stack is healthy:
+   - Streamlit UI: http://localhost:8501
+   - FastAPI docs: http://localhost:8000/docs
+   - Airflow UI: http://localhost:8080 (user/password: `admin`/`admin`)
+   - PostgreSQL: localhost:5432 (user/password/db: `admin` / `admin` / `defence_db`)
+
+4. Files watched by Airflow (for ingestion/prediction DAGs):
+   - Place raw batch files in `Data/raw/`.
+   - Airflow writes split outputs to `Data/good_data/` and `Data/bad_data/`.
+
+#### Codespaces-specific notes
+
+- Open a new terminal in your Codespace and run `docker-compose up --build`; Codespaces exposes the forwarded ports in the “Ports”
+  panel.
+- If you restart the Codespace, rerun `docker-compose up` to bring the services back.
+
+#### Running locally without Docker
+
+If you prefer to run services individually (for development/debugging):
+
+1. Start PostgreSQL locally (or with Docker) using the same credentials as in `docker-compose.yaml` (`admin`/`admin`/`defence_db`).
+2. In one terminal, run the FastAPI app:
+
+   ```bash
+   cd fastapi_app
+   uvicorn main_api:app --reload --host 0.0.0.0 --port 8000
+   ```
+
+3. In another terminal, launch Streamlit:
+
+   ```bash
+   cd webapp
+   streamlit run main.py
+   ```
+
+4. In a third terminal, start Airflow using the environment variables from `docker-compose.yaml` (requires Airflow installed):
+
+   ```bash
+   export AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+   export AIRFLOW__CORE__LOAD_EXAMPLES=false
+   export AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://admin:admin@localhost:5432/defence_db
+   export RAW_DATA_DIR=$(pwd)/Data/raw
+   export GOOD_DATA_DIR=$(pwd)/Data/good_data
+   export FASTAPI_URL=http://localhost:8000/predict
+   export DATABASE_URL=$AIRFLOW__DATABASE__SQL_ALCHEMY_CONN
+
+   airflow db init
+   airflow users create --username admin --password admin --role Admin --firstname Max --lastname Fry --email admin@example.com
+   airflow webserver & airflow scheduler
+   ```
+
+This setup keeps all components running together so you can exercise the ingestion and prediction DAGs alongside the API and UI.
+
 **6. Results & Insights**
     •	Random Forest model predicts churn with high accuracy.
     •	Most important features:
@@ -109,6 +174,10 @@ defence/
     •Full end-to-end ML pipeline from ingestion → training → deployment.
     •Predictive model with explainable results.
     •Ready for integration in real-world banking environments.
+
+## Course Project Requirements
+
+For the “Data Science in Production” course project, see the full architecture and delivery checklist in [PROJECT_INSTRUCTIONS.md](PROJECT_INSTRUCTIONS.md).
 
 
 

@@ -1,4 +1,88 @@
-version: "3.9"
+#version: "3.9"
+#
+#services:
+#  # ------------------------------
+#  # PostgreSQL database
+#  # ------------------------------
+#  db:
+#    image: postgres:15
+#    container_name: defence_db
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      POSTGRES_USER: admin
+#      POSTGRES_PASSWORD: admin
+#      POSTGRES_DB: defence_db
+#    volumes:
+#      - db_data:/var/lib/postgresql/data
+#
+#  # ------------------------------
+#  # FastAPI backend
+#  # ------------------------------
+#  fastapi:
+#    build: ./fastapi_app
+#    container_name: defence_api
+#    depends_on:
+#      - db
+#    ports:
+#      - "8000:8000"
+#    environment:
+#      DATABASE_URL: postgresql+psycopg2://admin:admin@db:5432/defence_db
+#      PYTHONPATH: /app:/workspace
+#    volumes:
+#      - ./fastapi_app:/app
+#      - ./database:/workspace/database
+#      - ./model:/workspace/model
+#    working_dir: /app
+#    command: ["uvicorn", "main_api:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+#
+#  # ------------------------------
+#  # Streamlit frontend
+#  # ------------------------------
+#  webapp:
+#    build: ./webapp
+#    container_name: defence_streamlit
+#    depends_on:
+#      - fastapi
+#    ports:
+#      - "8501:8501"
+#    environment:
+#      FASTAPI_URL: http://fastapi:8000
+#    volumes:
+#      - ./webapp:/app
+#    command: ["streamlit", "run", "main.py", "--server.address=0.0.0.0"]
+#
+#  # ------------------------------
+#  # Airflow
+#  # ------------------------------
+#  airflow:
+#    image: apache/airflow:2.7.3
+#    container_name: defence_airflow
+#    depends_on:
+#      - fastapi
+#      - db
+#    environment:
+#      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+#      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+#      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin@db:5432/defence_db
+#
+#      # Custom ENV for DAG code
+#      RAW_DATA_DIR: /opt/airflow/Data/raw
+#      GOOD_DATA_DIR: /opt/airflow/Data/good_data
+#      FASTAPI_URL: http://fastapi:8000/predict
+#      DATABASE_URL: postgresql+psycopg2://admin:admin@db:5432/defence_db
+#      PYTHONPATH: /opt/airflow:/opt/airflow/dags:/opt/airflow/database
+#    volumes:
+#      - ./airflow/dags:/opt/airflow/dags
+#      - ./Data:/opt/airflow/Data
+#      - ./database:/opt/airflow/database
+#    ports:
+#      - "8080:8080"
+#    command: ["bash", "-c", "airflow db init && airflow users create --username admin --password admin --role Admin --firstname Max --lastname Fry --email admin@example.com && airflow webserver & airflow scheduler"]
+#
+#volumes:
+#  db_data:
+
 
 services:
   # ------------------------------
@@ -53,10 +137,10 @@ services:
     command: ["streamlit", "run", "main.py", "--server.address=0.0.0.0"]
 
   # ------------------------------
-  # Airflow
+  # Airflow (CUSTOM IMAGE!)
   # ------------------------------
   airflow:
-    image: apache/airflow:2.7.3
+    build: ./airflow          # <-- FIXED 🔥
     container_name: defence_airflow
     depends_on:
       - fastapi
@@ -66,14 +150,15 @@ services:
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin@db:5432/defence_db
 
-      # Custom ENV for DAG code
       RAW_DATA_DIR: /opt/airflow/Data/raw
       GOOD_DATA_DIR: /opt/airflow/Data/good_data
       FASTAPI_URL: http://fastapi:8000/predict
       DATABASE_URL: postgresql+psycopg2://admin:admin@db:5432/defence_db
+      PYTHONPATH: /opt/airflow:/opt/airflow/dags:/opt/airflow/database
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./Data:/opt/airflow/Data
+      - ./database:/opt/airflow/database
     ports:
       - "8080:8080"
     command: ["bash", "-c", "airflow db init && airflow users create --username admin --password admin --role Admin --firstname Max --lastname Fry --email admin@example.com && airflow webserver & airflow scheduler"]
