@@ -140,7 +140,7 @@ services:
   # Airflow (CUSTOM IMAGE!)
   # ------------------------------
   airflow:
-    build: ./airflow          # <-- FIXED 🔥
+    build: ./airflow
     container_name: defence_airflow
     depends_on:
       - fastapi
@@ -154,13 +154,19 @@ services:
       GOOD_DATA_DIR: /opt/airflow/Data/good_data
       FASTAPI_URL: http://fastapi:8000/predict
       DATABASE_URL: postgresql+psycopg2://admin:admin@db:5432/defence_db
+
+      TEAMS_WEBHOOK: ${TEAMS_WEBHOOK}     # <-- ⭐ ADDED HERE ⭐
+
       PYTHONPATH: /opt/airflow:/opt/airflow/dags:/opt/airflow/database
+
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./Data:/opt/airflow/Data
       - ./database:/opt/airflow/database
+
     ports:
       - "8080:8080"
+
     command: ["bash", "-c", "airflow db init && airflow users create --username admin --password admin --role Admin --firstname Max --lastname Fry --email admin@example.com && airflow webserver & airflow scheduler"]
 
 volumes:

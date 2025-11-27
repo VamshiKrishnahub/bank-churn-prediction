@@ -204,7 +204,7 @@ with DAG(
         print("VALIDATION RESULT:", result)
         return result
 
-    # 3️⃣ SAVE STATISTICS TO DB
+    # 3️⃣ SAVE STATS TO DATABASE
     @task
     def save_statistics(validation):
         Base.metadata.create_all(bind=engine)
@@ -225,12 +225,14 @@ with DAG(
         finally:
             session.close()
 
-    # 4️⃣ SEND ALERTS
+    # 4️⃣ SEND ALERTS (EMAIL + TEAMS)
     @task
     def send_alerts(validation):
         REPORTS_DIR.mkdir(exist_ok=True)
+
         report_path = REPORTS_DIR / f"{uuid.uuid4().hex}_report.html"
 
+        # Build HTML report
         error_list_items = "".join(
             f"<li><b>{e['type']}</b> ({e['criticality']}): {e['message']}</li>"
             for e in validation["errors"]
@@ -246,19 +248,41 @@ with DAG(
         <h1>Data Validation Report</h1>
         <p><b>File:</b> {validation['file_path']}</p>
         <p><b>Criticality:</b> {validation['criticality']}</p>
+
         <h3>Errors ({len(validation['errors'])})</h3>
         <ul>{error_list_items}</ul>
+
         <h3>Expectation Results</h3>
-        <table border="1">
+        <table border="1" cellpadding="4">
             <tr><th>Check</th><th>Severity</th><th>Description</th><th>Success</th></tr>
             {expectation_rows}
         </table>
         """
+
         report_path.write_text(html)
         print(f"Report created: {report_path}")
+
+        # ---------------------------
+        # 📢 SEND TEAMS ALERT
+        # ---------------------------
+        if TEAMS_WEBHOOK:
+            msg = {
+                "title": "⚠️ Data Quality Alert",
+                "text": f"File **{Path(validation['file_path']).name}** "
+                        f"has **{len(validation['errors'])} issues**.\n"
+                        f"Criticality: **{validation['criticality']}**"
+            }
+            try:
+                r = requests.post(TEAMS_WEBHOOK, json=msg)
+                print(f"Teams alert sent → Status: {r.status_code}")
+            except Exception as e:
+                print(f"Failed to send Teams alert: {e}")
+        else:
+            print("⚠️ No Teams webhook configured — skipping alert.")
+
         return str(report_path)
 
-    # 5️⃣ SPLIT + ARCHIVE (UPDATED)
+    # 5️⃣ SPLIT GOOD/BAD + ARCHIVE ORIGINAL
     @task
     def split_and_save(validation):
         GOOD_DIR.mkdir(exist_ok=True)
@@ -289,7 +313,9 @@ with DAG(
         raw_path.rename(archived_path)
         print(f"Archived raw file → {archived_path}")
 
+    # -------------------------------------------------------------
     # DAG FLOW
+    # -------------------------------------------------------------
     raw_file = read_data()
     validation = validate_data(raw_file)
 
