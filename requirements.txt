@@ -1,8 +1,8 @@
-pandas
-scikit-learn
-joblib
-fastapi
-uvicorn
-sqlalchemy
-psycopg2-binary
-great_expectations
+pandas==2.3.3
+scikit-learn==1.7.2
+joblib==1.5.2
+fastapi==0.122.0
+uvicorn==0.38.0
+sqlalchemy==2.0.44
+psycopg2-binary==2.9.11
+great_expectations==1.9.1
