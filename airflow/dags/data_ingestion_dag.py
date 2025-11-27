@@ -1,4 +1,5 @@
 # airflow/dags/data_ingestion_dag.py
+
 from airflow import DAG
 from airflow.decorators import task
 from airflow.utils.dates import days_ago
@@ -7,7 +8,6 @@ from airflow.exceptions import AirflowSkipException
 import pandas as pd
 import os
 import random
-import requests
 import uuid
 
 from pathlib import Path
@@ -21,17 +21,21 @@ from database.db import (
     IngestionStatistic,
 )
 
-# -------------------------------------------------------------
+from send_alerts import send_teams_alert   # 🔥 TEAMS ALERT FUNCTION
+
+
+# ===============================================================
 # CONFIG
-# -------------------------------------------------------------
+# ===============================================================
 DATA_DIR = Path("/opt/airflow/Data")
 RAW_DATA_SOURCE = DATA_DIR / "raw-data"
 LEGACY_RAW_DIR = DATA_DIR / "raw"
 GOOD_DIR = DATA_DIR / "good_data"
 BAD_DIR = DATA_DIR / "bad_data"
-REPORTS_DIR = DATA_DIR / "reports"
+REPORTS_DIR = Path("/opt/airflow/Data/reports")
 
-TEAMS_WEBHOOK = os.environ.get("TEAMS_WEBHOOK")
+
+FASTAPI_REPORT_URL = "http://fastapi:8000/reports"  # 🔥 IMPORTANT
 
 default_args = {
     "owner": "team",
@@ -39,19 +43,22 @@ default_args = {
     "retries": 0,
 }
 
-# -------------------------------------------------------------
-# DAG
-# -------------------------------------------------------------
+
+# ===============================================================
+# DAG DEFINITION
+# ===============================================================
 with DAG(
     dag_id="data_ingestion_dag",
     default_args=default_args,
-    schedule="*/1 * * * *",  # every minute
+    schedule="*/1 * * * *",   # every minute
     start_date=days_ago(1),
     catchup=False,
     tags=["ingestion"],
 ):
 
-    # 1️⃣ READ ONE RAW FILE
+    # -----------------------------------------------------------
+    # 1️⃣ READ ONE CSV FROM raw-data
+    # -----------------------------------------------------------
     @task
     def read_data() -> str:
         RAW_DATA_SOURCE.mkdir(exist_ok=True)
@@ -61,128 +68,143 @@ with DAG(
             available = list(LEGACY_RAW_DIR.glob("*.csv"))
 
         if not available:
-            raise AirflowSkipException(
-                f"No CSV files found in {RAW_DATA_SOURCE} or {LEGACY_RAW_DIR}"
-            )
+            raise AirflowSkipException("No input CSV files found")
 
-        file_path = random.choice(available)
-        print(f"Selected RAW file: {file_path}")
-        return str(file_path)
+        chosen = random.choice(available)
+        print(f"Selected file → {chosen}")
+        return str(chosen)
 
-    # 2️⃣ VALIDATE WITH GREAT EXPECTATIONS
+    # -----------------------------------------------------------
+    # 2️⃣ VALIDATE USING GREAT EXPECTATIONS
+    # -----------------------------------------------------------
     @task
     def validate_data(file_path: str):
+
         df = pd.read_csv(file_path)
         ge_df = ge.from_pandas(df)
 
         errors: List[Dict] = []
-        expectation_results: List[Dict] = []
+        results: List[Dict] = []
         severity_rank = {"low": 1, "medium": 2, "high": 3}
         criticality = "low"
 
-        def serialize(result):
-            if hasattr(result, "to_json_dict"):
-                return result.to_json_dict()
-            if hasattr(result, "to_dict"):
-                return result.to_dict()
-            if isinstance(result, dict):
-                return result
-            return {"raw": str(result)}
+        def serialize(obj):
+            if hasattr(obj, "to_json_dict"):
+                return obj.to_json_dict()
+            if hasattr(obj, "to_dict"):
+                return obj.to_dict()
+            if isinstance(obj, dict):
+                return obj
+            return {"raw": str(obj)}
 
-        def check(name, severity, description, func):
+        def check(name, severity, description, fn):
             nonlocal criticality
-            try:
-                res = func()
-            except Exception as exc:
-                res = {"success": False, "error": str(exc)}
 
-            sres = serialize(res)
-            expectation_results.append(
+            try:
+                out = fn()
+            except Exception as exc:
+                out = {"success": False, "error": str(exc)}
+
+            out = serialize(out)
+
+            results.append(
                 {
                     "check": name,
                     "description": description,
                     "severity": severity,
-                    "result": sres,
+                    "result": out,
                 }
             )
 
-            if not sres.get("success", False):
+            if not out.get("success", False):
                 errors.append(
                     {
                         "type": name,
                         "message": description,
                         "criticality": severity,
-                        "details": sres,
+                        "details": out,
                     }
                 )
                 if severity_rank[severity] > severity_rank[criticality]:
                     criticality = severity
 
+        # Required fields
         required = ["age", "gender", "country", "income"]
+
+        # Missing column detection
         for col in required:
             check(
                 "missing_column",
                 "high",
-                f"Column '{col}' must exist.",
+                f"Column '{col}' must exist",
                 lambda col=col: ge_df.expect_column_to_exist(col),
             )
 
-        if all(col in df.columns for col in required):
+        # Continue validations if ALL columns exist
+        if all(c in df.columns for c in required):
+
+            # Missing values
             for col in required:
                 check(
                     "missing_values",
                     "medium",
-                    f"Column '{col}' cannot contain nulls.",
+                    f"Column '{col}' cannot be null",
                     lambda col=col: ge_df.expect_column_values_to_not_be_null(col),
                 )
 
+            # Age numeric
             check(
                 "age_numeric",
                 "high",
-                "Age must be numeric.",
+                "Age must be numeric",
                 lambda: ge_df.expect_column_values_to_be_in_type_list(
-                    "age", ["int64", "float64", "float32", "int32"]
+                    "age", ["int64", "float64"]
                 ),
             )
 
+            # Age range
             check(
                 "age_range",
                 "high",
-                "Age must be between 0 and 120.",
+                "Age must be 0–120",
                 lambda: ge_df.expect_column_values_to_be_between("age", 0, 120),
             )
 
+            # Gender valid
             check(
                 "gender_valid",
                 "high",
-                "Gender must be 'male' or 'female'.",
+                "Gender must be male/female",
                 lambda: ge_df.expect_column_values_to_be_in_set(
                     "gender", ["male", "female"]
                 ),
             )
 
+            # Country valid
             check(
                 "country_valid",
                 "medium",
-                "Country must be China, India, or Lebanon.",
+                "Country must be China, India, Lebanon",
                 lambda: ge_df.expect_column_values_to_be_in_set(
                     "country", ["China", "India", "Lebanon"]
                 ),
             )
 
+            # Income range
             check(
                 "income_range",
                 "high",
-                "Income must be positive and < 1,000,000.",
+                "Income must be 0–1,000,000",
                 lambda: ge_df.expect_column_values_to_be_between(
                     "income", 0, 1_000_000
                 ),
             )
 
+            # Duplicate rows
             check(
                 "duplicates",
                 "medium",
-                "Dataset should not contain duplicate rows.",
+                "No duplicate rows",
                 lambda: {
                     "success": not df.duplicated().any(),
                     "details": {"duplicate_count": int(df.duplicated().sum())},
@@ -192,26 +214,25 @@ with DAG(
         invalid_rows = int(df.isnull().any(axis=1).sum())
         valid_rows = len(df) - invalid_rows
 
-        result = {
+        return {
             "file_path": file_path,
             "errors": errors,
             "criticality": criticality,
             "valid_rows": valid_rows,
             "invalid_rows": invalid_rows,
-            "expectations": expectation_results,
+            "expectations": results,
         }
 
-        print("VALIDATION RESULT:", result)
-        return result
-
-    # 3️⃣ SAVE STATS TO DATABASE
+    # -----------------------------------------------------------
+    # 3️⃣ SAVE STATS TO DB
+    # -----------------------------------------------------------
     @task
     def save_statistics(validation):
         Base.metadata.create_all(bind=engine)
-        session = SessionLocal()
+        db = SessionLocal()
 
         try:
-            stat = IngestionStatistic(
+            new = IngestionStatistic(
                 file_name=Path(validation["file_path"]).name,
                 total_rows=validation["valid_rows"] + validation["invalid_rows"],
                 valid_rows=validation["valid_rows"],
@@ -219,29 +240,33 @@ with DAG(
                 criticality=validation["criticality"],
                 report_path=None,
             )
-            session.add(stat)
-            session.commit()
-            print("Saved stats:", stat.file_name)
-        finally:
-            session.close()
+            db.add(new)
+            db.commit()
 
-    # 4️⃣ SEND ALERTS (EMAIL + TEAMS)
+        finally:
+            db.close()
+
+    # -----------------------------------------------------------
+    # 4️⃣ GENERATE HTML REPORT + SEND TEAMS ALERT
+    # -----------------------------------------------------------
     @task
     def send_alerts(validation):
         REPORTS_DIR.mkdir(exist_ok=True)
 
-        report_path = REPORTS_DIR / f"{uuid.uuid4().hex}_report.html"
+        report_file = f"{uuid.uuid4().hex}.html"
+        report_path = REPORTS_DIR / report_file
 
-        # Build HTML report
-        error_list_items = "".join(
+        # Error list
+        error_list = "".join(
             f"<li><b>{e['type']}</b> ({e['criticality']}): {e['message']}</li>"
             for e in validation["errors"]
         )
 
+        # Expectation table
         expectation_rows = "".join(
-            f"<tr><td>{res['check']}</td><td>{res['severity']}</td>"
-            f"<td>{res['description']}</td><td>{res['result'].get('success')}</td></tr>"
-            for res in validation["expectations"]
+            f"<tr><td>{r['check']}</td><td>{r['severity']}</td>"
+            f"<td>{r['description']}</td><td>{r['result'].get('success')}</td></tr>"
+            for r in validation["expectations"]
         )
 
         html = f"""
@@ -250,72 +275,59 @@ with DAG(
         <p><b>Criticality:</b> {validation['criticality']}</p>
 
         <h3>Errors ({len(validation['errors'])})</h3>
-        <ul>{error_list_items}</ul>
+        <ul>{error_list}</ul>
 
         <h3>Expectation Results</h3>
         <table border="1" cellpadding="4">
-            <tr><th>Check</th><th>Severity</th><th>Description</th><th>Success</th></tr>
+            <tr>
+                <th>Check</th><th>Severity</th><th>Description</th><th>Success</th>
+            </tr>
             {expectation_rows}
         </table>
         """
 
         report_path.write_text(html)
-        print(f"Report created: {report_path}")
+        print(f"HTML report created → {report_path}")
 
-        # ---------------------------
-        # 📢 SEND TEAMS ALERT
-        # ---------------------------
-        if TEAMS_WEBHOOK:
-            msg = {
-                "title": "⚠️ Data Quality Alert",
-                "text": f"File **{Path(validation['file_path']).name}** "
-                        f"has **{len(validation['errors'])} issues**.\n"
-                        f"Criticality: **{validation['criticality']}**"
-            }
-            try:
-                r = requests.post(TEAMS_WEBHOOK, json=msg)
-                print(f"Teams alert sent → Status: {r.status_code}")
-            except Exception as e:
-                print(f"Failed to send Teams alert: {e}")
-        else:
-            print("⚠️ No Teams webhook configured — skipping alert.")
+        # 🔥 CLICKABLE PUBLIC LINK
+        public_link = f"{FASTAPI_REPORT_URL}/{report_file}"
 
-        return str(report_path)
+        # 🔥 Send Teams alert
+        send_teams_alert(validation, public_link)
 
-    # 5️⃣ SPLIT GOOD/BAD + ARCHIVE ORIGINAL
+        return public_link
+
+    # -----------------------------------------------------------
+    # 5️⃣ SPLIT INTO GOOD/BAD + ARCHIVE FILE
+    # -----------------------------------------------------------
     @task
     def split_and_save(validation):
+
         GOOD_DIR.mkdir(exist_ok=True)
         BAD_DIR.mkdir(exist_ok=True)
-
         ARCHIVE_DIR = DATA_DIR / "archive_raw"
         ARCHIVE_DIR.mkdir(exist_ok=True)
 
-        raw_path = Path(validation["file_path"])
-        df = pd.read_csv(raw_path)
-        file_name = raw_path.name
+        raw = Path(validation["file_path"])
+        df = pd.read_csv(raw)
 
-        good_df = df.dropna()
-        bad_df = df[df.isnull().any(axis=1)]
+        good = df.dropna()
+        bad = df[df.isnull().any(axis=1)]
 
-        if bad_df.empty:
-            good_df.to_csv(GOOD_DIR / file_name, index=False)
-        elif good_df.empty:
-            bad_df.to_csv(BAD_DIR / file_name, index=False)
+        if bad.empty:
+            good.to_csv(GOOD_DIR / raw.name, index=False)
+        elif good.empty:
+            bad.to_csv(BAD_DIR / raw.name, index=False)
         else:
-            good_df.to_csv(GOOD_DIR / file_name, index=False)
-            bad_df.to_csv(BAD_DIR / f"BAD_{file_name}", index=False)
+            good.to_csv(GOOD_DIR / raw.name, index=False)
+            bad.to_csv(BAD_DIR / ("BAD_" + raw.name), index=False)
 
-        print(f"Saved good/bad splits for {file_name}")
+        archived = ARCHIVE_DIR / raw.name
+        raw.rename(archived)
 
-        # ARCHIVE RAW FILE
-        archived_path = ARCHIVE_DIR / file_name
-        raw_path.rename(archived_path)
-        print(f"Archived raw file → {archived_path}")
-
-    # -------------------------------------------------------------
-    # DAG FLOW
-    # -------------------------------------------------------------
+    # -----------------------------------------------------------
+    # DAG PIPELINE
+    # -----------------------------------------------------------
     raw_file = read_data()
     validation = validate_data(raw_file)
 

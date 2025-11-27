@@ -166,21 +166,30 @@
 #
 #     except Exception as e:
 #         raise HTTPException(status_code=500, detail=str(e))
-
 from datetime import datetime
 from typing import List, Optional, Union
+from pathlib import Path
 
 import pandas as pd
 from fastapi import Body, Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from churn_model import preprocess_and_predict
 from database.db import Base, Prediction, SessionLocal, engine
 
+
+# -------------------------------------------------
+# Initialize DB tables
+# -------------------------------------------------
 Base.metadata.create_all(bind=engine)
 
+
+# -------------------------------------------------
+# Create FastAPI App
+# -------------------------------------------------
 app = FastAPI(title="Churn Prediction API")
 
 app.add_middleware(
@@ -191,17 +200,31 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ---------------------------------------------------------------------
-# ⭐ Auto redirect root URL "/" → "/docs"
-# ---------------------------------------------------------------------
+
+# -------------------------------------------------
+# ⭐ SERVE REPORTS — THIS MAKES TEAMS LINK CLICKABLE
+# -------------------------------------------------
+REPORT_DIR = Path("/opt/airflow/Data/reports")
+REPORT_DIR.mkdir(parents=True, exist_ok=True)
+
+app.mount(
+    "/reports",
+    StaticFiles(directory=str(REPORT_DIR), html=True),
+    name="reports"
+)
+
+
+# -------------------------------------------------
+# Redirect root to API docs
+# -------------------------------------------------
 @app.get("/", include_in_schema=False)
 def root_redirect():
     return RedirectResponse(url="/docs")
 
 
-# ---------------------------------------------------------------------
-# Pydantic Model
-# ---------------------------------------------------------------------
+# -------------------------------------------------
+# Request model for prediction
+# -------------------------------------------------
 class CustomerData(BaseModel):
     CreditScore: float
     Geography: str
@@ -215,9 +238,9 @@ class CustomerData(BaseModel):
     EstimatedSalary: float
 
 
-# ---------------------------------------------------------------------
-# DB dependency
-# ---------------------------------------------------------------------
+# -------------------------------------------------
+# DB session dependency
+# -------------------------------------------------
 def get_db():
     db = SessionLocal()
     try:
@@ -226,9 +249,9 @@ def get_db():
         db.close()
 
 
-# ---------------------------------------------------------------------
-# Prediction Endpoint (Single + Batch)
-# ---------------------------------------------------------------------
+# -------------------------------------------------
+# Prediction Endpoint (batch + single)
+# -------------------------------------------------
 @app.post("/predict")
 def predict(
     data: Union[CustomerData, List[CustomerData]] = Body(..., embed=False),
@@ -236,23 +259,25 @@ def predict(
     source_file: Optional[str] = Query(None),
     db=Depends(get_db),
 ):
-    """Single or batch predictions"""
+    """Perform prediction using the ML model and save results."""
     try:
+        # Convert request to DataFrame
         rows = data if isinstance(data, list) else [data]
         df = pd.DataFrame([row.dict() for row in rows])
 
-        # Fix NaN/infinity before prediction
+        # Clean invalid numeric values
         df = df.replace({float("nan"): 0, float("inf"): 0, float("-inf"): 0})
 
-        preds = preprocess_and_predict(df)
+        predictions = preprocess_and_predict(df)
 
         timestamp = datetime.utcnow()
-        predictions_list = []
+        saved_predictions = []
 
-        for row, pred in zip(rows, preds):
-            prediction_value = int(pred)
+        for row, pred in zip(rows, predictions):
+            pred_value = int(pred)
 
-            db_obj = Prediction(
+            # Save in DB
+            entry = Prediction(
                 credit_score=row.CreditScore,
                 geography=row.Geography,
                 gender=row.Gender,
@@ -263,17 +288,17 @@ def predict(
                 has_cr_card=row.HasCrCard,
                 is_active_member=row.IsActiveMember,
                 estimated_salary=row.EstimatedSalary,
-                prediction=prediction_value,
+                prediction=pred_value,
                 source=source,
                 source_file=source_file,
                 created_at=timestamp,
             )
-            db.add(db_obj)
+            db.add(entry)
 
-            predictions_list.append(
+            saved_predictions.append(
                 {
-                    "prediction": prediction_value,
-                    "prediction_label": "Will churn" if prediction_value == 1 else "Will not churn",
+                    "prediction": pred_value,
+                    "prediction_label": "Will churn" if pred_value == 1 else "Will not churn",
                     "source": source,
                     "source_file": source_file,
                 }
@@ -281,19 +306,24 @@ def predict(
 
         db.commit()
 
-        if len(predictions_list) == 1:
-            return predictions_list[0]
+        # If single request → return single object
+        if len(saved_predictions) == 1:
+            return saved_predictions[0]
 
-        return {"predictions": predictions_list, "count": len(predictions_list)}
+        # Batch response
+        return {
+            "predictions": saved_predictions,
+            "count": len(saved_predictions),
+        }
 
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=400, detail=str(e))
 
 
-# ---------------------------------------------------------------------
-# Past Predictions Endpoint
-# ---------------------------------------------------------------------
+# -------------------------------------------------
+# Past Predictions (used by Grafana & WebApp)
+# -------------------------------------------------
 @app.get("/past-predictions")
 def get_past_predictions(
     start_date: Optional[datetime] = Query(None),
@@ -302,6 +332,7 @@ def get_past_predictions(
     limit: int = Query(200, ge=1, le=1000),
     db=Depends(get_db),
 ):
+    """Fetch past predictions, filterable by date and source."""
     try:
         query = db.query(Prediction)
 
@@ -314,7 +345,7 @@ def get_past_predictions(
 
         records = query.order_by(Prediction.created_at.desc()).limit(limit).all()
 
-        result = [
+        data = [
             {
                 "id": r.id,
                 "credit_score": r.credit_score,
@@ -336,7 +367,7 @@ def get_past_predictions(
             for r in records
         ]
 
-        return {"past_predictions": result, "count": len(result)}
+        return {"past_predictions": data, "count": len(data)}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
