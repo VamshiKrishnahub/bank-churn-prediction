@@ -166,6 +166,10 @@
 #
 #     except Exception as e:
 #         raise HTTPException(status_code=500, detail=str(e))
+# fastapi/main.py (or main_api.py)
+# ============================================================
+#                  PREDICTION DAG (FINAL - ESILV COMPLIANT)
+# ============================================================
 from datetime import datetime
 from typing import List, Optional, Union
 from pathlib import Path
@@ -202,7 +206,7 @@ app.add_middleware(
 
 
 # -------------------------------------------------
-# ⭐ SERVE REPORTS — THIS MAKES TEAMS LINK CLICKABLE
+# ⭐ SERVE REPORTS — USED BY INGESTION PIPELINE
 # -------------------------------------------------
 REPORT_DIR = Path("/opt/airflow/Data/reports")
 REPORT_DIR.mkdir(parents=True, exist_ok=True)
@@ -220,6 +224,18 @@ app.mount(
 @app.get("/", include_in_schema=False)
 def root_redirect():
     return RedirectResponse(url="/docs")
+
+
+# -------------------------------------------------
+# Health Check (for Airflow)
+# -------------------------------------------------
+@app.get("/health")
+def health_check():
+    return {
+        "status": "healthy",
+        "service": "churn-prediction-api",
+        "timestamp": datetime.utcnow().isoformat(),
+    }
 
 
 # -------------------------------------------------
@@ -259,24 +275,26 @@ def predict(
     source_file: Optional[str] = Query(None),
     db=Depends(get_db),
 ):
-    """Perform prediction using the ML model and save results."""
+    """
+    Perform prediction using the ML model and save results.
+    Called by:
+      - Streamlit WebApp
+      - Airflow Prediction DAG
+    """
     try:
-        # Convert request to DataFrame
         rows = data if isinstance(data, list) else [data]
         df = pd.DataFrame([row.dict() for row in rows])
 
-        # Clean invalid numeric values
+        # Clean invalid values
         df = df.replace({float("nan"): 0, float("inf"): 0, float("-inf"): 0})
 
         predictions = preprocess_and_predict(df)
-
         timestamp = datetime.utcnow()
         saved_predictions = []
 
         for row, pred in zip(rows, predictions):
             pred_value = int(pred)
 
-            # Save in DB
             entry = Prediction(
                 credit_score=row.CreditScore,
                 geography=row.Geography,
@@ -293,25 +311,18 @@ def predict(
                 source_file=source_file,
                 created_at=timestamp,
             )
-            db.add(entry)
 
-            saved_predictions.append(
-                {
-                    "prediction": pred_value,
-                    "prediction_label": "Will churn" if pred_value == 1 else "Will not churn",
-                    "source": source,
-                    "source_file": source_file,
-                }
-            )
+            db.add(entry)
+            saved_predictions.append({
+                "prediction": pred_value,
+                "prediction_label": "Will churn" if pred_value == 1 else "Will not churn",
+                "source": source,
+                "source_file": source_file,
+            })
 
         db.commit()
 
-        # If single request → return single object
-        if len(saved_predictions) == 1:
-            return saved_predictions[0]
-
-        # Batch response
-        return {
+        return saved_predictions[0] if len(saved_predictions) == 1 else {
             "predictions": saved_predictions,
             "count": len(saved_predictions),
         }
@@ -322,7 +333,7 @@ def predict(
 
 
 # -------------------------------------------------
-# Past Predictions (used by Grafana & WebApp)
+# Past Predictions (Grafana & WebApp)
 # -------------------------------------------------
 @app.get("/past-predictions")
 def get_past_predictions(
@@ -332,7 +343,11 @@ def get_past_predictions(
     limit: int = Query(200, ge=1, le=1000),
     db=Depends(get_db),
 ):
-    """Fetch past predictions, filterable by date and source."""
+    """
+    Fetch past predictions filtered by:
+      - date range
+      - prediction source (scheduled/webapp/all)
+    """
     try:
         query = db.query(Prediction)
 

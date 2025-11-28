@@ -65,7 +65,6 @@
 #     criticality = Column(String, nullable=False)
 #     created_at = Column(TIMESTAMP, default=datetime.utcnow, nullable=False)
 
-
 import os
 from datetime import datetime
 from sqlalchemy import (
@@ -75,9 +74,11 @@ from sqlalchemy import (
     Integer,
     String,
     TIMESTAMP,
+    Text,
     create_engine,
 )
 from sqlalchemy.orm import declarative_base, sessionmaker
+
 
 # -------------------------------------------------------------
 # DATABASE URL
@@ -92,8 +93,8 @@ DATABASE_URL = os.getenv(
 # -------------------------------------------------------------
 engine = create_engine(
     DATABASE_URL,
-    pool_pre_ping=True,         # safer for Airflow
-    future=True
+    pool_pre_ping=True,
+    future=True,
 )
 
 SessionLocal = sessionmaker(
@@ -106,7 +107,7 @@ Base = declarative_base()
 
 
 # -------------------------------------------------------------
-# TABLE: Predictions   (Used by prediction DAG)
+# TABLE: Predictions  (Used by prediction DAG)
 # -------------------------------------------------------------
 class Prediction(Base):
     __tablename__ = "predictions"
@@ -127,14 +128,12 @@ class Prediction(Base):
     prediction = Column(Integer)
     source = Column(String, default="webapp")
 
-    # For tracking which ingested batch produced this prediction
     source_file = Column(String, nullable=True)
-
     created_at = Column(TIMESTAMP, default=datetime.utcnow)
 
 
 # -------------------------------------------------------------
-# TABLE: Ingestion Statistics (Used by ingestion DAG)
+# TABLE: Ingestion Statistics  (Used by ingestion DAG)
 # -------------------------------------------------------------
 class IngestionStatistic(Base):
     __tablename__ = "ingestion_statistics"
@@ -153,7 +152,7 @@ class IngestionStatistic(Base):
 
 
 # -------------------------------------------------------------
-# TABLE: Data Quality Issue (Optional)
+# TABLE: Data Quality Issue  (Optional)
 # -------------------------------------------------------------
 class DataQualityIssue(Base):
     __tablename__ = "data_quality_issues"
@@ -169,8 +168,21 @@ class DataQualityIssue(Base):
 
 
 # -------------------------------------------------------------
+# NEW TABLE: Prediction Errors (Used by prediction DAG)
+# -------------------------------------------------------------
+class PredictionError(Base):
+    __tablename__ = "prediction_errors"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    timestamp = Column(TIMESTAMP, default=datetime.utcnow, nullable=False)
+
+    file_name = Column(String(255), nullable=False)
+    error_type = Column(String(50), nullable=False)   # e.g., column_error, api_error
+    error_message = Column(Text, nullable=False)      # full error text
+
+
+# -------------------------------------------------------------
 # UTILITY: Create all tables if not exist
-# (Call this manually or from Airflow tasks)
 # -------------------------------------------------------------
 def init_db():
     Base.metadata.create_all(bind=engine)
