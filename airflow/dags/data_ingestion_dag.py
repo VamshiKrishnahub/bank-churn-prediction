@@ -328,11 +328,10 @@ def send_alerts(validation: Dict) -> str:
     return public_url
 
 @task(dag=dag)
-def save_statistics(validation: Dict, report_link: str):
+def save_statistics(validation: Dict, report_link: str = None):
     """
     Save stats to database.
     """
-
     print(f"\n{'=' * 60}")
     print("TASK 4: Saving to database")
     print(f"{'=' * 60}\n")
@@ -414,5 +413,4 @@ alert_task = send_alerts(validation)
 split_task = split_and_save(validation)
 save_task = save_statistics(validation, alert_task)
 
-validation >> [alert_task, split_task]
-alert_task >> save_task
+validation >> [alert_task, split_task, save_task]
