@@ -1,0 +1,654 @@
+{
+
+    "id": null,
+    "uid": "ingestion-monitoring",
+    "title": "Ingested Data Monitoring Dashboard",
+    "tags": ["data-quality", "ingestion", "monitoring"],
+    "timezone": "browser",
+    "schemaVersion": 38,
+    "version": 1,
+    "refresh": "30s",
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": ["10s", "30s", "1m", "5m"],
+      "time_options": ["5m", "15m", "1h", "6h", "12h", "24h"]
+    },
+    "templating": {
+      "list": []
+    },
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "panels": [
+      {
+        "id": 1,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "type": "timeseries",
+        "title": " Data Quality Trend - Valid vs Invalid (Last 10 Min)",
+        "description": "Shows the percentage of valid vs invalid rows over time. Green = healthy, Red = issues detected.",
+        "datasource": {
+          "type": "postgres",
+          "uid": "defence_db"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "SELECT \n  created_at AS time,\n  ROUND((valid_rows::DECIMAL / NULLIF(total_rows, 0)) * 100, 2) AS \"Valid %\",\n  ROUND((invalid_rows::DECIMAL / NULLIF(total_rows, 0)) * 100, 2) AS \"Invalid %\"\nFROM ingestion_statistics\nWHERE created_at > NOW() - INTERVAL '10 minutes'\nORDER BY time ASC",
+            "format": "time_series"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "lineInterpolation": "smooth",
+              "lineWidth": 2,
+              "fillOpacity": 10,
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "mode": "none",
+                "group": "A"
+              }
+            },
+            "color": {
+              "mode": "palette-classic"
+            },
+            "unit": "percent",
+            "min": 0,
+            "max": 100,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "red",
+                  "value": null
+                },
+                {
+                  "color": "orange",
+                  "value": 50
+                },
+                {
+                  "color": "green",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Valid %"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Invalid %"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "red",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "options": {
+          "tooltip": {
+            "mode": "multi",
+            "sort": "none"
+          },
+          "legend": {
+            "showLegend": true,
+            "displayMode": "list",
+            "placement": "bottom"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 12,
+          "y": 0
+        },
+        "type": "gauge",
+        "title": " Overall Data Quality Score",
+        "description": "Current data quality score based on last 10 minutes. Green (80%+) = Healthy, Orange (50-80%) = Warning, Red (<50%) = Critical",
+        "datasource": {
+          "type": "postgres",
+          "uid": "defence_db"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "SELECT \n  ROUND(\n    (SUM(valid_rows)::DECIMAL / NULLIF(SUM(total_rows), 0)) * 100,\n    2\n  ) AS \"Quality Score\"\nFROM ingestion_statistics\nWHERE created_at > NOW() - INTERVAL '10 minutes'",
+            "format": "table"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "min": 0,
+            "max": 100,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "red",
+                  "value": null
+                },
+                {
+                  "color": "orange",
+                  "value": 50
+                },
+                {
+                  "color": "yellow",
+                  "value": 70
+                },
+                {
+                  "color": "green",
+                  "value": 80
+                }
+              ]
+            },
+            "mappings": []
+          }
+        },
+        "options": {
+          "orientation": "auto",
+          "showThresholdLabels": true,
+          "showThresholdMarkers": true,
+          "text": {
+            "titleSize": 14,
+            "valueSize": 40
+          }
+        }
+      },
+      {
+        "id": 3,
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 18,
+          "y": 0
+        },
+        "type": "stat",
+        "title": " Files Processed (Last 1 Hour)",
+        "description": "Total number of files processed in the last hour with sparkline trend",
+        "datasource": {
+          "type": "postgres",
+          "uid": "defence_db"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "SELECT \n  created_at AS time,\n  COUNT(*) AS \"Files\"\nFROM ingestion_statistics\nWHERE created_at > NOW() - INTERVAL '1 hour'\nGROUP BY time\nORDER BY time ASC",
+            "format": "time_series"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "red",
+                  "value": null
+                },
+                {
+                  "color": "yellow",
+                  "value": 1
+                },
+                {
+                  "color": "green",
+                  "value": 5
+                }
+              ]
+            },
+            "mappings": []
+          }
+        },
+        "options": {
+          "graphMode": "area",
+          "colorMode": "value",
+          "justifyMode": "auto",
+          "textMode": "value_and_name",
+          "reduceOptions": {
+            "values": false,
+            "calcs": ["sum"]
+          },
+          "text": {
+            "titleSize": 14,
+            "valueSize": 40
+          }
+        }
+      },
+      {
+        "id": 4,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        },
+        "type": "barchart",
+        "title": " Error Criticality Over Time (Last 30 Min)",
+        "description": "Stacked bar chart showing high (red), medium (orange), and low (blue) severity errors over time",
+        "datasource": {
+          "type": "postgres",
+          "uid": "defence_db"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "SELECT \n  DATE_TRUNC('minute', created_at) AS time,\n  SUM(CASE WHEN criticality = 'high' THEN 1 ELSE 0 END) AS \"High\",\n  SUM(CASE WHEN criticality = 'medium' THEN 1 ELSE 0 END) AS \"Medium\",\n  SUM(CASE WHEN criticality = 'low' THEN 1 ELSE 0 END) AS \"Low\"\nFROM ingestion_statistics\nWHERE created_at > NOW() - INTERVAL '30 minutes'\n  AND invalid_rows > 0\nGROUP BY time\nORDER BY time ASC",
+            "format": "time_series"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "High"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "red",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Medium"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "orange",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Low"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "options": {
+          "orientation": "horizontal",
+          "xTickLabelRotation": -45,
+          "stacking": "normal",
+          "showValue": "auto",
+          "barWidth": 0.9,
+          "groupWidth": 0.7,
+          "legend": {
+            "showLegend": true,
+            "displayMode": "list",
+            "placement": "bottom"
+          }
+        }
+      },
+      {
+        "id": 5,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        },
+        "type": "piechart",
+        "title": " Files by Criticality Level (Last 1 Hour)",
+        "description": "Distribution of files by severity. Track if high-severity issues are increasing.",
+        "datasource": {
+          "type": "postgres",
+          "uid": "defence_db"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "SELECT \n  CASE \n    WHEN criticality = 'high' THEN '🔴 High'\n    WHEN criticality = 'medium' THEN '🟠 Medium'\n    WHEN criticality = 'low' THEN '🟢 Low'\n    ELSE 'Unknown'\n  END AS criticality,\n  COUNT(*) AS \"Files\"\nFROM ingestion_statistics\nWHERE created_at > NOW() - INTERVAL '1 hour'\nGROUP BY criticality\nORDER BY \n  CASE \n    WHEN criticality = 'high' THEN 1\n    WHEN criticality = 'medium' THEN 2\n    WHEN criticality = 'low' THEN 3\n  END",
+            "format": "table"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {},
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "🔴 High"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "red",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "🟠 Medium"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "orange",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "🟢 Low"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "options": {
+          "pieType": "pie",
+          "displayLabels": ["name", "percent"],
+          "legend": {
+            "showLegend": true,
+            "displayMode": "table",
+            "placement": "right",
+            "values": ["value", "percent"]
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        }
+      },
+      {
+        "id": 6,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 16
+        },
+        "type": "timeseries",
+        "title": " Invalid Rows Trend (Last 1 Hour)",
+        "description": "Track number of invalid rows over time. Sudden spikes indicate data quality degradation.",
+        "datasource": {
+          "type": "postgres",
+          "uid": "defence_db"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "SELECT \n  created_at AS time,\n  SUM(invalid_rows) AS \"Invalid Rows\"\nFROM ingestion_statistics\nWHERE created_at > NOW() - INTERVAL '1 hour'\nGROUP BY time\nORDER BY time ASC",
+            "format": "time_series"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "bars",
+              "lineWidth": 1,
+              "fillOpacity": 80,
+              "showPoints": "never"
+            },
+            "color": {
+              "mode": "thresholds"
+            },
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "yellow",
+                  "value": 10
+                },
+                {
+                  "color": "orange",
+                  "value": 50
+                },
+                {
+                  "color": "red",
+                  "value": 100
+                }
+              ]
+            },
+            "unit": "short"
+          }
+        },
+        "options": {
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          },
+          "legend": {
+            "showLegend": true,
+            "displayMode": "list",
+            "placement": "bottom"
+          }
+        },
+        "alert": {
+          "name": "High Invalid Rows Alert",
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [100],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": ["A", "5m", "now"]
+              },
+              "reducer": {
+                "params": [],
+                "type": "avg"
+              },
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "5m",
+          "frequency": "1m",
+          "message": " High number of invalid rows detected (>100). Check data quality immediately!",
+          "noDataState": "no_data",
+          "notifications": []
+        }
+      },
+      {
+        "id": 7,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 16
+        },
+        "type": "table",
+        "title": " Recent Ingestion Summary",
+        "description": "Latest 10 ingested files with their quality metrics",
+        "datasource": {
+          "type": "postgres",
+          "uid": "defence_db"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "SELECT \n  file_name AS \"File Name\",\n  total_rows AS \"Total\",\n  valid_rows AS \"Valid\",\n  invalid_rows AS \"Invalid\",\n  ROUND((valid_rows::DECIMAL / NULLIF(total_rows, 0)) * 100, 1) AS \"Quality %\",\n  criticality AS \"Severity\",\n  TO_CHAR(created_at, 'HH24:MI:SS') AS \"Time\"\nFROM ingestion_statistics\nWHERE created_at > NOW() - INTERVAL '1 hour'\nORDER BY created_at DESC\nLIMIT 10",
+            "format": "table"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {},
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Severity"
+              },
+              "properties": [
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "color-background"
+                  }
+                },
+                {
+                  "id": "mappings",
+                  "value": [
+                    {
+                      "type": "value",
+                      "options": {
+                        "high": {
+                          "color": "red",
+                          "text": "🔴 HIGH"
+                        }
+                      }
+                    },
+                    {
+                      "type": "value",
+                      "options": {
+                        "medium": {
+                          "color": "orange",
+                          "text": "🟠 MEDIUM"
+                        }
+                      }
+                    },
+                    {
+                      "type": "value",
+                      "options": {
+                        "low": {
+                          "color": "green",
+                          "text": "🟢 LOW"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Quality %"
+              },
+              "properties": [
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "color-background"
+                  }
+                },
+                {
+                  "id": "thresholds",
+                  "value": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "red",
+                        "value": null
+                      },
+                      {
+                        "color": "orange",
+                        "value": 50
+                      },
+                      {
+                        "color": "green",
+                        "value": 80
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "options": {
+          "showHeader": true,
+          "sortBy": []
+        }
+      }
+    ],
+  "overwrite": true
+}
