@@ -37,7 +37,7 @@ default_args = {
     "owner": "team",
     "depends_on_past": False,
     "retries": 0,
-    "max_active_runs": 1,  # ← FIX: Only 1 DAG run at a time
+    "max_active_runs": 1,
 }
 
 dag = DAG(
@@ -47,15 +47,13 @@ dag = DAG(
     schedule="*/1 * * * *",
     start_date=days_ago(1),
     catchup=False,
-    max_active_runs=1,  # ← FIX: Prevent concurrent runs
+    max_active_runs=1,
     tags=["ingestion", "data-quality"],
 )
 
 
 @task(dag=dag)
 def read_data() -> str:
-
-
     print(f"\n{'=' * 60}")
     print("TASK 1: Reading raw data file")
     print(f"{'=' * 60}\n")
@@ -327,8 +325,9 @@ def send_alerts(validation: Dict) -> str:
 
     return public_url
 
+
 @task(dag=dag)
-def save_statistics(validation: Dict, report_link: str = None):
+def save_statistics(validation: Dict):
     """
     Save stats to database.
     """
@@ -346,14 +345,14 @@ def save_statistics(validation: Dict, report_link: str = None):
             valid_rows=validation["valid_rows"],
             invalid_rows=validation["invalid_rows"],
             criticality=validation["criticality"],
-            report_path=report_link,
+            report_path=None,
         )
         db.add(entry)
         db.commit()
-        print(f"✅ Saved to DB\n")
+        print(f" Saved to DB\n")
     except Exception as e:
         db.rollback()
-        print(f"❌ DB error: {e}\n")
+        print(f" DB error: {e}\n")
         raise
     finally:
         db.close()
@@ -361,9 +360,7 @@ def save_statistics(validation: Dict, report_link: str = None):
 
 @task(dag=dag)
 def split_and_save(validation: Dict):
-    """
-    Split good/bad data and archive.
-    """
+
 
     print(f"\n{'=' * 60}")
     print("TASK 5: Splitting and archiving")
@@ -376,7 +373,7 @@ def split_and_save(validation: Dict):
     raw_path = Path(validation["file_path"])
 
     if not raw_path.exists():
-        print("⚠️ File already processed\n")
+        print("️ File already processed\n")
         return
 
     df = pd.read_csv(raw_path)
@@ -387,13 +384,13 @@ def split_and_save(validation: Dict):
         # All valid
         df.to_csv(GOOD_DIR / raw_path.name, index=False)
         raw_path.rename(ARCHIVE_DIR / raw_path.name)
-        print(f"✅ All valid → good_data/\n")
+        print(f" All valid → good_data/\n")
 
     elif validation["valid_rows"] == 0:
         # All invalid
         df.to_csv(BAD_DIR / raw_path.name, index=False)
         raw_path.rename(ARCHIVE_DIR / raw_path.name)
-        print(f"❌ All invalid → bad_data/\n")
+        print(f" All invalid → bad_data/\n")
 
     else:
         # Split
@@ -407,10 +404,11 @@ def split_and_save(validation: Dict):
         print(f" Good: {len(good_df)} rows")
         print(f" Bad: {len(bad_df)} rows\n")
 
+
 raw_file = read_data()
 validation = validate_data(raw_file)
 alert_task = send_alerts(validation)
 split_task = split_and_save(validation)
-save_task = save_statistics(validation, alert_task)
+save_task = save_statistics(validation)
 
 validation >> [alert_task, split_task, save_task]
