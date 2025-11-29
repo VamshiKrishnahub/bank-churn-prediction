@@ -22,9 +22,6 @@ from database.db import (
 
 from send_alerts import send_teams_alert
 
-# -------------------------------------------------------------
-# DIRECTORY CONFIGURATION
-# -------------------------------------------------------------
 DATA_DIR = Path("/opt/airflow/Data")
 
 RAW_DATA_SOURCE = DATA_DIR / "raw-data"
@@ -36,9 +33,6 @@ REPORTS_DIR = DATA_DIR / "reports"
 
 FASTAPI_REPORT_URL = "http://fastapi:8000/reports"
 
-# -------------------------------------------------------------
-# DAG CONFIG
-# -------------------------------------------------------------
 default_args = {
     "owner": "team",
     "depends_on_past": False,
@@ -58,14 +52,9 @@ dag = DAG(
 )
 
 
-# ---------------------------------------------------------
-# TASK 1: READ DATA FILE (RANDOM SELECTION)
-# ---------------------------------------------------------
 @task(dag=dag)
 def read_data() -> str:
-    """
-    Randomly select 1 CSV from raw-data folder.
-    """
+
 
     print(f"\n{'=' * 60}")
     print("TASK 1: Reading raw data file")
@@ -91,9 +80,6 @@ def read_data() -> str:
     return str(chosen)
 
 
-# ---------------------------------------------------------
-# TASK 2: VALIDATE DATA
-# ---------------------------------------------------------
 @task(dag=dag)
 def validate_data(file_path: str) -> Dict:
     """
@@ -229,9 +215,6 @@ def validate_data(file_path: str) -> Dict:
     }
 
 
-# ---------------------------------------------------------
-# TASK 3: GENERATE SIMPLE HTML REPORT
-# ---------------------------------------------------------
 @task(dag=dag)
 def send_alerts(validation: Dict) -> str:
     """
@@ -344,10 +327,6 @@ def send_alerts(validation: Dict) -> str:
 
     return public_url
 
-
-# ---------------------------------------------------------
-# TASK 4: SAVE STATISTICS
-# ---------------------------------------------------------
 @task(dag=dag)
 def save_statistics(validation: Dict, report_link: str):
     """
@@ -381,9 +360,6 @@ def save_statistics(validation: Dict, report_link: str):
         db.close()
 
 
-# ---------------------------------------------------------
-# TASK 5: SPLIT AND ARCHIVE
-# ---------------------------------------------------------
 @task(dag=dag)
 def split_and_save(validation: Dict):
     """
