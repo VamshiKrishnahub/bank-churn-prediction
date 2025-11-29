@@ -44,7 +44,7 @@
         "y": 0
       },
       "type": "timeseries",
-      "title": "📊 Prediction Volume by Source (Last 2 Hours)",
+      "title": " Prediction Volume by Source (Last 2 Hours)",
       "description": "INSIGHT: Detect pipeline failures. If scheduled predictions drop to 0, prediction DAG is broken. If webapp drops, user engagement issues.",
       "datasource": {
         "type": "postgres",
@@ -143,7 +143,7 @@
         "y": 0
       },
       "type": "gauge",
-      "title": "🎯 Churn Rate (Last 1 Hour)",
+      "title": " Churn Rate (Last 1 Hour)",
       "description": "INSIGHT: Expected 15-25%. RED if 0% or 100% (model stuck). ORANGE if <5% or >60% (model degraded).",
       "datasource": {
         "type": "postgres",
@@ -212,7 +212,7 @@
         "y": 0
       },
       "type": "stat",
-      "title": "📈 Total Predictions (Last 1h)",
+      "title": " Total Predictions (Last 1h)",
       "description": "INSIGHT: Monitor throughput. RED if <10 (low volume), GREEN if >100 (healthy pipeline).",
       "datasource": {
         "type": "postgres",
@@ -270,7 +270,7 @@
         "y": 8
       },
       "type": "barchart",
-      "title": "📈 Age Distribution Drift (Last 2h vs Last 10min)",
+      "title": " Age Distribution Drift (Last 2h vs Last 10min)",
       "description": "INSIGHT: Compare age distribution. Significant differences indicate DATA DRIFT. Example: Training had 35-44 peak, serving has 55-64 peak = distribution shift.",
       "datasource": {
         "type": "postgres",
@@ -345,7 +345,7 @@
         "y": 8
       },
       "type": "piechart",
-      "title": "🌍 Geography Distribution (Last 1 Hour)",
+      "title": " Geography Distribution (Last 1 Hour)",
       "description": "INSIGHT: Monitor categorical drift. If training was 33% each country but serving shows 100% France = DRIFT ALERT.",
       "datasource": {
         "type": "postgres",
@@ -431,7 +431,7 @@
         "y": 17
       },
       "type": "stat",
-      "title": "🔢 Average Age (Last 1h)",
+      "title": " Average Age (Last 1h)",
       "description": "INSIGHT: Training baseline ~40 years. RED if <30 or >65 (age drift). ORANGE if 30-35 or 55-65 (warning).",
       "datasource": {
         "type": "postgres",
@@ -496,7 +496,7 @@
         "y": 17
       },
       "type": "stat",
-      "title": "💰 Avg Balance (Last 1h)",
+      "title": " Avg Balance (Last 1h)",
       "description": "INSIGHT: Monitor balance drift. Training avg ~75K. Alert if significantly different.",
       "datasource": {
         "type": "postgres",
@@ -556,7 +556,7 @@
         "y": 17
       },
       "type": "timeseries",
-      "title": "📉 Gender Distribution Over Time (Last 2h)",
+      "title": " Gender Distribution Over Time (Last 2h)",
       "description": "INSIGHT: Detect gender drift. Training was ~50/50. If serving shifts to 80/20, data distribution changed.",
       "datasource": {
         "type": "postgres",
@@ -635,7 +635,7 @@
         "y": 25
       },
       "type": "table",
-      "title": "⚠️ Recent Prediction Errors (Last 30 Min)",
+      "title": "️ Recent Prediction Errors (Last 30 Min)",
       "description": "INSIGHT: Debug pipeline failures. RED errors = critical (API/file issues), ORANGE = warnings (column issues).",
       "datasource": {
         "type": "postgres",
@@ -740,7 +740,7 @@
         "y": 25
       },
       "type": "timeseries",
-      "title": "📊 Prediction Class Distribution Over Time (Last 2h)",
+      "title": " Prediction Class Distribution Over Time (Last 2h)",
       "description": "INSIGHT: Stacked histogram. If only one color visible = MODEL STUCK. Healthy: Both classes predicted continuously.",
       "datasource": {
         "type": "postgres",
@@ -824,7 +824,7 @@
         "y": 33
       },
       "type": "timeseries",
-      "title": "💳 Credit Score Distribution Trend (Last 2h)",
+      "title": " Credit Score Distribution Trend (Last 2h)",
       "description": "INSIGHT: Monitor credit score drift. If average drops significantly = customer quality degrading.",
       "datasource": {
         "type": "postgres",

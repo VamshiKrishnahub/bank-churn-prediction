@@ -1,14 +1,3 @@
-#apiVersion: 1
-#
-#providers:
-#  - name: 'Defence Dashboards'
-#    type: file
-#    disableDeletion: false
-#    editable: true
-#    updateIntervalSeconds: 10
-#    options:
-#      path: /etc/grafana/provisioning/dashboards
-
 apiVersion: 1
 
 providers:
