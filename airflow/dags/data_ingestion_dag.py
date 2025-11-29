@@ -71,7 +71,7 @@ def read_data() -> str:
     # Random selection
     chosen = random.choice(available)
 
-    print(f"📌 Selected: {chosen.name}")
+    print(f" Selected: {chosen.name}")
     print(f"   Total files available: {len(available)}")
     print(f"{'=' * 60}\n")
 
@@ -80,9 +80,7 @@ def read_data() -> str:
 
 @task(dag=dag)
 def validate_data(file_path: str) -> Dict:
-    """
-    Validate data using Great Expectations.
-    """
+
 
     print(f"\n{'=' * 60}")
     print("TASK 2: Validating data")
@@ -90,12 +88,12 @@ def validate_data(file_path: str) -> Dict:
 
     try:
         df = pd.read_csv(file_path)
-        print(f"✅ Loaded: {len(df)} rows")
+        print(f" Loaded: {len(df)} rows")
     except Exception as exc:
-        raise AirflowSkipException(f"❌ Cannot read file: {exc}")
+        raise AirflowSkipException(f" Cannot read file: {exc}")
 
     if df.empty:
-        raise AirflowSkipException("⚠️ Empty file")
+        raise AirflowSkipException("️ Empty file")
 
     ge_df = ge.from_pandas(df)
     errors: List[Dict] = []
@@ -203,8 +201,8 @@ def validate_data(file_path: str) -> Dict:
     bad_idx = df.index[bad_mask].tolist()
     good_idx = df.index[~bad_mask].tolist()
 
-    print(f"✅ Valid: {len(good_idx)} | ❌ Invalid: {len(bad_idx)}")
-    print(f"🚨 Criticality: {criticality.upper()}\n")
+    print(f" Valid: {len(good_idx)} |  Invalid: {len(bad_idx)}")
+    print(f" Criticality: {criticality.upper()}\n")
 
     return {
         "file_path": file_path, "errors": errors, "criticality": criticality,
@@ -215,9 +213,6 @@ def validate_data(file_path: str) -> Dict:
 
 @task(dag=dag)
 def send_alerts(validation: Dict) -> str:
-    """
-    Generate simple HTML report with errors only.
-    """
 
     print(f"\n{'=' * 60}")
     print("TASK 3: Generating report")
@@ -318,7 +313,7 @@ def send_alerts(validation: Dict) -> str:
     report_path.write_text(html, encoding="utf-8")
     public_url = f"{FASTAPI_REPORT_URL}/{report_file}"
 
-    print(f"✅ Report: {public_url}\n")
+    print(f" Report: {public_url}\n")
 
     if validation["invalid_rows"] > 0:
         send_teams_alert(validation, public_url)
@@ -328,9 +323,7 @@ def send_alerts(validation: Dict) -> str:
 
 @task(dag=dag)
 def save_statistics(validation: Dict):
-    """
-    Save stats to database.
-    """
+
     print(f"\n{'=' * 60}")
     print("TASK 4: Saving to database")
     print(f"{'=' * 60}\n")
