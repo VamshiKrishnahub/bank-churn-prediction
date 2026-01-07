@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+3691,15654959,Hope,670,Spain,Male,67.0,6,158719.57,1,1.0,1.0,118607.4,0
+3692,15760244,Ives,590,France,Female,76.0,5,160979.68,1,0.0,1.0,13848.58,0
+3693,15715394,Greece,613,Spain,Male,35.0,4,123557.65,2,0.0,1.0,170903.4,0
+3694,15722246,Omeokachie,742,France,Female,60.0,4,0.0,1,1.0,1.0,13161.66,1
+3695,15609704,Mao,608,France,Female,33.0,4,0.0,1,1.0,0.0,79304.38,1
+3696,15757628,Savage,571,France,Male,40.0,10,112896.86,1,1.0,1.0,121402.53,0
+3697,15633586,Brierly,595,France,Female,39.0,7,120962.13,1,0.0,0.0,23305.01,0
+3698,15565796,Docherty,745,Germany,Male,48.0,10,96048.55,1,1.0,0.0,74510.65,0
+3699,15717935,McDonald,589,France,Female,21.0,3,0.0,2,0.0,1.0,55601.44,0
+3700,15577700,Rapuokwu,749,France,Male,37.0,10,185063.7,2,1.0,1.0,134526.87,0

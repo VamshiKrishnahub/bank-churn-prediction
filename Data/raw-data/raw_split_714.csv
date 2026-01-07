@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7131,15801473,Moore,599,Germany,Male,33.0,2,51949.95,2,1.0,0.0,85045.92,0
+7132,15704509,Tan,-9999,France,Male,not_a_number,8,121063.49,1,0.0,0.0,85421.48,not_a_number
+-9999,15694666,,707,Spain,Male,48.0,8,88441.64,1,1.0,1.0,119903.2,1
+7134,15731166,Macleod,743,France,Female,30.0,1,127023.39,1,1.0,1.0,138780.89,0
+7135,15728523,Rizzo,522,France,Male,41.0,5,144147.68,1,1.0,1.0,14789.9,0
+7136,15788442,Chukwukadibia,681,Spain,,57.0,2,173306.13,99999,0.0,1.0,INVALID,0
+7137,15689781,Ts'ai,826,France,Female,49.0,0,0.0,1,0.0,0.0,178709.98,1
+7138,15764226,Lu,630,Germany,Female,28.0,8,106425.75,1,1.0,1.0,20344.84,0
+7139,15809837,Kent,430,Germany,Female,66.0,6,135392.31,2,1.0,1.0,172852.06,1
+7140,15805212,Black,806,France,Female,67.0,1,0.0,2,0.0,1.0,103945.58,0

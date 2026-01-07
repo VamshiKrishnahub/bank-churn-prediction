@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+1551,15599552,Conway,639,Spain,Female,54.0,2,0.0,2,1.0,1.0,53843.71,0
+1552,15749177,Maslow,730,Spain,Female,52.0,7,0.0,2,0.0,1.0,122398.84,0
+1553,15718779,Clark,780,France,Male,34.0,1,0.0,1,1.0,1.0,64804.04,0
+1554,15568106,L?,592,France,Female,38.0,8,119278.01,2,0.0,1.0,19370.73,0
+1555,15779481,###,628,France,Male,34.0,4,158741.43,2,1.0,1.0,126192.54,0
+1556,15709994,Gallo,658,France,Female,40.0,7,140596.95,1,0.0,1.0,135459.02,1
+1557,-42,Onyemachukwu,850,Spain,Female,29.0,10,0.0,2,1.0,1.0,94815.04,0
+1558,15706815,Samoylova,515,Germany,Male,37.0,2,90432.92,1,1.0,1.0,188366.04,1
+1559,15618018,Dickson,571,France,Female,35.0,1,104783.81,2,0.0,1.0,178512.52,0
+1560,15671032,He,760,Germany,Male,42.0,0,77992.97,2,1.0,1.0,97906.38,0

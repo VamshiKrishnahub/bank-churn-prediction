@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+10000,15628319,Walker,792,France,Female,28.0,4,130142.79,1,1.0,0.0,38190.78,0
+10000,15628319,Walker,792,France,Female,28.0,4,130142.79,1,1.0,0.0,38190.78,0
+5246,15588517,Sun,717,France,Male,38.0,7,0.0,2,1.0,1.0,158580.05,0
+8023,15665180,Vasiliev,616,France,Female,not_a_number,3,136789.14,1,1.0,0.0,59346.4,1
+9761,15632143,Lung,652,France,Male,31.0,2,119148.55,,0.0,0.0,149740.22,0
+9995,15719294,Wood,800,France,Female,29.0,2,0.0,2,0.0,0.0,167773.55,0
+8388,15660608,Chimaraoke,699,France,Male,44.0,8,158697.61,1,1.0,0.0,107181.22,0
+7915,15715622,Ellis,687,France,Male,35.0,9,0.0,2,0.0,1.0,73133.82,0
+486,15637954,Lewis,730,ERR_167,Female,35.0,0,155470.55,1,1.0,1.0,53718.28,0
+8210,15600912,Gorshkov,706,Germany,Male,32.0,5,88348.43,2,1.0,1.0,104181.78,0

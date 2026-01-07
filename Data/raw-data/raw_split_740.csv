@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7391,15764922,Tu,596,Spain,Male,,3,187294.46,1,1.0,0.0,103456.47,0
+7392,15766734,Castiglione,430,France,Male,31.0,5,0.0,1,1.0,0.0,95655.16,0
+7393,15795079,Nnaife,596,Spain,Male,67.0,6,0.0,2,1.0,1.0,138350.74,0
+7394,15757434,Yang,599,France,Male,28.0,7,119706.22,1,0.0,0.0,31190.42,0
+7395,15673747,Ayers,519,France,Female,22.0,8,0.0,1,0.0,1.0,167553.06,0
+7396,15808386,Cocci,721,Germany,Female,45.0,7,138523.2,1,0.0,0.0,59604.45,1
+7397,15603565,Mackenzie,603,Spain,Female,56.0,5,90778.76,2,1.0,0.0,162223.67,1
+7398,15744044,Fiorentini,572,Germany,Male,47.0,4,99353.42,1,1.0,0.0,196549.85,1
+7399,15652266,Akabueze,453,Germany,Female,40.0,1,111524.49,1,1.0,1.0,120373.84,1
+7400,15769548,Hyde,668,France,Female,37.0,7,128645.67,1,1.0,0.0,92149.64,0

@@ -1,0 +1,404 @@
+{
+  "success": false,
+  "statistics": {
+    "evaluated_expectations": 16,
+    "successful_expectations": 15,
+    "unsuccessful_expectations": 1,
+    "success_percent": 93.75
+  },
+  "results": [
+    {
+      "check": "missing_column",
+      "description": "Column 'Age' must exist",
+      "severity": "high",
+      "result": {
+        "success": true,
+        "expectation_config": {
+          "expectation_type": "expect_column_to_exist",
+          "kwargs": {
+            "column": "Age",
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {},
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "missing_column",
+      "description": "Column 'Gender' must exist",
+      "severity": "high",
+      "result": {
+        "success": true,
+        "expectation_config": {
+          "expectation_type": "expect_column_to_exist",
+          "kwargs": {
+            "column": "Gender",
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {},
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "missing_column",
+      "description": "Column 'Geography' must exist",
+      "severity": "high",
+      "result": {
+        "success": true,
+        "expectation_config": {
+          "expectation_type": "expect_column_to_exist",
+          "kwargs": {
+            "column": "Geography",
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {},
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "missing_column",
+      "description": "Column 'EstimatedSalary' must exist",
+      "severity": "high",
+      "result": {
+        "success": true,
+        "expectation_config": {
+          "expectation_type": "expect_column_to_exist",
+          "kwargs": {
+            "column": "EstimatedSalary",
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {},
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "missing_value",
+      "description": "Column 'Age' cannot have nulls",
+      "severity": "medium",
+      "result": {
+        "success": false,
+        "expectation_config": {
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "kwargs": {
+            "column": "Age",
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {
+          "element_count": 10,
+          "unexpected_count": 1,
+          "unexpected_percent": 10.0,
+          "unexpected_percent_total": 10.0,
+          "partial_unexpected_list": []
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "missing_value",
+      "description": "Column 'Gender' cannot have nulls",
+      "severity": "medium",
+      "result": {
+        "success": true,
+        "expectation_config": {
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "kwargs": {
+            "column": "Gender",
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {
+          "element_count": 10,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_percent_total": 0.0,
+          "partial_unexpected_list": []
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "missing_value",
+      "description": "Column 'Geography' cannot have nulls",
+      "severity": "medium",
+      "result": {
+        "success": true,
+        "expectation_config": {
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "kwargs": {
+            "column": "Geography",
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {
+          "element_count": 10,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_percent_total": 0.0,
+          "partial_unexpected_list": []
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "missing_value",
+      "description": "Column 'EstimatedSalary' cannot have nulls",
+      "severity": "medium",
+      "result": {
+        "success": true,
+        "expectation_config": {
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "kwargs": {
+            "column": "EstimatedSalary",
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {
+          "element_count": 10,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_percent_total": 0.0,
+          "partial_unexpected_list": []
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "value_error",
+      "description": "Age must be numeric",
+      "severity": "high",
+      "result": {
+        "success": true,
+        "details": {
+          "non_numeric_age_count": 0
+        }
+      }
+    },
+    {
+      "check": "out_of_range_age",
+      "description": "Age must be 0-120",
+      "severity": "high",
+      "result": {
+        "success": true,
+        "expectation_config": {
+          "expectation_type": "expect_column_values_to_be_between",
+          "kwargs": {
+            "column": "Age",
+            "min_value": 0,
+            "max_value": 120,
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {
+          "element_count": 10,
+          "missing_count": 1,
+          "missing_percent": 10.0,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_percent_total": 0.0,
+          "unexpected_percent_nonmissing": 0.0,
+          "partial_unexpected_list": []
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "out_of_range_income",
+      "description": "EstimatedSalary must be 0-1,000,000",
+      "severity": "high",
+      "result": {
+        "success": true,
+        "expectation_config": {
+          "expectation_type": "expect_column_values_to_be_between",
+          "kwargs": {
+            "column": "EstimatedSalary",
+            "min_value": 0,
+            "max_value": 1000000,
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {
+          "element_count": 10,
+          "missing_count": 0,
+          "missing_percent": 0.0,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_percent_total": 0.0,
+          "unexpected_percent_nonmissing": 0.0,
+          "partial_unexpected_list": []
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "categorical_error_gender",
+      "description": "Gender must be Male/Female",
+      "severity": "high",
+      "result": {
+        "success": true,
+        "expectation_config": {
+          "expectation_type": "expect_column_values_to_be_in_set",
+          "kwargs": {
+            "column": "Gender",
+            "value_set": [
+              "Male",
+              "Female"
+            ],
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {
+          "element_count": 10,
+          "missing_count": 0,
+          "missing_percent": 0.0,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_percent_total": 0.0,
+          "unexpected_percent_nonmissing": 0.0,
+          "partial_unexpected_list": []
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "categorical_error_geography",
+      "description": "Geography must be France/Spain/Germany",
+      "severity": "medium",
+      "result": {
+        "success": true,
+        "expectation_config": {
+          "expectation_type": "expect_column_values_to_be_in_set",
+          "kwargs": {
+            "column": "Geography",
+            "value_set": [
+              "France",
+              "Spain",
+              "Germany"
+            ],
+            "result_format": "BASIC"
+          },
+          "meta": {}
+        },
+        "result": {
+          "element_count": 10,
+          "missing_count": 0,
+          "missing_percent": 0.0,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_percent_total": 0.0,
+          "unexpected_percent_nonmissing": 0.0,
+          "partial_unexpected_list": []
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    },
+    {
+      "check": "duplicate_row",
+      "description": "No duplicate rows",
+      "severity": "medium",
+      "result": {
+        "success": true,
+        "details": {
+          "duplicate_count": 0
+        }
+      }
+    },
+    {
+      "check": "duplicate_id",
+      "description": "CustomerId must be unique",
+      "severity": "medium",
+      "result": {
+        "success": true,
+        "details": {
+          "duplicate_id_count": 0
+        }
+      }
+    },
+    {
+      "check": "format_error",
+      "description": "No ERR_ prefixed or INVALID values",
+      "severity": "medium",
+      "result": {
+        "success": true,
+        "details": {
+          "format_error_rows": 0
+        }
+      }
+    }
+  ]
+}

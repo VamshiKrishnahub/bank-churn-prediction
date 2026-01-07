@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7791,15607176,Kang,674,France,Male,22.0,3,0.0,1,1.0,1.0,173940.59,0
+7792,15570299,Martin,584,Germany,Female,31.0,6,152622.34,1,1.0,0.0,99298.8,0
+7793,15613197,Ugochukwutubelum,590,France,Male,40.0,8,0.0,2,1.0,0.0,62933.03,0
+7794,15798885,Burns,585,France,Male,,4,138227.19,2,1.0,1.0,55287.84,0
+7795,15714883,Genovese,508,France,Female,25.0,2,111395.53,1,0.0,1.0,48197.06,0
+7796,15604497,Beale,458,Germany,Male,44.0,7,84386.57,1,1.0,0.0,178642.73,0
+7797,15773949,Cherkasova,692,France,Female,36.0,3,0.0,2,1.0,1.0,8282.22,0
+7798,15774164,Coles,502,Germany,Male,33.0,5,174673.65,2,1.0,0.0,33300.56,0
+7799,ERR_244,Potter,518,France,Male,46.0,3,ERR_257,2,1.0,0.0,76515.79,0
+7800,15619016,McMinn,660,Germany,Male,46.0,5,109019.65,2,1.0,1.0,33680.56,0

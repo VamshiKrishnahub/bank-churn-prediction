@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+3831,15720713,Chibueze,850,France,Female,29.0,10,0.0,2,1.0,1.0,199775.67,0
+3832,15695356,Chinwemma,722,France,Male,46.0,5,0.0,2,1.0,0.0,179908.71,0
+3833,15653315,Kang,555,Spain,Female,35.0,1,0.0,2,1.0,0.0,101667.0,INVALID
+3834,15604792,Kuo,609,Germany,Male,38.0,6,140752.06,2,0.0,1.0,171430.16,0
+3835,15704819,Ositadimma,734,Spain,Female,39.0,6,92126.26,2,0.0,0.0,112973.34,0
+3836,15670859,Smith,718,Germany,Female,39.0,7,93148.74,2,1.0,1.0,190746.38,0
+3837,15814675,Okwudilichukwu,645,Spain,Female,49.0,5,110132.55,-9999,0.0,1.0,not_a_number,1
+3838,15662533,Porter,598,Spain,Female,23.0,6,0.0,2,1.0,0.0,153229.19,0
+3839,15778154,Kung,628,Germany,Male,50.0,4,122227.71,1,0.0,1.0,14217.77,1
+3840,15806230,Trevisano,629,Germany,Male,40.0,2,121647.54,2,1.0,1.0,64849.74,1

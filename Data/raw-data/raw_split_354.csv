@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+3531,15623712,Coates,453,Spain,Female,42.0,5,0.0,3,1.0,0.0,83008.49,1
+3532,15653251,Hickey,408,France,Female,84.0,UNKNOWN,87873.39,1,0.0,0.0,188484.52,1
+3533,15755077,Norton,778,Germany,Female,37.0,0,105617.73,2,1.0,,133699.82,1
+3534,15808557,Mancini,695,France,Female,42.0,5,0.0,1,0.0,1.0,72172.13,1
+3535,15614687,Tien,677,Germany,Female,44.0,4,148770.61,2,1.0,1.0,191057.76,0
+3536,15626882,Stobie,662,Spain,Male,37.0,5,94901.09,1,1.0,1.0,48233.75,0
+3537,15748034,Drakeford,534,France,Male,29.0,7,###,1,1.0,1.0,79178.31,0
+3538,15632324,Pisani,602,France,Male,not_a_number,7,-42,2,1.0,1.0,not_a_number,0
+3539,,Murphy,554,Germany,Female,43.0,2,120847.11,1,1.0,0.0,7611.61,1
+3540,15761453,Kovalev,667,France,Male,42.0,6,0.0,1,1.0,0.0,88890.05,0

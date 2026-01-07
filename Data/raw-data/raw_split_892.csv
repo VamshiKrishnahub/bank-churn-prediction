@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8911,15744873,Wright,657,Germany,Female,48.0,5,143595.87,1,0.0,0.0,101314.65,1
+8912,15781914,Simmons,718,Germany,ERR_940,32.0,9,169947.41,2,not_a_number,1.0,27979.16,0
+8913,15637354,Yobachukwu,INVALID,France,Female,not_a_number,7,148167.83,2,1.0,1.0,109470.34,0
+ERR_168,15717307,Read,496,France,Male,31.0,5,0.0,2,1.0,0.0,93713.13,0
+8915,15746695,Wunder,429,France,Female,39.0,6,48023.83,1,1.0,0.0,74870.99,0
+8916,15804962,Nnaife,606,France,Male,36.0,1,155655.46,1,1.0,1.0,192387.51,1
+8917,15665378,Shen,499,France,Female,46.0,6,0.0,2,1.0,0.0,73457.55,0
+8918,15757865,Powell,642,France,Male,62.0,7,0.0,2,1.0,1.0,61120.75,0
+8919,15578787,Goddard,641,France,Female,52.0,4,0.0,1,1.0,0.0,90964.54,1
+8920,15794323,Buckley,673,France,Male,32.0,8,121240.76,1,1.0,0.0,116969.73,0

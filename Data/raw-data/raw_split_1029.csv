@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2297,15582714,Napolitani,749,Germany,Male,47.0,9,110022.74,1,0.0,1.0,135655.29,1
+8068,15696834,Cone,530,France,Female,29.0,5,0.0,2,0.0,0.0,121451.21,0
+5356,15773751,Y?,597,France,Female,29.0,1,132144.35,1,1.0,0.0,158086.33,0
+5356,15773751,Y?,597,France,Female,29.0,1,132144.35,1,1.0,0.0,not_a_number,0
+8748,15667216,Chung,579,France,Female,29.0,99999,73194.52,2,1.0,1.0,129209.09,0
+4745,15582849,McIntosh,757,France,Female,51.0,1,0.0,1,1.0,1.0,22835.13,1
+1604,15593470,Tu,576,Germany,Female,36.0,8,166287.85,1,99999,1.0,23305.85,0
+383,,Ting,492,Germany,Female,30.0,10,77168.87,2,0.0,1.0,146700.22,0
+6273,15611331,Niu,511,France,Female,46.0,1,0.0,1,1.0,1.0,115779.48,1
+1415,15620507,Siciliani,485,Germany,Female,30.0,5,156771.68,1,1.0,1.0,141148.21,0

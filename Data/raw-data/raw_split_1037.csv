@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5293,15570908,Ahern,745,France,Female,28.0,6,not_a_number,2,1.0,0.0,154389.18,0
+2900,15810944,Bryant,586,France,Female,35.0,7,0.0,2,1.0,0.0,70760.69,0
+8366,15659949,Chiu,850,France,Male,31.0,1,96399.31,2,1.0,0.0,106534.15,0
+7027,15588123,Horton,677,France,Female,27.0,2,0.0,2,0.0,1.0,114685.92,0
+5570,15701524,Ting,709,UNKNOWN,Male,not_a_number,0,0.0,2,1.0,0.0,46811.77,0
+2211,15769917,Onyekachi,673,Germany,Female,34.0,,127122.79,3,0.0,1.0,76703.1,0
+3027,15722758,Allan,585,France,Male,40.0,7,0.0,2,0.0,0.0,146156.98,0
+5544,15585777,Pai,710,France,Male,38.0,3,130588.82,1,1.0,1.0,154997.64,0
+8438,15591428,Myers,781,France,Male,29.0,9,0.0,2,0.0,0.0,172097.4,0
+121,15682472,Culbreth,828,France,Male,34.0,8,129433.34,2,0.0,0.0,38131.77,0

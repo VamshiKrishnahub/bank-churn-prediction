@@ -1,0 +1,16 @@
+apiVersion: 1
+
+datasources:
+  - name: defence_db
+    type: postgres
+    access: proxy
+    url:defence_db:5432
+    database: defence_db
+    user: admin
+    secureJsonData:
+      password: 'admin'
+    jsonData:
+      sslmode: 'disable'
+      postgresVersion: 1300
+    isDefault: true
+    editable: true

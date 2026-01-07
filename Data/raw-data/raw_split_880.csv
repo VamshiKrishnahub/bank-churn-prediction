@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8791,15691792,Young,416,Spain,Male,35.0,8,0.0,1,0.0,0.0,119712.78,0
+8792,15783276,Forbes,725,France,Female,25.0,9,0.0,2,1.0,1.0,168607.74,0
+8793,15766137,Muir,497,France,Male,34.0,2,0.0,2,1.0,1.0,83087.13,0
+8794,15574554,Pugh,537,Germany,Male,66.0,8,103291.25,2,1.0,1.0,130664.79,0
+8795,15578671,ERR_927,706,Spain,Female,29.0,1,-42,1,-9999,1.0,133267.69,1
+8796,15716608,Walker,651,Spain,Male,38.0,2,0.0,3,1.0,0.0,67029.82,1
+8797,15690670,Cox,720,France,Male,33.0,2,0.0,2,0.0,1.0,141031.08,0
+8798,15630466,Maclean,797,France,Male,45.0,8,0.0,not_a_number,0.0,0.0,125110.02,
+8799,ERR_297,Hollis,543,Spain,Male,23.0,5,0.0,2,1.0,0.0,117832.39,0
+8800,15803801,Jamieson,454,France,Male,34.0,4,0.0,2,1.0,0.0,198817.72,0

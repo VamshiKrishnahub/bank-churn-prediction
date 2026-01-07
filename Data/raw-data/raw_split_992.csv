@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9911,15784042,L?,624,France,Male,55.0,7,118793.6,1,1.0,1.0,95022.02,1
+9912,15776229,MacPherson,682,France,Male,44.0,3,115282.3,1,0.0,0.0,23766.4,0
+9913,15655903,Michael,701,Spain,Female,34.0,6,107980.37,1,1.0,1.0,119374.74,0
+,15590177,Chiedozie,718,France,UNKNOWN,44.0,1,133866.22,1,0.0,1.0,139049.24,0
+9915,15568876,Hughes,496,France,Female,34.0,1,###,2,1.0,0.0,180844.81,0
+9916,15813140,Taylor,543,Spain,Male,41.0,5,0.0,2,0.0,1.0,143980.29,0
+9917,15770516,Evdokimov,616,Spain,Female,44.0,7,193213.02,not_a_number,1.0,1.0,137392.77,0
+9918,15755731,Davis,635,Germany,Male,53.0,8,117005.55,1,0.0,1.0,123646.57,1
+9919,15574480,Ubanwa,652,Spain,Male,31.0,1,ERR_767,1,0.0,ERR_363,158054.49,0
+9920,15798084,Murray,688,France,Male,26.0,0,0.0,2,1.0,0.0,105784.85,0

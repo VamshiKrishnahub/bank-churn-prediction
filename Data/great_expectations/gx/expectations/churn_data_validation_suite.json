@@ -1,0 +1,333 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "churn_data_validation_suite",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "Age"
+      },
+      "meta": {
+        "error_type": "missing_column",
+        "severity": "high"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "Gender"
+      },
+      "meta": {
+        "error_type": "missing_column",
+        "severity": "high"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "Geography"
+      },
+      "meta": {
+        "error_type": "missing_column",
+        "severity": "high"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "EstimatedSalary"
+      },
+      "meta": {
+        "error_type": "missing_column",
+        "severity": "high"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "Age"
+      },
+      "meta": {
+        "error_type": "missing_value",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "Gender"
+      },
+      "meta": {
+        "error_type": "missing_value",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "Geography"
+      },
+      "meta": {
+        "error_type": "missing_value",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "EstimatedSalary"
+      },
+      "meta": {
+        "error_type": "missing_value",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_of_type",
+      "kwargs": {
+        "column": "Age",
+        "type_": "float64"
+      },
+      "meta": {
+        "error_type": "value_error",
+        "severity": "high"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "Age",
+        "max_value": 120,
+        "min_value": 0
+      },
+      "meta": {
+        "error_type": "out_of_range_age",
+        "severity": "high"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "EstimatedSalary",
+        "max_value": 1000000,
+        "min_value": 0
+      },
+      "meta": {
+        "error_type": "out_of_range_income",
+        "severity": "high"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "Gender",
+        "value_set": [
+          "Male",
+          "Female"
+        ]
+      },
+      "meta": {
+        "error_type": "categorical_error_gender",
+        "severity": "high"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "Geography",
+        "value_set": [
+          "France",
+          "Spain",
+          "Germany"
+        ]
+      },
+      "meta": {
+        "error_type": "categorical_error_geography",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_compound_columns_to_be_unique",
+      "kwargs": {
+        "column_list": [
+          "Age",
+          "Gender",
+          "Geography",
+          "EstimatedSalary"
+        ]
+      },
+      "meta": {
+        "error_type": "duplicate_row",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "CustomerId"
+      },
+      "meta": {
+        "error_type": "duplicate_id",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "RowNumber",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "CustomerId",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "Surname",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "CreditScore",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "Geography",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "Gender",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "Age",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "Tenure",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "Balance",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "NumOfProducts",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "HasCrCard",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "IsActiveMember",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "EstimatedSalary",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_match_regex",
+      "kwargs": {
+        "column": "Exited",
+        "regex": "^ERR_"
+      },
+      "meta": {
+        "error_type": "format_error",
+        "severity": "medium"
+      }
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "great_expectations_version": "0.18.12"
+  }
+}

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6601,15697360,Yudina,505,France,Female,36.0,2,79951.9,-42,-42,1.0,174123.16,1
+6602,15655213,Udinese,591,Germany,Female,51.0,8,132508.3,1,1.0,1.0,161304.68,1
+6603,15580872,Chinweike,761,Germany,Female,38.0,1,120530.13,2,1.0,0.0,109394.62,0
+6604,15669501,Bergamaschi,554,France,Female,35.0,10,74988.59,2,0.0,1.0,190155.13,0
+6605,15801188,Milliner,774,France,Female,47.0,6,94722.88,1,0.0,1.0,61450.96,0
+6606,15645029,Knowles,771,Spain,Female,33.0,5,0.0,2,1.0,0.0,8673.43,0
+6607,15633181,Swinton,792,France,Male,31.0,6,71269.89,2,0.0,1.0,125912.77,0
+99999,15598259,Gregory,673,Germany,Female,41.0,9,98612.1,1,1.0,0.0,151349.35,0
+6609,15576000,Chibueze,765,France,Male,40.0,6,138033.55,1,1.0,1.0,67972.45,0
+6610,15766047,Sukhorukova,748,France,Female,41.0,2,91621.69,1,1.0,1.0,71139.31,0

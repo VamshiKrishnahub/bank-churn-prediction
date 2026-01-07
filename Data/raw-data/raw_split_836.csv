@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8351,15709531,Harding,556,France,Male,38.0,2,114756.14,1,1.0,0.0,193214.05,0
+8352,15650751,Butler,585,France,Female,-42,6,0.0,2,1.0,1.0,137757.69,0
+8353,15641413,Crawford,587,Germany,Female,49.0,7,155393.98,2,1.0,0.0,13308.2,1
+8354,15753840,Brown,524,Spain,Female,32.0,6,0.0,1,1.0,1.0,132861.9,1
+8355,15669994,Greece,556,Germany,Female,31.0,1,128663.81,2,1.0,0.0,125083.29,0
+8356,15695301,Matthews,504,Spain,Male,44.0,4,113522.64,1,1.0,1.0,12405.2,0
+8357,15792004,Heath,731,Spain,Female,26.0,3,0.0,2,1.0,0.0,37697.29,0
+8358,15603035,Vincent,651,France,Male,34.0,3,,2,1.0,1.0,105599.65,0
+8359,15717286,Sal,675,Spain,Female,40.0,8,-9999,1,1.0,0.0,142783.98,not_a_number
+8360,15577107,Milne,657,Spain,Female,22.0,6,0.0,3,0.0,1.0,168412.07,1

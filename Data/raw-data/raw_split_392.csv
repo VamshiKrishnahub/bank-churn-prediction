@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+3911,15698716,Baker,620,France,Female,70.0,3,87926.24,2,1.0,0.0,33350.26,1
+3912,15710527,Matthews,782,France,Female,35.0,4,0.0,1,1.0,1.0,119565.34,0
+ERR_412,15655590,Garcia,581,Spain,Male,46.0,2,79385.21,2,0.0,,188492.82,0
+3914,15732266,Field,553,Germany,Male,53.0,5,127997.83,1,1.0,0.0,165378.66,1
+3915,15669326,Gordon,658,France,Male,44.0,2,168396.34,1,1.0,1.0,14178.73,0
+3916,15672246,Jefferies,686,Germany,Male,43.0,2,134896.03,-42,1.0,1.0,97847.05,0
+3917,15620276,Palermo,539,Spain,Male,36.0,6,0.0,3,1.0,1.0,118959.64,0
+3918,15640258,Chou,685,France,Female,50.0,6,94238.75,2,1.0,1.0,50664.07,1
+3919,15740283,Ewing,850,France,Male,29.0,1,0.0,2,0.0,0.0,152996.89,0
+3920,15759717,Mazzi,763,Spain,Female,39.0,7,0.0,2,1.0,0.0,19458.75,0

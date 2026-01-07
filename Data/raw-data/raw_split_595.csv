@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5941,15791958,Mazzi,849,France,Female,41.0,6,0.0,2,1.0,1.0,169203.51,1
+5942,15791030,Edwards,612,France,Female,33.0,0,64900.32,2,1.0,0.0,102426.12,0
+5943,15695339,Lucchesi,517,Germany,Male,53.0,0,109172.88,1,1.0,0.0,54676.1,1
+5944,15658813,Siciliani,645,France,Female,55.0,7,0.0,2,1.0,1.0,18369.33,0
+5945,15715709,Shih,696,Germany,Male,43.0,4,114091.38,1,0.0,1.0,159888.1,0
+5946,15722533,Logue,716,France,Female,40.0,3,0.0,2,0.0,1.0,167636.15,0
+5947,15683118,Rechner,590,France,Male,32.0,9,0.0,2,1.0,0.0,138889.15,0
+5948,15672798,O'Brien,656,France,Female,45.0,7,145933.27,1,1.0,1.0,199392.14,0
+5949,15680112,Stewart,473,Germany,Female,35.0,7,131504.73,1,1.0,0.0,189560.43,0
+5950,15714575,Batt,742,Germany,Female,44.0,8,107926.02,1,0.0,1.0,17375.27,1

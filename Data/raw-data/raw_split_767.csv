@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7661,15665014,Middleton,458,Spain,Male,36.0,5,0.0,2,1.0,0.0,79723.78,0
+7662,15701738,Arcuri,612,Germany,Male,44.0,2,115163.38,1,1.0,1.0,97677.52,1
+7663,15650591,Calabrese,809,Germany,Male,50.0,10,118098.62,1,1.0,1.0,100720.02,1
+7664,15652667,Hampton,590,France,Male,39.0,9,0.0,2,1.0,1.0,104730.52,0
+7665,15679622,Clayton,602,France,Male,35.0,8,0.0,1,1.0,1.0,22499.29,0
+7666,15730150,Otutodilichukwu,540,Spain,Male,-42,0,120825.7,1,1.0,INVALID,28257.89,0
+7667,15813192,Chukwuemeka,494,France,Male,25.0,6,0.0,2,0.0,1.0,109988.09,0
+7668,15606554,Douglas,797,France,Male,29.0,1,0.0,1,0.0,1.0,149991.32,0
+7669,15611794,Galloway,526,Germany,Male,61.0,6,133845.28,2,1.0,1.0,45180.8,0
+7670,15672357,Sochima,631,Spain,Male,38.0,7,0.0,2,1.0,0.0,181605.85,0

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6021,15781234,Y?an,609,France,Female,35.0,2,147900.43,1,1.0,0.0,140000.29,0
+6022,15579891,Milani,714,France,Male,52.0,4,100755.66,1,1.0,1.0,186775.25,0
+6023,15805690,Chin,694,Spain,Female,35.0,7,0.0,1,1.0,0.0,133570.43,1
+6024,15612139,Fu,786,France,Female,33.0,0,83036.05,1,0.0,1.0,154990.58,1
+6025,15568834,Howells,698,Spain,Male,27.0,6,125427.37,2,0.0,0.0,27654.44,0
+6026,15709917,Ni,601,France,Female,46.0,3,98202.76,1,0.0,0.0,137763.93,0
+6027,,Maslova,769,Spain,Male,41.0,,72509.91,1,1.0,0.0,25723.73,0
+6028,15799494,Forster,850,Germany,Male,44.0,3,140393.65,2,0.0,1.0,186285.52,0
+6029,15671172,Sun,646,Spain,Female,50.0,5,142644.64,not_a_number,1.0,1.0,142208.5,1
+6030,15567486,Bocharova,659,France,Female,44.0,9,23503.31,1,0.0,1.0,169862.01,1

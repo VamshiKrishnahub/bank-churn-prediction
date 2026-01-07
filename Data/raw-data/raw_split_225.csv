@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2241,15670345,Mazzi,785,Germany,Female,33.0,6,127211.45,1,0.0,0.0,191961.83,0
+2242,15633112,Madukaego,681,Germany,Male,42.0,3,118199.97,2,1.0,0.0,9452.88,1
+2243,15714397,INVALID,ERR_198,Germany,Female,30.0,2,101014.08,2,-9999,1.0,165257.31,0
+2244,15780038,Paterson,756,Spain,Male,38.0,6,119208.85,1,1.0,0.0,169763.89,1
+2245,15756305,Marchesi,515,France,Female,66.0,6,0.0,2,1.0,1.0,160663.11,0
+2246,15578799,Anayolisa,ERR_280,France,UNKNOWN,58.0,10,53772.73,1,1.0,1.0,192072.1,1
+2247,15748499,,717,Spain,Female,39.0,6,0.0,2,1.0,0.0,93275.61,0
+2248,15785485,Zhou,595,Germany,Female,41.0,2,138878.81,1,0.0,1.0,112269.67,0
+2249,15783958,Bates,539,Spain,Female,37.0,1,130922.81,2,0.0,0.0,2186.83,0
+2250,15727546,Olejuru,762,France,Male,35.0,9,0.0,2,1.0,1.0,43075.7,0

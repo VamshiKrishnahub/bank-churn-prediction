@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9841,15607877,Maclean,576,Spain,Male,26.0,not_a_number,0.0,###,0.0,1.0,UNKNOWN,0
+9842,15736327,Manna,567,Germany,Female,46.0,1,68238.51,2,1.0,1.0,109572.58,0
+9843,15746704,Jibunoh,638,Spain,Male,30.0,9,136808.53,2,1.0,1.0,106642.97,0
+9844,15778304,Fan,646,Germany,Male,24.0,0,92398.08,1,1.0,1.0,18897.29,0
+9845,15588456,Hsieh,658,France,Female,40.0,5,143566.12,1,1.0,1.0,189607.71,0
+9846,15575935,Parsons,590,Spain,Female,38.0,9,0.0,2,1.0,1.0,148750.16,0
+9847,15596405,Udinese,###,Spain,Male,25.0,7,127728.24,2,1.0,1.0,105279.74,0
+9848,15815097,Root,603,France,Female,34.0,9,0.0,2,1.0,0.0,167916.35,0
+9849,15762708,Chiemezie,619,Spain,Female,38.0,10,119658.49,1,1.0,1.0,8646.58,0
+9850,15776211,,678,France,Female,34.0,,0.0,2,1.0,1.0,-42,0

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7521,15665087,Bergamaschi,595,Germany,Female,99999,8,118547.72,1,1.0,1.0,151192.18,0
+7522,15611189,Allingham,670,Spain,Male,43.0,1,97792.21,1,0.0,0.0,120225.62,0
+7523,15729718,Stelzer,610,France,Male,41.0,6,0.0,3,0.0,0.0,56118.81,1
+,15733602,Rubin,814,Spain,Female,72.0,2,0.0,2,0.0,1.0,130853.03,0
+7525,15620103,Ho,660,France,Female,40.0,8,167181.01,1,1.0,1.0,185156.94,0
+7526,15770406,Watson,580,Germany,Male,35.0,9,121355.19,1,0.0,ERR_851,35671.45,0
+7527,15800554,UNKNOWN,850,France,Female,81.0,1,0.0,2,1.0,1.0,59568.24,0
+7528,15611409,Sun,676,Spain,Male,35.0,0,0.0,2,0.0,0.0,139911.58,0
+7529,15646535,Harrell,578,France,Male,46.0,5,113226.47,1,1.0,0.0,56770.76,0
+7530,15575430,Robson,579,France,Female,33.0,1,118392.75,1,1.0,1.0,157564.75,0

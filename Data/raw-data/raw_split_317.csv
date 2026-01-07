@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+3161,15672821,Owen,591,France,Male,28.0,5,0.0,2,1.0,1.0,48606.92,0
+3162,15767681,Smalley,470,Spain,Male,34.0,9,0.0,2,0.0,1.0,89013.67,0
+3163,15600379,Hsiung,608,Spain,Male,34.0,not_a_number,86656.13,1,0.0,1.0,59890.29,0
+3164,15801336,Ch'ang,649,Germany,Female,37.0,8,114737.26,1,1.0,1.0,106655.88,1
+3165,15721592,Barton,665,France,Female,38.0,5,0.0,2,1.0,0.0,156439.56,0
+3166,15581282,Lucchese,651,France,Female,39.0,6,0.0,1,1.0,0.0,24176.44,0
+3167,15746203,Hsia,555,Germany,Male,62.0,4,119817.33,1,0.0,1.0,43507.1,1
+3168,15583137,Pope,637,France,Female,48.0,7,130806.99,2,1.0,1.0,132005.85,1
+3169,15680752,Horrocks,675,France,Female,49.0,0,0.0,1,1.0,1.0,80496.71,1
+3170,15688172,Tai,677,Spain,Male,40.0,5,0.0,2,1.0,0.0,88947.56,0

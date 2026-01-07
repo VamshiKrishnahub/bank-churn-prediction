@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+3581,15634359,Dyer,639,Germany,Female,41.0,5,98635.77,1,1.0,0.0,199970.74,0
+3582,15586629,Campbell,637,France,Male,33.0,5,0.0,2,1.0,0.0,139947.17,0
+3583,15588461,Cremonesi,686,France,Male,35.0,4,0.0,1,1.0,0.0,8816.37,0
+3584,15773221,Harris,577,Spain,Male,43.0,8,79757.21,1,1.0,0.0,135650.72,-42
+3585,15664227,Threatt,506,Germany,Male,28.0,8,53053.76,1,0.0,1.0,24577.34,0
+3586,15741745,Lane,757,France,Male,28.0,7,120911.75,2,1.0,1.0,131249.46,0
+3587,15652626,Grave,826,France,Male,55.0,4,115285.85,1,1.0,0.0,140126.17,0
+3588,15599410,Stanley,721,France,Male,41.0,2,0.0,2,1.0,0.0,168219.75,0
+3589,15571958,McIntosh,489,Spain,Male,40.0,3,221532.8,1,1.0,0.0,171867.08,0
+3590,15785406,Watts,446,France,Female,51.0,4,105056.13,1,0.0,0.0,70613.52,0

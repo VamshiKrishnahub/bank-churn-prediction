@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6531,15808851,Bufkin,511,Germany,Female,75.0,9,105609.17,1,0.0,1.0,105425.18,0
+6532,15675231,Nwankwo,518,France,Female,45.0,8,0.0,2,1.0,1.0,36193.07,0
+6533,15732299,Boniwell,756,France,Male,67.0,4,0.0,3,1.0,1.0,93081.87,0
+6534,15706269,Willis,489,France,Female,47.0,8,103894.38,2,1.0,1.0,107625.46,0
+6535,15590078,Burns,622,Spain,Male,27.0,9,139834.93,1,1.0,1.0,152733.89,0
+6536,15776985,Kung,652,France,Female,36.0,6,112518.71,2,0.0,,110421.31,0
+6537,15756743,Howells,625,France,Female,37.0,7,115895.42,1,1.0,0.0,48486.25,0
+6538,15782364,Bevan,521,Spain,Female,39.0,3,146408.68,1,0.0,0.0,72993.67,0
+6539,15604093,Neitenstein,546,France,Male,34.0,4,165363.31,2,1.0,1.0,25744.13,1
+6540,15749328,Johnson,697,France,Female,45.0,1,0.0,2,1.0,0.0,46807.62,1

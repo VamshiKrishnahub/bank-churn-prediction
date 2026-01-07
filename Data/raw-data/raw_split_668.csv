@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6671,15667932,Bellucci,758,Spain,Female,43.0,10,0.0,2,1.0,1.0,55313.44,0
+6672,15795933,Barese,677,France,Female,49.0,3,0.0,2,1.0,1.0,187811.71,0
+6673,15660403,Fleming,827,Spain,Female,35.0,0,0.0,2,0.0,1.0,184514.01,0
+6674,15736299,Bell,729,France,Female,36.0,8,109106.8,1,0.0,0.0,121311.12,0
+6675,15759034,Li Fonti,654,France,Male,36.0,2,112262.84,1,###,0.0,12873.39,0
+6676,15724663,Christmas,654,Spain,Female,36.0,5,0.0,2,0.0,0.0,157238.05,0
+6677,15594556,Chuter,619,Spain,Male,52.0,8,0.0,2,1.0,1.0,123242.11,0
+6678,15737169,Johnson,642,Spain,Male,26.0,8,144238.7,1,1.0,1.0,184399.76,0
+6679,15632472,Scott,472,Spain,Female,32.0,1,159397.75,1,0.0,1.0,57323.18,0
+99999,15722813,Byrne,470,Spain,Male,30.0,4,not_a_number,UNKNOWN,1.0,0.0,68293.93,0

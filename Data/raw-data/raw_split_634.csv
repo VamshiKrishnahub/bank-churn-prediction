@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6331,15715117,Peel,744,France,Female,39.0,6,0.0,1,0.0,0.0,10662.58,0
+6332,15701074,Herz,629,Germany,Male,35.0,8,112330.83,1,1.0,1.0,91001.02,0
+6333,15793046,Holden,619,France,Female,35.0,4,90413.12,1,1.0,1.0,20555.21,0
+6334,15623744,McLean,634,France,Male,34.0,8,105302.66,1,1.0,1.0,123164.97,0
+6335,15611329,,608,Spain,Female,35.0,6,0.0,2,1.0,1.0,143463.28,0
+6336,15740428,Wyatt,507,France,Female,35.0,1,0.0,2,0.0,0.0,92131.54,0
+6337,15781534,Rapuluolisa,536,Germany,Female,35.0,4,121520.36,1,0.0,0.0,77178.42,0
+6338,15618243,Buckland,99999,Spain,Female,43.0,1,103960.38,1,1.0,1.0,193650.16,0
+6339,15784161,Hargreaves,583,Germany,Male,39.0,8,102945.01,1,0.0,0.0,52861.89,0
+6340,15700325,Onyeoruru,644,France,Female,24.0,8,92760.55,1,1.0,0.0,35896.75,0

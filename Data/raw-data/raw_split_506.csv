@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5051,15663294,Kao,703,France,Male,32.0,1,125685.79,1,1.0,1.0,56246.72,0
+5052,15572728,Ross,704,Spain,Male,36.0,8,127397.34,1,1.0,0.0,151335.24,0
+not_a_number,15706729,Hsiao,662,France,Male,38.0,0,105271.56,1,not_a_number,1.0,179833.45,0
+5054,15674433,INVALID,636,Germany,Female,28.0,2,115265.14,1,0.0,0.0,,0
+5055,15641170,Liang,640,Spain,Male,36.0,4,0.0,1,0.0,0.0,173016.46,0
+5056,15806284,Briggs,739,Spain,Male,31.0,1,0.0,2,1.0,1.0,58469.75,0
+5057,15618581,Cantrell,767,Germany,Male,23.0,2,139542.82,1,0.0,1.0,28038.28,0
+5058,15606386,Wang,753,Germany,Female,46.0,3,111512.75,3,1.0,0.0,159576.75,1
+5059,15682322,Aksenov,714,France,Male,37.0,9,148466.93,2,0.0,1.0,151280.96,0
+5060,15579915,Glennon,707,France,Male,29.0,4,0.0,2,1.0,0.0,139953.94,0

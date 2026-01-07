@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2061,15747980,Cattaneo,737,Spain,Male,38.0,6,146282.79,2,1.0,0.0,198516.2,0
+2062,15710295,Patrick,445,Germany,Female,38.0,6,119413.62,2,1.0,0.0,175756.36,0
+2063,15724443,Taylor,703,Germany,Female,29.0,3,122084.63,1,0.0,1.0,82824.08,0
+2064,15571305,Stephenson,588,Germany,Female,35.0,1,103060.63,1,1.0,0.0,179866.01,1
+2065,15569503,Yeh,765,France,Male,44.0,6,0.0,2,1.0,1.0,159899.97,0
+2066,15581840,DeRose,626,France,Male,33.0,8,0.0,2,1.0,0.0,138504.28,0
+2067,15772262,Vavilov,545,Germany,Male,37.0,9,110483.86,1,1.0,1.0,127394.67,0
+2068,15767794,Browne,744,France,Male,31.0,9,120718.28,1,1.0,1.0,58961.49,0
+2069,15629338,Collingridge de Tourcey,658,Spain,Female,31.0,2,36566.96,1,1.0,0.0,103644.98,1
+2070,15790379,Rowe,629,Germany,Male,28.0,8,108601.0,1,1.0,1.0,119647.7,0

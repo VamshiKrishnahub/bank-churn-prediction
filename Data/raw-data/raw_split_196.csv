@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+1951,15615456,Aleksandrova,680,France,Female,37.0,10,123806.28,1,1.0,0.0,81776.84,1
+1952,15589793,Onwuamaeze,604,France,Male,53.0,8,144453.75,1,1.0,0.0,190998.96,1
+1953,15781884,Knox,624,Germany,Male,27.0,9,94667.29,2,0.0,1.0,4470.52,0
+1954,15675190,Chia,623,France,Male,21.0,10,0.0,2,0.0,1.0,135851.3,0
+1955,15600734,Townsend,624,Spain,Male,51.0,5,174397.21,2,1.0,1.0,172372.63,0
+1956,15779176,Dike,565,Germany,Female,58.0,3,108888.24,3,0.0,1.0,135875.51,1
+1957,15605286,Moyes,565,France,Male,55.0,4,118803.35,2,1.0,1.0,128124.7,1
+1958,15674922,Beavers,710,France,Male,54.0,6,,1,,1.0,167023.95,1
+1959,15737506,Tretiakova,645,France,Male,42.0,6,0.0,1,0.0,0.0,149807.01,0
+1960,15780514,Fuller,707,France,Male,33.0,8,136678.52,1,1.0,0.0,54290.62,0

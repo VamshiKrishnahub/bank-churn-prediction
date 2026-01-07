@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+3001,15584545,Aksenov,532,France,Female,40.0,5,0.0,2,0.0,1.0,177099.71,0
+3002,15675949,Fleming,696,Spain,Female,43.0,4,0.0,2,1.0,1.0,66406.37,0
+3003,15672091,Ulyanov,786,Germany,Female,32.0,2,104336.43,2,0.0,0.0,59559.81,0
+3004,15801658,Summers,580,France,Male,-9999,6,104305.74,1,0.0,1.0,not_a_number,0
+3005,15706185,Clements,596,Germany,Male,47.0,5,140187.1,2,1.0,1.0,174311.3,0
+3006,15732476,Kazakova,683,France,Male,39.0,4,0.0,2,1.0,ERR_166,not_a_number,0
+3007,15720943,Pirozzi,747,France,Female,45.0,1,114959.12,1,1.0,0.0,189362.39,1
+3008,15697997,Jamieson,602,France,Male,33.0,5,164704.38,1,0.0,1.0,180716.1,1
+3009,15665416,Ferri,779,France,Male,62.0,10,119096.55,1,0.0,1.0,116977.89,0
+3010,15660200,Mai,551,France,Male,31.0,1,0.0,2,1.0,1.0,185105.44,0

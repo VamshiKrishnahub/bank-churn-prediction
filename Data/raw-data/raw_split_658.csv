@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6571,15790958,ERR_659,685,Spain,Male,38.0,4,0.0,2,1.0,1.0,35884.91,0
+6572,15747534,Torkelson,595,France,Male,46.0,10,0.0,1,1.0,0.0,73489.15,1
+6573,15574237,Hsueh,588,France,Female,21.0,8,0.0,2,1.0,1.0,110114.19,0
+6574,15690332,Wang,647,Germany,Male,35.0,3,192407.97,1,1.0,1.0,40145.28,0
+6575,15661290,Hightower,785,Germany,Female,38.0,9,107199.75,1,0.0,0.0,146398.51,0
+6576,15651883,Genovesi,794,Germany,Female,55.0,6,115796.7,1,not_a_number,0.0,160526.36,not_a_number
+6577,15808905,Levan,823,France,Male,37.0,5,164858.18,1,1.0,1.0,173516.71,0
+6578,15715532,Lai,687,Germany,Male,38.0,4,117633.28,-9999,0.0,1.0,88396.6,0
+6579,15786078,Loginov,INVALID,France,Female,28.0,not_a_number,0.0,ERR_619,1.0,0.0,185821.41,0
+6580,15633059,Lafleur,496,France,INVALID,36.0,7,0.0,2,0.0,0.0,108098.28,0

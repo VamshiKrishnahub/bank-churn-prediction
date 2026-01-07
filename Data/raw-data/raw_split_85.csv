@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+841,15771674,Esposito,732,Germany,Male,50.0,6,145338.76,1,0.0,0.0,91936.1,1
+842,15737792,Abbie,818,France,Female,31.0,1,186796.37,1,0.0,0.0,178252.63,0
+843,15599433,Fanucci,660,Germany,Male,35.0,8,58641.43,1,0.0,1.0,198674.08,0
+844,15672012,Jen,99999,Spain,Female,41.0,5,0.0,,1.0,0.0,28266.9,1
+845,15806983,Moss,640,France,Male,44.0,3,137148.68,1,1.0,0.0,92381.01,0
+846,15592222,Lo,505,France,Male,49.0,7,80001.23,1,0.0,0.0,135180.11,0
+847,15608968,Averyanov,714,Germany,Male,21.0,6,86402.52,2,0.0,0.0,27330.59,0
+848,15586959,Unaipon,468,France,Female,42.0,5,0.0,2,1.0,0.0,125305.34,0
+849,15646558,Clamp,611,Spain,Male,51.0,1,122874.74,1,1.0,1.0,149648.45,0
+850,15725811,Lim,705,France,UNKNOWN,25.0,0,97544.29,1,0.0,1.0,59887.15,0

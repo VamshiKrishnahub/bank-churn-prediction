@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2761,15591123,Iredale,557,Germany,Male,68.0,2,100194.44,1,1.0,1.0,38596.34,0
+2762,15573280,Gallagher,646,Germany,Male,50.0,6,145295.31,2,1.0,1.0,27814.74,0
+2763,15589018,Padilla,719,Germany,Male,28.0,3,106070.29,2,1.0,1.0,183893.31,0
+2764,15654495,Potter,706,Germany,Female,47.0,6,120621.89,1,1.0,1.0,140803.7,0
+2765,15597265,Mao,660,France,Male,38.0,7,0.0,2,0.0,1.0,146585.53,0
+2766,15733876,Schneider,667,France,Male,36.0,9,0.0,2,1.0,1.0,40062.29,0
+2767,15677217,Ibragimova,705,France,Male,30.0,1,0.0,1,1.0,1.0,181300.32,0
+2768,15747265,Huang,598,Germany,Female,27.0,10,171283.91,1,1.0,1.0,84136.12,0
+2769,15713379,Anderson,669,France,Male,26.0,4,0.0,2,1.0,1.0,197594.34,0
+2770,15730433,Nakayama,580,Germany,Female,38.0,1,128218.47,1,1.0,0.0,125953.83,1

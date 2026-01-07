@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+4381,15812241,Udinese,-42,Germany,Male,59.0,7,127197.14,1,1.0,0.0,51565.98,INVALID
+4382,15680370,DeRose,492,France,Male,39.0,7,0.0,2,0.0,1.0,71323.23,0
+4383,15780561,Hay,622,France,Female,39.0,9,83456.79,2,0.0,0.0,38882.34,0
+4384,15800784,Bruce,645,France,Male,,4,98298.18,1,1.0,1.0,676.06,0
+4385,15715796,Romani,728,France,Male,37.0,0,0.0,2,1.0,1.0,72203.8,0
+4386,15665222,Tseng,651,France,Male,35.0,2,86911.8,1,1.0,0.0,174094.24,0
+4387,15621520,Tang,783,Germany,Female,42.0,2,139707.28,1,1.0,0.0,2150.22,0
+4388,15665460,Isayeva,732,Spain,Female,67.0,1,0.0,2,1.0,1.0,177783.04,0
+4389,15801152,Hill,553,Spain,Female,39.0,1,142876.98,2,1.0,0.0,44363.42,0
+4390,15756425,Barnes,660,France,Male,30.0,7,146301.31,1,0.0,0.0,96847.91,0

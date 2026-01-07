@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8321,15602354,Ginikanwa,564,Germany,Male,33.0,3,109341.87,1,1.0,0.0,75632.78,0
+8322,15579183,Spaull,586,France,Male,64.0,1,0.0,2,1.0,1.0,53710.23,0
+8323,15599956,Siciliani,617,France,,35.0,5,0.0,2,0.0,1.0,13066.3,0
+8324,15723658,Voronina,712,Spain,Female,30.0,6,0.0,2,1.0,0.0,152417.97,0
+8325,15803965,Tang,654,France,Male,55.0,3,87485.67,1,1.0,1.0,3299.01,0
+8326,15682489,Crumbley,605,France,Male,27.0,9,0.0,2,1.0,0.0,198091.81,0
+8327,15813645,Hamilton,491,France,Female,36.0,-9999,53369.13,1,1.0,1.0,103934.12,0
+8328,15766787,Piazza,707,France,Female,35.0,9,0.0,2,1.0,1.0,70403.65,0
+8329,15687171,Birch,638,Spain,Male,34.0,5,146679.77,1,1.0,0.0,102179.86,0
+8330,15690744,Custance,683,France,Male,43.0,2,112499.42,2,1.0,0.0,30375.18,0

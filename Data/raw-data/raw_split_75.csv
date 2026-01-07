@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+741,15637414,Gell,618,France,Female,24.0,7,128736.39,1,0.0,1.0,37147.61,0
+742,15716835,Rossi,546,France,Male,24.0,8,156325.38,1,1.0,1.0,125381.02,0
+743,15696231,Chiwetelu,635,France,Male,29.0,7,105405.97,1,1.0,1.0,149853.89,0
+744,15641675,Kirillova,611,France,Female,49.0,2,88915.37,3,0.0,0.0,161435.02,1
+745,15670755,Shaw,650,France,Male,60.0,8,0.0,2,1.0,1.0,102925.76,0
+746,15640059,Smith,606,France,Male,40.0,5,0.0,2,1.0,1.0,70899.27,0
+747,15787619,Hsieh,844,France,Male,18.0,2,160980.03,1,0.0,0.0,145936.28,0
+748,15587535,Onyemauchechukwu,450,Spain,Female,46.0,5,177619.71,1,UNKNOWN,0.0,54227.06,0
+749,15813034,Martin,727,Spain,Male,38.0,2,62276.99,1,1.0,1.0,59280.79,0
+750,15698839,Okwudilichukwu,460,Germany,Male,46.0,4,127559.97,2,1.0,1.0,126952.5,0

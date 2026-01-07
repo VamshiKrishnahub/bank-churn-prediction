@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7051,15720529,Schiavone,591,France,Male,29.0,6,0.0,2,1.0,1.0,108684.65,0
+7052,15596797,Barnet,643,Spain,Male,43.0,1,0.0,2,1.0,1.0,145764.4,0
+7053,15681755,Dennys,605,France,Female,32.0,5,0.0,2,1.0,1.0,42135.28,0
+7054,15815271,Ritchie,755,Germany,Male,43.0,6,165048.5,3,1.0,0.0,16929.41,1
+7055,15682860,Lo,769,Spain,Male,38.0,6,0.0,2,0.0,0.0,104393.78,0
+7056,15621546,Yuriev,620,France,Female,33.0,9,127638.35,1,1.0,1.0,192717.57,0
+7057,15705918,Howarth,725,France,Male,31.0,8,0.0,2,1.0,1.0,59650.42,0
+7058,ERR_117,Gibson,818,Germany,Female,72.0,8,135290.42,ERR_778,1.0,1.0,63729.72,0
+7059,15671769,Zikoranachidimma,624,France,Female,71.0,4,170252.05,3,1.0,1.0,73679.59,1
+7060,15642934,UNKNOWN,,Germany,Female,35.0,4,108269.2,2,1.0,0.0,174969.92,0

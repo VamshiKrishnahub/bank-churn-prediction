@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+4251,15631359,Daluchi,489,France,Female,38.0,5,117289.92,1,0.0,0.0,85231.88,0
+4252,15720847,Sheffield,601,France,Male,35.0,2,0.0,2,1.0,1.0,118983.18,0
+4253,15787830,Bailey,452,Germany,Male,33.0,7,153663.27,1,1.0,0.0,111868.23,0
+4254,15599869,Dyson,728,Spain,Female,29.0,1,0.0,1,1.0,1.0,83056.22,0
+4255,15592078,Davide,590,Germany,Female,27.0,8,123599.49,2,1.0,0.0,1676.92,0
+4256,15596228,Uwaezuoke,490,France,Male,29.0,4,0.0,2,1.0,0.0,32089.57,0
+4257,,###,596,Spain,Female,76.0,9,134208.25,1,1.0,1.0,13455.43,0
+4258,15756894,Onwuka,635,France,Male,29.0,1,0.0,1,0.0,1.0,24865.54,0
+4259,15796167,Flores,782,Germany,Male,35.0,7,98556.89,2,1.0,0.0,117644.36,0
+4260,15664808,Nicoll,790,Spain,Female,37.0,3,0.0,3,0.0,0.0,98897.32,0

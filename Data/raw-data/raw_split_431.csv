@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+4301,15633834,Milne,700,Germany,Female,28.0,3,99705.69,2,0.0,0.0,146723.72,0
+4302,15765266,Fleming,615,France,Male,32.0,1,0.0,2,0.0,0.0,2139.25,0
+4303,15791867,Hicks,544,Germany,Male,44.0,2,108895.93,1,0.0,0.0,69228.2,1
+4304,15675380,Logan,573,Spain,Male,56.0,3,154669.77,1,0.0,1.0,115462.27,1
+4305,15770576,Hammond,555,Spain,Male,50.0,7,128061.0,2,1.0,1.0,62375.1,0
+4306,15775294,Weber,692,France,Female,31.0,2,0.0,2,1.0,0.0,91829.17,1
+4307,15727059,Lettiere,476,France,Female,40.0,4,0.0,2,0.0,0.0,182547.04,0
+4308,15702499,Schnaars,770,Spain,Male,46.0,9,190678.02,1,1.0,1.0,14725.36,0
+4309,15611699,Tao,641,France,Female,40.0,7,0.0,1,1.0,0.0,126996.67,0
+4310,15738721,Algarin,705,France,Female,35.0,5,0.0,1,1.0,0.0,,1

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5831,99999,Marcum,684,Germany,Male,37.0,4,138476.41,2,1.0,1.0,52367.29,ERR_953
+5832,15771270,North,635,France,Female,27.0,8,127471.56,1,1.0,1.0,152916.05,1
+5833,15607786,Mao,709,France,Male,26.0,6,156551.63,1,0.0,1.0,4410.77,0
+5834,15624519,Calabrese,656,Germany,Female,49.0,9,97092.87,1,1.0,0.0,74771.22,1
+5835,15799910,Martin,793,France,Male,32.0,2,0.0,2,1.0,0.0,193817.63,1
+5836,15602479,Fleming,609,Spain,Male,37.0,5,129312.79,1,1.0,1.0,26793.82,0
+5837,15617419,Roberts,618,Germany,Female,29.0,10,100315.1,2,1.0,1.0,32526.64,0
+5838,15657603,Finch,850,France,Female,35.0,6,81684.97,1,1.0,0.0,824.0,0
+5839,15570379,Whitelegge,669,Spain,Male,51.0,3,88827.53,1,0.0,0.0,85250.77,1
+5840,15772996,Rooke,594,Germany,Male,40.0,0,152092.44,2,1.0,1.0,83508.93,0

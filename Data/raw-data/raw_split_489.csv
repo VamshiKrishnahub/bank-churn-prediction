@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+4881,15611580,Wood,751,Spain,Male,33.0,4,79281.61,1,1.0,0.0,117547.76,0
+4882,15614778,Robertson,579,France,Male,31.0,6,0.0,2,1.0,0.0,26149.25,0
+4883,15771750,Sawtell,655,Germany,Female,36.0,10,122314.39,1,1.0,0.0,9181.66,0
+4884,15593280,Yuryeva,614,Germany,Male,43.0,8,140733.74,1,1.0,1.0,166588.76,0
+4885,not_a_number,Pisano,,Germany,Male,49.0,2,116933.11,1,1.0,0.0,195053.58,1
+4886,15654408,Kharitonova,562,Spain,Male,41.0,5,165445.04,2,1.0,0.0,85787.31,0
+4887,15657468,Simmons,711,Germany,Female,53.0,5,123805.03,1,1.0,0.0,102428.51,0
+4888,15614213,Muramats,620,France,Male,37.0,0,107548.94,1,1.0,0.0,71175.94,0
+4889,15589869,Tang,437,France,Male,49.0,9,111634.29,2,0.0,1.0,166440.32,0
+4890,15693205,Peng,691,Germany,Female,41.0,8,109153.96,3,1.0,1.0,148848.76,1

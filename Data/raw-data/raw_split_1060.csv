@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+1779,15748947,Chukwuraenye,657,France,Female,41.0,5,95858.37,1,1.0,1.0,68255.88,0
+2415,15806027,Niu,556,France,Female,52.0,not_a_number,0.0,1,1.0,0.0,175149.2,1
+2415,15806027,Niu,556,France,Female,52.0,not_a_number,0.0,1,1.0,0.0,175149.2,1
+6290,15773276,Townsend,633,Spain,Male,63.0,4,114552.6,1,1.0,0.0,73856.28,1
+4156,15708003,INVALID,587,Spain,Male,41.0,8,85109.21,1,not_a_number,0.0,1557.82,0
+1941,15659651,Ross,531,Germany,Female,31.0,7,117052.82,1,1.0,0.0,118508.09,1
+6056,15623972,Wisdom,479,Germany,Female,23.0,9,123575.51,1,not_a_number,1.0,95148.28,0
+1987,15772601,Lu,845,Germany,Female,41.0,2,81733.74,2,0.0,0.0,199761.29,0
+5070,15740878,Yao,655,Spain,Female,29.0,9,0.0,2,0.0,1.0,85736.26,0
+5070,15740878,Yao,655,Spain,Female,29.0,9,0.0,2,0.0,1.0,85736.26,0

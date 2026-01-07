@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8381,15650437,Shen,522,Germany,Male,32.0,8,124450.36,2,1.0,1.0,165786.1,0
+8382,15764314,Reilly,550,Germany,Male,36.0,2,113877.23,2,1.0,0.0,174921.91,0
+8383,15612594,Ifeanacho,599,Spain,Male,25.0,3,0.0,2,1.0,1.0,120790.02,0
+8384,15756125,Graham,493,France,Female,36.0,5,148667.81,2,1.0,0.0,not_a_number,0
+8385,15804150,ERR_617,755,France,Male,34.0,3,0.0,2,1.0,1.0,158816.03,0
+8386,15649297,T'ang,605,France,Female,62.0,4,111065.93,2,0.0,1.0,125660.99,0
+8387,###,Abron,708,France,Male,41.0,0,-42,1,1.0,0.0,128400.62,0
+8388,15660608,Chimaraoke,699,France,Male,44.0,8,UNKNOWN,-42,1.0,0.0,107181.22,0
+8389,15806570,Y?an,763,France,Female,53.0,4,0.0,1,-9999,0.0,77203.72,1
+8390,15715345,Sergeyeva,743,Spain,Male,25.0,6,0.0,2,1.0,0.0,129740.11,0

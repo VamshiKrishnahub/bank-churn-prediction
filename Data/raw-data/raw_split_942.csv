@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9411,15734659,Sozonov,640,Germany,Female,46.0,5,107978.4,2,1.0,0.0,155876.06,0
+9412,15796115,Forbes,689,Germany,Female,40.0,4,78119.59,4,1.0,0.0,119259.34,1
+9413,15724648,Chikezie,725,France,Male,26.0,6,98684.15,1,0.0,0.0,133720.57,0
+9414,15737732,Onwuemelie,751,France,Female,44.0,10,0.0,2,1.0,0.0,170634.49,0
+9415,15627484,Toth,544,Spain,Female,53.0,9,0.0,1,-42,0.0,125692.07,1
+9416,15750407,Hunt,768,Germany,Female,43.0,2,129264.05,2,0.0,0.0,19150.14,0
+9417,15795370,Mazure,648,Germany,Male,37.0,not_a_number,131753.41,1,not_a_number,0.0,86894.67,ERR_778
+9418,15656829,Hughes,577,Spain,Female,33.0,6,0.0,2,1.0,0.0,57975.8,0
+9419,15643794,Bennett,639,Spain,Female,27.0,not_a_number,0.0,1,1.0,1.0,82938.99,0
+not_a_number,15798605,Tien,686,Germany,Male,26.0,1,57422.62,1,1.0,1.0,79189.4,-9999

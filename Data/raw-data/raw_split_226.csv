@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2251,15739576,Bustard,706,Spain,Male,20.0,8,0.0,2,1.0,1.0,12368.11,0
+2252,15631333,Wade,-42,Spain,Female,25.0,8,130866.19,1,1.0,,42410.21,0
+2253,15604782,Tan,733,Germany,Female,33.0,7,187257.94,1,0.0,1.0,190430.81,0
+2254,15589643,Ngozichukwuka,684,Spain,Female,41.0,7,0.0,1,1.0,1.0,138394.37,0
+2255,15585533,Calabrese,679,France,Male,36.0,6,147733.64,1,0.0,1.0,172501.38,0
+2256,15681506,Lane,478,Spain,###,43.0,1,0.0,2,UNKNOWN,1.0,197916.43,0
+2257,15630551,Forbes,696,France,Male,33.0,2,163139.27,1,1.0,1.0,7035.36,0
+2258,15698349,Davy,686,Spain,Female,35.0,4,0.0,2,1.0,1.0,159676.55,0
+2259,15776631,Ma,466,France,Female,36.0,5,119540.15,1,0.0,1.0,80603.99,0
+2260,15762216,Barrera,686,France,Female,41.0,4,129553.76,2,1.0,0.0,187599.8,0

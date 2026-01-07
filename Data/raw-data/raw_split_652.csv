@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6511,15690456,Munro,ERR_698,Spain,Male,46.0,8,62400.48,1,not_a_number,1.0,132498.39,1
+6512,15683157,McGregor,628,France,Female,50.0,4,143054.56,1,0.0,1.0,109608.81,1
+6513,15795429,Henderson,487,France,Male,24.0,7,133628.09,2,1.0,1.0,98570.01,0
+6514,15609254,Fernandez,513,Spain,Female,41.0,9,107135.04,2,1.0,1.0,160546.58,0
+6515,15625141,Porter,563,Spain,Male,26.0,7,0.0,2,0.0,0.0,6139.74,0
+6516,15810898,Pan,,ERR_398,Female,65.0,2,151659.52,2,0.0,1.0,6930.17,0
+6517,15775797,Esposito,607,Spain,Female,32.0,7,0.0,3,0.0,1.0,10674.62,0
+6518,15795246,Kaeppel,628,Germany,Female,51.0,9,155903.82,2,1.0,1.0,71159.84,0
+6519,15795275,Lamb,521,Spain,Female,49.0,4,82940.25,2,0.0,0.0,62413.01,1
+6520,15571869,Lei,669,Germany,Female,50.0,4,112650.89,1,0.0,0.0,166386.22,-9999

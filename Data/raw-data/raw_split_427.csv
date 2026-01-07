@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+4261,15664555,Hughes,587,France,Male,40.0,2,0.0,4,0.0,1.0,106174.7,1
+4262,15607278,Romano,794,Spain,Female,46.0,8,134593.79,1,1.0,1.0,46386.37,0
+4263,15585222,Norman,515,France,Male,41.0,###,0.0,2,1.0,1.0,185054.14,0
+4264,15750299,Davison,746,Spain,Male,24.0,10,68781.82,1,0.0,1.0,47997.39,0
+4265,15761294,Manna,667,Germany,Female,56.0,8,137464.04,1,1.0,0.0,130846.79,1
+4266,15810454,Reed,709,France,Male,32.0,4,147307.91,1,0.0,1.0,40861.55,0
+4267,15673984,Daniels,536,France,Female,35.0,8,0.0,ERR_754,1.0,0.0,171840.24,1
+4268,15609319,Hunt,711,France,Female,41.0,3,145754.91,1,1.0,1.0,101455.07,0
+4269,15709941,Feng,753,France,Male,46.0,8,0.0,3,1.0,0.0,90747.94,1
+4270,15580252,Waters,748,France,Male,44.0,4,112610.77,1,0.0,1.0,2048.55,0

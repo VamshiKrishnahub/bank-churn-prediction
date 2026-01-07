@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5361,15661349,Perkins,633,France,Male,35.0,10,0.0,2,1.0,0.0,65675.47,0
+5362,15782735,Feng,589,France,Male,46.0,9,0.0,2,not_a_number,0.0,170676.67,0
+5363,15779985,Lo,750,Germany,Female,37.0,1,133199.71,2,1.0,1.0,27366.77,0
+5364,15663410,Piccio,771,Spain,Male,51.0,5,135506.58,3,1.0,1.0,152479.64,1
+5365,15704144,Mazzanti,812,Germany,Male,33.0,2,127154.14,2,0.0,1.0,105383.49,0
+5366,15774104,Chukwualuka,539,Spain,Male,39.0,2,0.0,2,1.0,1.0,UNKNOWN,0
+5367,15812230,Elliot,670,Germany,Female,42.0,5,49508.79,3,1.0,1.0,100324.01,0
+5368,15742848,Gratton,673,France,Male,41.0,5,0.0,1,1.0,1.0,65657.29,0
+5369,15745326,Carandini,538,France,Female,62.0,3,75051.49,1,0.0,0.0,17682.02,1
+5370,15674541,Robinson,575,Spain,Male,52.0,8,123925.23,1,0.0,0.0,111342.66,1

@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Expectations Validation Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+        .container { 
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+        }
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .content {
+            padding: 30px;
+        }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .summary-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        .summary-card.success { border-left-color: #28a745; }
+        .summary-card.warning { border-left-color: #ffc107; }
+        .summary-card.danger { border-left-color: #dc3545; }
+        .summary-card h3 {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .summary-card .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #212529;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            font-size: 20px;
+            color: #212529;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        tr:hover {
+            background: #f8f9fa;
+        }
+        .pass {
+            background: #d4edda;
+        }
+        .fail {
+            background: #f8d7da;
+        }
+        .severity-high {
+            border-left: 4px solid #dc3545;
+        }
+        .severity-medium {
+            border-left: 4px solid #ffc107;
+        }
+        .severity-low {
+            border-left: 4px solid #17a2b8;
+        }
+        .badge-high {
+            background: #dc3545;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-medium {
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-low {
+            background: #17a2b8;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .ge-logo {
+            font-weight: bold;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="ge-logo">⚡ Great Expectations</div>
+            <h1>Validation Report</h1>
+            <p>File: raw_split_442.csv | Generated: 2026-01-03 01:32:24 UTC</p>
+        </div>
+
+        <div class="content">
+            <div class="summary">
+                <div class="summary-card">
+                    <h3>Total Rows</h3>
+                    <div class="value">10</div>
+                </div>
+                <div class="summary-card success">
+                    <h3>Valid Rows</h3>
+                    <div class="value">8</div>
+                </div>
+                <div class="summary-card danger">
+                    <h3>Invalid Rows</h3>
+                    <div class="value">2</div>
+                </div>
+                <div class="summary-card danger">
+                    <h3>Criticality</h3>
+                    <div class="value">HIGH</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📊 Validation Summary</h2>
+                <div class="summary">
+                    <div class="summary-card">
+                        <h3>Total Checks</h3>
+                        <div class="value">16</div>
+                    </div>
+                    <div class="summary-card success">
+                        <h3>Passed</h3>
+                        <div class="value">14</div>
+                    </div>
+                    <div class="summary-card danger">
+                        <h3>Failed</h3>
+                        <div class="value">2</div>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Success Rate</h3>
+                        <div class="value">87.5%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>❌ Validation Errors (2)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Error Type</th>
+                            <th>Severity</th>
+                            <th>Description</th>
+                            <th>Failed Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr class="severity-high">
+                <td><strong>out_of_range_income</strong></td>
+                <td><span class="badge-high">HIGH</span></td>
+                <td>EstimatedSalary must be 0-1,000,000</td>
+                <td>N/A</td>
+            </tr>
+            
+            <tr class="severity-medium">
+                <td><strong>format_error</strong></td>
+                <td><span class="badge-medium">MEDIUM</span></td>
+                <td>No ERR_ prefixed or INVALID values</td>
+                <td>N/A</td>
+            </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>📋 All Expectations (16)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="50">Status</th>
+                            <th>Expectation</th>
+                            <th>Description</th>
+                            <th width="100">Severity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr class="pass">
+                <td>✅</td>
+                <td>missing_column</td>
+                <td>Column 'Age' must exist</td>
+                <td><span class="badge-high">HIGH</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>missing_column</td>
+                <td>Column 'Gender' must exist</td>
+                <td><span class="badge-high">HIGH</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>missing_column</td>
+                <td>Column 'Geography' must exist</td>
+                <td><span class="badge-high">HIGH</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>missing_column</td>
+                <td>Column 'EstimatedSalary' must exist</td>
+                <td><span class="badge-high">HIGH</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>missing_value</td>
+                <td>Column 'Age' cannot have nulls</td>
+                <td><span class="badge-medium">MEDIUM</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>missing_value</td>
+                <td>Column 'Gender' cannot have nulls</td>
+                <td><span class="badge-medium">MEDIUM</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>missing_value</td>
+                <td>Column 'Geography' cannot have nulls</td>
+                <td><span class="badge-medium">MEDIUM</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>missing_value</td>
+                <td>Column 'EstimatedSalary' cannot have nulls</td>
+                <td><span class="badge-medium">MEDIUM</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>value_error</td>
+                <td>Age must be numeric</td>
+                <td><span class="badge-high">HIGH</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>out_of_range_age</td>
+                <td>Age must be 0-120</td>
+                <td><span class="badge-high">HIGH</span></td>
+            </tr>
+            
+            <tr class="fail">
+                <td>❌</td>
+                <td>out_of_range_income</td>
+                <td>EstimatedSalary must be 0-1,000,000</td>
+                <td><span class="badge-high">HIGH</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>categorical_error_gender</td>
+                <td>Gender must be Male/Female</td>
+                <td><span class="badge-high">HIGH</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>categorical_error_geography</td>
+                <td>Geography must be France/Spain/Germany</td>
+                <td><span class="badge-medium">MEDIUM</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>duplicate_row</td>
+                <td>No duplicate rows</td>
+                <td><span class="badge-medium">MEDIUM</span></td>
+            </tr>
+            
+            <tr class="pass">
+                <td>✅</td>
+                <td>duplicate_id</td>
+                <td>CustomerId must be unique</td>
+                <td><span class="badge-medium">MEDIUM</span></td>
+            </tr>
+            
+            <tr class="fail">
+                <td>❌</td>
+                <td>format_error</td>
+                <td>No ERR_ prefixed or INVALID values</td>
+                <td><span class="badge-medium">MEDIUM</span></td>
+            </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

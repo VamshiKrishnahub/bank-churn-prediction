@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5181,15799720,Coburn,569,Spain,Male,43.0,8,161546.68,2,0.0,1.0,178187.28,0
+5182,ERR_954,,661,Spain,Female,35.0,5,128415.45,1,1.0,0.0,142626.49,0
+5183,15613102,Ogochukwu,670,France,Female,31.0,2,57530.06,1,1.0,1.0,181893.31,1
+-42,15621440,Soto,694,France,Male,38.0,1,0.0,2,0.0,1.0,156858.2,0
+5185,15677146,Obiajulu,728,France,Female,28.0,4,142243.54,2,1.0,0.0,33074.51,0
+5186,15801169,Yegorova,764,Germany,Female,39.0,9,138341.51,1,1.0,0.0,50072.94,1
+5187,15722425,Lucchese,639,France,Male,32.0,9,0.0,2,1.0,0.0,111340.36,0
+5188,15682421,Talbot,683,France,Female,30.0,2,0.0,2,0.0,1.0,100496.84,1
+5189,15691910,Lu,663,Spain,Male,30.0,4,0.0,3,1.0,0.0,101371.05,0
+5190,15721779,Arnold,826,Spain,Male,41.0,5,146466.46,2,0.0,0.0,180934.67,0

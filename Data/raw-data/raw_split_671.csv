@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6701,15681115,Iroawuchi,787,Spain,Male,39.0,10,108935.39,1,1.0,1.0,101168.3,0
+6702,15629390,Liao,653,France,Male,37.0,7,135847.47,1,1.0,0.0,144880.81,0
+6703,15792668,Hamilton,661,Germany,Male,37.0,7,109908.06,2,1.0,0.0,115037.67,1
+6704,15793070,Chimaobim,681,Germany,Male,49.0,8,142946.18,1,0.0,0.0,187280.51,ERR_227
+6705,15681878,Fan,436,Germany,Male,45.0,3,104339.11,2,1.0,1.0,183540.22,1
+6706,15782875,Cayley,663,France,Male,33.0,5,157274.36,2,1.0,1.0,28531.81,0
+6707,15732235,Kuykendall,662,France,Male,64.0,0,98848.19,1,0.0,1.0,42730.12,0
+6708,15735909,McDonald,607,Germany,Female,39.0,-42,105103.33,1,ERR_610,0.0,not_a_number,1
+6709,15599956,Duncan,754,France,Male,ERR_817,7,0.0,2,1.0,1.0,UNKNOWN,0
+6710,15587647,Browne,850,Germany,Female,66.0,0,127120.62,1,0.0,1.0,118929.64,1

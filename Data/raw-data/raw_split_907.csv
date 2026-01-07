@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9061,15770474,Myers,685,France,Female,33.0,1,0.0,3,0.0,1.0,70221.13,1
+9062,15724444,Wall,567,France,Female,38.0,1,125877.65,2,1.0,1.0,107841.77,0
+9063,15753110,McKay,720,Spain,,64.0,3,45752.78,2,1.0,0.0,INVALID,1
+9064,15711521,Egobudike,609,France,Male,39.0,3,121778.71,1,1.0,1.0,138399.67,0
+9065,15632816,Williams,521,Germany,Female,49.0,2,127948.57,1,1.0,1.0,182765.14,0
+9066,15693637,Ochoa,556,France,Female,30.0,7,0.0,2,1.0,1.0,186648.19,0
+9067,15725509,Otutodilinna,662,Germany,Male,30.0,5,115286.68,2,1.0,1.0,149587.92,0
+9068,15684645,Ajuluchukwu,704,Germany,Male,41.0,9,62078.21,2,1.0,0.0,129050.67,0
+UNKNOWN,15692235,Bellucci,750,France,Female,38.0,not_a_number,0.0,2,1.0,0.0,47764.99,0
+9070,15777459,Gordon,619,Spain,Female,32.0,4,175406.13,2,1.0,1.0,172792.43,1

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6661,15765258,UNKNOWN,776,France,Female,29.0,5,0.0,2,1.0,1.0,143301.49,0
+6662,15623346,Czajkowski,820,France,Male,36.0,4,0.0,2,1.0,0.0,31422.69,0
+6663,15649297,Pankhurst,665,France,Male,36.0,1,0.0,2,ERR_710,1.0,121505.61,0
+6664,15766185,She,850,Germany,Male,31.0,4,146587.3,1,1.0,1.0,89874.82,0
+6665,15667632,Birdseye,703,France,Female,42.0,7,0.0,2,0.0,1.0,72500.68,0
+6666,15599024,Hope,506,Spain,Male,32.0,8,0.0,2,0.0,1.0,182692.8,0
+6667,15798709,Gill,588,Spain,Male,32.0,3,ERR_689,1,0.0,1.0,4993.94,0
+6668,15741921,Moon,622,Spain,Female,26.0,8,0.0,2,1.0,1.0,124964.82,0
+6669,15793671,Watt,ERR_400,France,Male,34.0,5,-42,INVALID,1.0,0.0,161971.42,0
+6670,15797900,Chinomso,517,France,Male,56.0,9,142147.32,1,0.0,0.0,39488.04,1

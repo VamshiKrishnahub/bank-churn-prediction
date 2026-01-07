@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+4891,15797113,Bevan,552,Spain,Female,34.0,4,0.0,2,1.0,0.0,140286.69,0
+4892,15676958,Zito,765,Germany,Male,34.0,5,86055.17,2,1.0,1.0,104220.5,0
+4893,15739592,Sokolov,707,Germany,Female,51.0,10,98438.23,1,0.0,0.0,70778.63,1
+4894,15656263,Teng,764,Spain,Male,29.0,5,0.0,2,1.0,0.0,65868.28,0
+4895,15636872,Amadi,585,France,Female,32.0,8,144705.87,2,0.0,0.0,171482.56,0
+4896,15589435,Davide,784,France,Male,31.0,7,0.0,99999,1.0,1.0,143204.41,0
+4897,15640464,Parkes,605,France,Male,41.0,5,91612.91,1,1.0,1.0,28427.84,0
+4898,15723851,Mazzanti,699,Spain,Male,40.0,2,0.0,1,1.0,0.0,78387.32,0
+4899,15722122,Findlay,544,France,Female,40.0,7,0.0,1,0.0,1.0,161076.92,0
+4900,15664802,Hsu,803,France,Female,32.0,9,192122.84,1,1.0,1.0,54277.45,1

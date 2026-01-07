@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8421,15743076,Pai,669,Spain,Male,29.0,9,not_a_number,1,1.0,1.0,not_a_number,0
+8422,15658258,Trejo,693,France,Male,43.0,6,128760.32,1,1.0,0.0,36342.79,0
+8423,15756321,Johnston,612,Spain,Female,52.0,5,144772.69,1,0.0,0.0,98302.57,1
+8424,15706799,Macknight,719,Spain,Male,44.0,4,0.0,1,0.0,0.0,84972.9,1
+8425,15775703,Lo,702,France,Male,26.0,2,71281.29,1,1.0,1.0,108747.12,1
+8426,15642636,Glossop,755,France,Male,29.0,9,117035.89,1,1.0,1.0,21862.19,0
+8427,15704651,Bishop,514,France,Male,26.0,1,0.0,2,0.0,0.0,121551.93,0
+8428,15806771,Yefremova,753,France,Female,40.0,0,3768.69,2,1.0,0.0,177065.24,1
+8429,15566735,Obialo,548,Germany,Female,36.0,2,108913.84,2,1.0,1.0,140460.01,0
+8430,15681671,Nkemjika,850,Germany,Male,28.0,2,101100.22,2,1.0,1.0,35337.31,0

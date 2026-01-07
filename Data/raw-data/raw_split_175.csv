@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+1741,15672132,Butusov,695,France,Female,42.0,,121453.63,1,0.0,0.0,46374.64,
+1742,15742638,Wang,747,France,Female,25.0,4,0.0,2,0.0,1.0,42039.67,0
+1743,15578603,Alexeieva,584,Germany,Female,54.0,1,77354.37,1,0.0,0.0,138192.98,1
+1744,15726088,Vinogradova,476,France,Male,40.0,6,0.0,1,1.0,1.0,22735.45,0
+1745,15682533,Hughes,850,France,Female,39.0,7,79259.99,1,0.0,1.0,186910.74,0
+1746,15772995,Ts'ao,529,France,Male,30.0,,116295.29,1,1.0,0.0,75285.47,0
+1747,15765694,Bage,584,Spain,ERR_205,59.0,1,0.0,ERR_302,0.0,1.0,130260.11,1
+1748,15659486,Yudina,586,Germany,Male,34.0,9,74309.81,1,1.0,0.0,15034.93,0
+1749,15568963,Naquin,674,Germany,Male,34.0,2,152797.9,1,1.0,0.0,175709.4,1
+1750,15703820,Endrizzi,552,France,Male,42.0,9,133701.07,2,1.0,0.0,101069.71,1

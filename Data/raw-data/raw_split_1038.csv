@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2386,15728352,Yermakov,623,France,ERR_592,27.0,4,120509.81,1,0.0,0.0,142170.44,0
+1056,15769499,Lampungmeiua,545,Spain,Female,74.0,3,0.0,2,1.0,1.0,161326.73,0
+7161,15745375,Nnanna,640,Germany,Male,23.0,3,not_a_number,1,1.0,0.0,161333.13,0
+2221,not_a_number,Lee,714,Germany,Female,49.0,5,140510.89,1,1.0,0.0,141914.94,0
+6989,15769451,Hayes,764,France,Female,44.0,1,0.0,2,1.0,1.0,11467.38,0
+6512,15683157,McGregor,628,France,Female,50.0,4,143054.56,1,0.0,1.0,109608.81,1
+5146,15680597,Cover,784,Germany,Male,38.0,1,138515.02,1,1.0,1.0,171768.76,0
+9538,15780409,Egobudike,783,France,Male,40.0,###,0.0,2,1.0,0.0,109742.55,0
+8486,15724269,Yao,670,France,Male,25.0,7,0.0,2,1.0,1.0,144723.38,0
+3416,15710689,Angel,99999,Spain,Male,40.0,99999,63609.92,1,0.0,0.0,74965.61,1

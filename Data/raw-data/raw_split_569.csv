@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5681,15803947,Teng,757,Germany,Female,30.0,6,161378.02,1,0.0,0.0,71926.28,1
+5682,15720706,Hsing,99999,Spain,Female,39.0,2,82766.43,1,,,122925.44,0
+5683,15759290,Coleman,620,Spain,Male,29.0,9,0.0,2,1.0,0.0,13133.88,0
+5684,15651664,Wilder,615,France,Female,61.0,1,104267.7,1,1.0,0.0,62845.64,1
+5685,15648064,Molineux,735,France,Female,25.0,3,91718.8,1,0.0,0.0,28411.23,0
+5686,15811565,Cocci,705,Spain,Female,47.0,3,63488.7,1,0.0,1.0,28640.92,1
+5687,15713774,Chikwendu,644,Spain,Female,46.0,6,12459.19,1,0.0,0.0,156787.34,1
+5688,15691840,Fraser,505,Germany,Female,37.0,6,159863.9,2,0.0,1.0,125307.87,0
+5689,15682021,Lai,471,Germany,Male,23.0,6,104592.55,2,1.0,0.0,131736.23,0
+5690,15612931,Korovin,722,Spain,Female,50.0,4,132088.59,1,1.0,1.0,128262.14,0

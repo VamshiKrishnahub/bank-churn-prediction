@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2548,15634772,Mario,682,Spain,Female,59.0,0,122661.39,1,0.0,1.0,84803.76,0
+2879,15667751,Herrera,487,Spain,Female,36.0,1,140137.15,1,1.0,0.0,194073.33,0
+1461,15657085,Gardiner,578,France,Male,23.0,10,88980.32,1,1.0,1.0,125222.36,0
+9081,15620443,Fiorentino,711,France,UNKNOWN,81.0,6,0.0,2,1.0,1.0,72276.24,0
+9081,15620443,Fiorentino,711,France,UNKNOWN,81.0,6,0.0,2,1.0,1.0,72276.24,0
+7694,15602043,Buccho,770,ERR_621,Female,46.0,5,141788.63,2,0.0,0.0,164967.21,0
+6641,15815615,Kung,681,France,Male,36.0,5,99999,1,1.0,1.0,185144.08,0
+4771,15761506,Russell,615,Spain,Male,not_a_number,5,0.0,2,1.0,0.0,159920.92,0
+958,15731522,Ts'ui,771,Spain,Female,67.0,8,0.0,2,1.0,1.0,51219.8,0
+7938,15775886,Su,670,France,Male,36.0,3,0.0,1,1.0,not_a_number,140754.19,1

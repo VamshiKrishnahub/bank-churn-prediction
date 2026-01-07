@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8221,15727177,Manfrin,557,France,Male,42.0,6,177822.03,1,1.0,0.0,150944.31,1
+8222,15774358,Robertson,443,Germany,Male,59.0,4,110939.3,1,1.0,0.0,72846.58,1
+8223,15791304,Ch'ang,604,Germany,Male,25.0,7,165413.43,1,1.0,1.0,35279.74,0
+8224,15603328,Lucchesi,483,France,Male,27.0,1,77805.66,1,1.0,1.0,2101.89,0
+8225,15804937,Cambage,702,France,Male,50.0,3,0.0,2,0.0,0.0,not_a_number,0
+8226,15804142,Tan,670,Spain,Female,57.0,3,175575.95,2,1.0,0.0,99061.75,1
+8227,15608845,Tao,804,Spain,Female,38.0,3,124197.22,1,1.0,0.0,74692.06,0
+8228,15702434,Hsieh,850,ERR_439,Female,30.0,3,,ERR_296,1.0,0.0,116692.8,0
+8229,15632609,Burdekin,554,France,Female,39.0,10,160132.75,1,1.0,0.0,32824.15,0
+8230,15603550,ERR_789,588,Germany,Female,37.0,not_a_number,70258.88,2,1.0,0.0,139607.61,0

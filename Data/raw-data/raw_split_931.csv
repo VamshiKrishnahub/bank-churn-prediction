@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9301,15591628,Davies,701,Germany,Male,41.0,9,164046.1,1,1.0,0.0,49405.93,0
+9302,15583857,Siciliano,623,Spain,Female,43.0,4,123536.52,2,0.0,0.0,154908.52,0
+9303,15752534,Mironov,744,France,Male,36.0,10,0.0,2,1.0,1.0,182867.84,0
+9304,15741403,Amechi,698,Spain,Female,38.0,1,171848.38,1,0.0,0.0,16957.45,0
+9305,15783589,Toscano,616,France,Male,40.0,9,0.0,not_a_number,0.0,0.0,93717.55,0
+9306,15598046,Su,662,France,Female,39.0,5,139562.05,2,1.0,0.0,61636.22,0
+9307,15643330,Chukwuemeka,594,France,Male,37.0,2,0.0,2,0.0,1.0,95864.5,0
+9308,15680405,P'eng,685,France,Male,40.0,2,168001.34,2,1.0,1.0,167400.29,0
+9309,15728683,Lombardo,742,ERR_132,Male,27.0,0,0.0,2,0.0,1.0,131534.96,0
+9310,15621644,Lombardi,678,Germany,Male,83.0,6,123356.63,1,0.0,1.0,92934.41,0

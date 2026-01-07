@@ -6,12 +6,15 @@ from airflow.exceptions import AirflowSkipException
 import os
 import random
 import uuid
+import shutil
 from pathlib import Path
 from typing import Dict, List
 
 import pandas as pd
 import numpy as np
 import great_expectations as ge
+from great_expectations.data_context import FileDataContext
+from great_expectations.core.batch import RuntimeBatchRequest
 
 from database.db import (
     Base,
@@ -30,6 +33,7 @@ GOOD_DIR = DATA_DIR / "good_data"
 BAD_DIR = DATA_DIR / "bad_data"
 ARCHIVE_DIR = DATA_DIR / "archive_raw"
 REPORTS_DIR = DATA_DIR / "reports"
+GE_DIR = DATA_DIR / "great_expectations"
 
 FASTAPI_REPORT_URL = "http://fastapi:8000/reports"
 
@@ -43,7 +47,7 @@ default_args = {
 dag = DAG(
     dag_id="data_ingestion_dag",
     default_args=default_args,
-    description="Data ingestion pipeline with Great Expectations validation",
+    description="Data ingestion pipeline with Great Expectations",
     schedule="*/1 * * * *",
     start_date=days_ago(1),
     catchup=False,
@@ -68,7 +72,6 @@ def read_data() -> str:
     if not available:
         raise AirflowSkipException("No CSV files found.")
 
-    # Random selection
     chosen = random.choice(available)
 
     print(f" Selected: {chosen.name}")
@@ -80,10 +83,10 @@ def read_data() -> str:
 
 @task(dag=dag)
 def validate_data(file_path: str) -> Dict:
-
+    """Validate data using Great Expectations with native Data Docs"""
 
     print(f"\n{'=' * 60}")
-    print("TASK 2: Validating data")
+    print("TASK 2: Validating data with Great Expectations")
     print(f"{'=' * 60}\n")
 
     try:
@@ -93,9 +96,11 @@ def validate_data(file_path: str) -> Dict:
         raise AirflowSkipException(f" Cannot read file: {exc}")
 
     if df.empty:
-        raise AirflowSkipException("️ Empty file")
+        raise AirflowSkipException(" Empty file")
 
+    # Use simple GE for validation
     ge_df = ge.from_pandas(df)
+
     errors: List[Dict] = []
     results: List[Dict] = []
     severity_rank = {"low": 1, "medium": 2, "high": 3}
@@ -116,55 +121,64 @@ def validate_data(file_path: str) -> Dict:
             out = {"success": False, "error": str(exc)}
 
         out = serialize(out)
-        results.append({"check": name, "description": description, "severity": severity, "result": out})
+        results.append({
+            "check": name,
+            "description": description,
+            "severity": severity,
+            "result": out
+        })
 
         if not out.get("success", False):
-            errors.append({"type": name, "message": description, "criticality": severity, "details": out})
+            errors.append({
+                "type": name,
+                "message": description,
+                "severity": severity,
+                "details": out
+            })
             if severity_rank[severity] > severity_rank[criticality]:
                 criticality = severity
 
     # Required columns
     required = ["Age", "Gender", "Geography", "EstimatedSalary"]
 
+    # 1. Missing column checks
     for col in required:
         check("missing_column", "high", f"Column '{col}' must exist",
               lambda col=col: ge_df.expect_column_to_exist(col))
 
     if not all(c in df.columns for c in required):
         return {
-            "file_path": file_path, "errors": errors, "criticality": "high",
-            "valid_rows": 0, "invalid_rows": len(df), "expectations": results,
-            "bad_row_indices": list(range(len(df))), "good_row_indices": []
+            "file_path": file_path,
+            "errors": errors,
+            "criticality": "high",
+            "valid_rows": 0,
+            "invalid_rows": len(df),
+            "expectations": results,
+            "bad_row_indices": list(range(len(df))),
+            "good_row_indices": [],
+            "ge_report_url": None
         }
 
-    # Missing values
+    # 2-10. All validation checks
     for col in required:
         check("missing_value", "medium", f"Column '{col}' cannot have nulls",
               lambda col=col: ge_df.expect_column_values_to_not_be_null(col))
 
-    # Type check
     def check_age_numeric():
         age_num = pd.to_numeric(df["Age"], errors="coerce")
         non_num = age_num.isna() & df["Age"].notna()
         return {"success": int(non_num.sum()) == 0, "details": {"non_numeric_age_count": int(non_num.sum())}}
 
     check("value_error", "high", "Age must be numeric", check_age_numeric)
-
-    # Range checks
     check("out_of_range_age", "high", "Age must be 0-120",
           lambda: ge_df.expect_column_values_to_be_between("Age", 0, 120))
-
     check("out_of_range_income", "high", "EstimatedSalary must be 0-1,000,000",
           lambda: ge_df.expect_column_values_to_be_between("EstimatedSalary", 0, 1_000_000))
-
-    # Categorical
     check("categorical_error_gender", "high", "Gender must be Male/Female",
           lambda: ge_df.expect_column_values_to_be_in_set("Gender", ["Male", "Female"]))
-
     check("categorical_error_geography", "medium", "Geography must be France/Spain/Germany",
           lambda: ge_df.expect_column_values_to_be_in_set("Geography", ["France", "Spain", "Germany"]))
 
-    # Duplicates
     dup_rows = df.duplicated(keep=False)
     check("duplicate_row", "medium", "No duplicate rows",
           lambda: {"success": int(dup_rows.sum()) == 0, "details": {"duplicate_count": int(dup_rows.sum())}})
@@ -174,12 +188,14 @@ def validate_data(file_path: str) -> Dict:
         check("duplicate_id", "medium", "CustomerId must be unique",
               lambda: {"success": int(dup_id.sum()) == 0, "details": {"duplicate_id_count": int(dup_id.sum())}})
 
-    # Format errors
-    format_mask = df.apply(lambda col: col.astype(str).str.startswith("ERR_")).any(axis=1)
-    check("format_error", "medium", "No ERR_ prefixed values",
+    format_mask = df.apply(
+        lambda col: col.astype(str).str.contains(r'^(ERR_|INVALID)', regex=True, na=False)
+    ).any(axis=1)
+
+    check("format_error", "medium", "No ERR_ prefixed or INVALID values",
           lambda: {"success": not bool(format_mask.any()), "details": {"format_error_rows": int(format_mask.sum())}})
 
-    # Build bad row mask
+    # Calculate bad rows
     bad_mask = pd.Series(False, index=df.index)
     bad_mask |= df[required].isnull().any(axis=1)
 
@@ -198,127 +214,89 @@ def validate_data(file_path: str) -> Dict:
 
     bad_mask |= format_mask
 
+    numeric_cols = ["HasCrCard", "IsActiveMember", "NumOfProducts", "CreditScore", "Tenure", "Balance"]
+    for col in numeric_cols:
+        if col in df.columns:
+            col_num = pd.to_numeric(df[col], errors="coerce")
+            bad_mask |= col_num.isna()
+
     bad_idx = df.index[bad_mask].tolist()
     good_idx = df.index[~bad_mask].tolist()
 
+    # Generate Great Expectations Data Docs HTML report
+    report_url = None
+    try:
+
+        suite = ge_df.get_expectation_suite()
+
+
+        docs_dir = REPORTS_DIR / "data_docs_ge"
+        docs_dir.mkdir(parents=True, exist_ok=True)
+
+        from great_expectations.render.renderer import ExpectationSuitePageRenderer
+        from great_expectations.render.view import DefaultJinjaPageView
+
+
+        renderer = ExpectationSuitePageRenderer()
+        document = renderer.render(suite)
+
+
+        view = DefaultJinjaPageView()
+        html = view.render(document)
+
+        report_filename = f"{uuid.uuid4().hex}.html"
+        report_path = REPORTS_DIR / report_filename
+        report_path.write_text(html, encoding="utf-8")
+
+        report_url = f"{FASTAPI_REPORT_URL}/{report_filename}"
+        print(f" Great Expectations Data Docs report created: {report_filename}")
+
+    except Exception as e:
+        print(f" Could not create GE Data Docs report: {e}")
+        import traceback
+        traceback.print_exc()
+
     print(f" Valid: {len(good_idx)} |  Invalid: {len(bad_idx)}")
-    print(f" Criticality: {criticality.upper()}\n")
+    print(f" Criticality: {criticality.upper()}")
+    print(f" Errors found: {len(errors)}")
+    print(f"{'=' * 60}\n")
 
     return {
-        "file_path": file_path, "errors": errors, "criticality": criticality,
-        "valid_rows": len(good_idx), "invalid_rows": len(bad_idx),
-        "expectations": results, "bad_row_indices": bad_idx, "good_row_indices": good_idx
+        "file_path": file_path,
+        "errors": errors,
+        "criticality": criticality,
+        "valid_rows": len(good_idx),
+        "invalid_rows": len(bad_idx),
+        "expectations": results,
+        "bad_row_indices": bad_idx,
+        "good_row_indices": good_idx,
+        "ge_report_url": report_url
     }
 
 
 @task(dag=dag)
 def send_alerts(validation: Dict) -> str:
+    """Send Teams alert"""
 
     print(f"\n{'=' * 60}")
-    print("TASK 3: Generating report")
+    print("TASK 3: Sending alerts")
     print(f"{'=' * 60}\n")
 
-    REPORTS_DIR.mkdir(exist_ok=True)
-    report_file = f"{uuid.uuid4().hex}.html"
-    report_path = REPORTS_DIR / report_file
+    report_url = validation.get("ge_report_url")
 
-    # Build error table
-    error_rows = ""
-    for e in validation["errors"]:
-        error_type = e['type']
-        details = e.get('details', {})
+    if not report_url:
+        print(" No report URL found")
+        report_url = f"{FASTAPI_REPORT_URL}/no-report.html"
 
-        # Determine what was found
-        if error_type == "missing_column":
-            found = "Column missing"
-        elif error_type == "missing_value":
-            found = "Null values found"
-        elif error_type == "value_error":
-            count = details.get('non_numeric_age_count', 0)
-            found = f"{count} non-numeric value(s)"
-        elif error_type == "out_of_range_age":
-            found = "Values outside 0-120"
-        elif error_type == "out_of_range_income":
-            found = "Values outside 0-1M"
-        elif error_type.startswith("categorical_error"):
-            found = "Invalid values"
-        elif error_type == "duplicate_row":
-            count = details.get('duplicate_count', 0)
-            found = f"{count} duplicate(s)"
-        elif error_type == "duplicate_id":
-            count = details.get('duplicate_id_count', 0)
-            found = f"{count} duplicate ID(s)"
-        elif error_type == "format_error":
-            count = details.get('format_error_rows', 0)
-            found = f"{count} row(s) with ERR_"
-        else:
-            found = "Error detected"
-
-        error_rows += f"""
-        <tr>
-            <td>{error_type}</td>
-            <td class="{e['criticality']}">{e['criticality'].upper()}</td>
-            <td>{e['message']}</td>
-            <td>{found}</td>
-        </tr>
-        """
-
-    if not validation["errors"]:
-        error_rows = "<tr><td colspan='4' style='text-align:center; color:green;'>✅ No errors</td></tr>"
-
-    total = validation['valid_rows'] + validation['invalid_rows']
-    valid_pct = (validation['valid_rows'] / total * 100) if total > 0 else 0
-    invalid_pct = (validation['invalid_rows'] / total * 100) if total > 0 else 0
-
-    html = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Data Validation Report</title>
-        <style>
-            body {{ font-family: Arial; margin: 40px; }}
-            h1 {{ color: #333; border-bottom: 2px solid #333; padding-bottom: 10px; }}
-            table {{ border-collapse: collapse; width: 100%; margin: 20px 0; }}
-            th, td {{ border: 1px solid #ddd; padding: 10px; text-align: left; }}
-            th {{ background-color: #f2f2f2; }}
-            .high {{ color: red; font-weight: bold; }}
-            .medium {{ color: orange; font-weight: bold; }}
-            .low {{ color: blue; font-weight: bold; }}
-        </style>
-    </head>
-    <body>
-        <h1>Data Validation Report</h1>
-
-        <h3>Summary</h3>
-        <p><b>File:</b> {Path(validation['file_path']).name}</p>
-        <p><b>Total Rows:</b> {total}</p>
-        <p><b>Valid Rows:</b> {validation['valid_rows']} ({valid_pct:.1f}%)</p>
-        <p><b>Invalid Rows:</b> {validation['invalid_rows']} ({invalid_pct:.1f}%)</p>
-        <p><b>Criticality:</b> <span class="{validation['criticality']}">{validation['criticality'].upper()}</span></p>
-
-        <h3>Errors ({len(validation['errors'])})</h3>
-        <table>
-            <tr>
-                <th>Error Type</th>
-                <th>Severity</th>
-                <th>Expected</th>
-                <th>What Was Found</th>
-            </tr>
-            {error_rows}
-        </table>
-    </body>
-    </html>
-    """
-
-    report_path.write_text(html, encoding="utf-8")
-    public_url = f"{FASTAPI_REPORT_URL}/{report_file}"
-
-    print(f" Report: {public_url}\n")
+    print(f" Report URL: {report_url}\n")
 
     if validation["invalid_rows"] > 0:
-        send_teams_alert(validation, public_url)
+        send_teams_alert(validation, report_url)
+        print(" Teams alert sent")
+    else:
+        print(" No errors - skipping alert")
 
-    return public_url
+    return report_url
 
 
 @task(dag=dag)
@@ -338,7 +316,7 @@ def save_statistics(validation: Dict):
             valid_rows=validation["valid_rows"],
             invalid_rows=validation["invalid_rows"],
             criticality=validation["criticality"],
-            report_path=None,
+            report_path=validation.get("ge_report_url"),
         )
         db.add(entry)
         db.commit()
@@ -359,14 +337,14 @@ def split_and_save(validation: Dict):
     print("TASK 5: Splitting and archiving")
     print(f"{'=' * 60}\n")
 
-    GOOD_DIR.mkdir(exist_ok=True)
-    BAD_DIR.mkdir(exist_ok=True)
-    ARCHIVE_DIR.mkdir(exist_ok=True)
+    GOOD_DIR.mkdir(parents=True, exist_ok=True)
+    BAD_DIR.mkdir(parents=True, exist_ok=True)
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
 
     raw_path = Path(validation["file_path"])
 
     if not raw_path.exists():
-        print("️ File already processed\n")
+        print(" File already processed\n")
         return
 
     df = pd.read_csv(raw_path)
@@ -374,19 +352,16 @@ def split_and_save(validation: Dict):
     good_idx = validation.get("good_row_indices", [])
 
     if validation["invalid_rows"] == 0:
-        # All valid
         df.to_csv(GOOD_DIR / raw_path.name, index=False)
         raw_path.rename(ARCHIVE_DIR / raw_path.name)
         print(f" All valid → good_data/\n")
 
     elif validation["valid_rows"] == 0:
-        # All invalid
         df.to_csv(BAD_DIR / raw_path.name, index=False)
         raw_path.rename(ARCHIVE_DIR / raw_path.name)
         print(f" All invalid → bad_data/\n")
 
     else:
-        # Split
         good_df = df.loc[good_idx]
         bad_df = df.loc[bad_idx]
 

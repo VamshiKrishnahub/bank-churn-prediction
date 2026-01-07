@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7361,15591035,Macleod,644,Spain,Male,54.0,6,0.0,1,0.0,1.0,84622.37,0
+7362,15586479,Yin,692,France,Female,36.0,4,0.0,1,1.0,0.0,185580.89,1
+7363,15605872,Felix,707,France,Male,73.0,6,66573.17,1,1.0,1.0,62768.8,0
+7364,15771636,Rippey,603,France,Male,40.0,4,102833.46,2,1.0,1.0,38829.11,0
+7365,15641733,Mishina,671,France,Female,34.0,5,164757.56,1,1.0,0.0,110748.88,0
+7366,15593178,Graham,568,Spain,Female,36.0,10,153610.61,1,1.0,1.0,54083.8,1
+7367,15649183,Johnston,598,Spain,Female,35.0,8,0.0,3,0.0,1.0,88658.73,0
+7368,15736399,Korovin,606,Spain,Male,42.0,10,0.0,2,1.0,0.0,177938.52,0
+7369,15751137,Lei,850,Germany,Female,36.0,3,169025.83,1,1.0,0.0,174235.06,0
+7370,15757188,Chimaijem,644,Spain,Female,26.0,4,153455.72,2,1.0,1.0,82696.84,0

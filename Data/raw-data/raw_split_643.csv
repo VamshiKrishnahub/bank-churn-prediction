@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6421,15718039,Ferguson,606,Germany,Female,47.0,0,137138.2,2,0.0,1.0,53784.22,0
+6422,15579994,Shaw,616,France,Male,23.0,8,73112.95,1,1.0,1.0,62733.05,0
+6423,15595037,Palermo,772,France,Male,47.0,9,152347.01,1,0.0,1.0,17671.78,0
+6424,15600720,Moore,652,Spain,Male,41.0,8,115144.68,1,1.0,0.0,188905.43,0
+6425,15782608,Huang,743,France,Male,43.0,5,0.0,2,0.0,0.0,,1
+6426,15719017,ERR_785,793,France,Male,39.0,3,137817.52,1,0.0,-9999,83997.79,0
+6427,15749123,Sokolova,743,Spain,Male,45.0,7,157332.26,1,1.0,0.0,125424.42,0
+6428,15668943,Henderson,746,France,Male,37.0,2,0.0,2,1.0,0.0,143194.05,0
+6429,15719276,Mosley,627,Germany,Female,39.0,5,124586.93,1,1.0,0.0,93132.61,ERR_392
+6430,15623102,Nnaemeka,713,Spain,Male,38.0,6,116980.78,2,0.0,1.0,76038.38,0

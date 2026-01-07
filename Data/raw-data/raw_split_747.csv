@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7461,15600651,,647,Germany,Male,30.0,6,143138.91,2,1.0,0.0,2955.46,0
+7462,15645571,Genovese,596,Spain,Male,32.0,4,0.0,2,0.0,1.0,146504.35,0
+7463,15598266,Martin,610,France,Male,40.0,9,0.0,1,1.0,1.0,149602.54,0
+7464,15667934,Moretti,512,France,Male,36.0,0,129804.17,1,1.0,0.0,53020.9,0
+7465,15569682,Leckie,768,Germany,Male,37.0,not_a_number,108308.11,1,-9999,0.0,41788.25,1
+7466,15772941,Lane,666,Germany,Male,30.0,3,110153.27,1,0.0,1.0,74849.46,0
+7467,15586174,Brodney,700,Germany,Female,30.0,4,116377.48,1,1.0,1.0,-42,0
+7468,15803682,Angelo,651,Germany,Female,37.0,10,117791.06,2,1.0,1.0,75837.58,0
+7469,15715888,Millar,542,Spain,Female,26.0,2,0.0,2,1.0,1.0,not_a_number,0
+7470,15717065,Balashov,686,France,Female,35.0,8,105419.73,1,1.0,0.0,35356.46,0

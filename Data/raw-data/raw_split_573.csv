@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5721,15794414,Forbes,507,Spain,Male,46.0,6,ERR_429,1,1.0,1.0,51424.29,0
+5722,15643671,Chiekwugo,696,Germany,Male,49.0,5,97036.22,2,1.0,0.0,152450.84,1
+ERR_776,15700650,Cousens,681,France,Male,INVALID,3,0.0,2,not_a_number,0.0,55816.2,0
+5724,15680224,Ross,687,France,Female,26.0,6,0.0,2,1.0,1.0,32909.13,0
+5725,15784286,Wood,641,Spain,Male,40.0,5,102145.13,1,1.0,1.0,100637.07,0
+5726,15693996,Hawks,507,France,Female,33.0,1,113452.66,1,0.0,0.0,142911.99,0
+5727,15764343,T'ien,688,Spain,Female,46.0,8,155681.72,1,1.0,0.0,26287.21,0
+UNKNOWN,not_a_number,Ting,535,Germany,Male,38.0,8,127475.24,1,0.0,0.0,60775.76,1
+5729,15680197,Thynne,701,France,Male,41.0,10,0.0,2,1.0,1.0,146257.77,0
+5730,15605134,Wang,488,France,Male,43.0,not_a_number,112751.13,1,1.0,1.0,28332.0,-9999

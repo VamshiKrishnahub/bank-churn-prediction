@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9521,15673180,Onyekaozulu,727,Germany,Female,18.0,2,93816.7,2,1.0,0.0,126172.11,0
+9522,15660636,Carpenter,540,Spain,Female,40.0,8,0.0,2,1.0,0.0,3560.0,0
+9523,15664504,Beede,418,France,Male,35.0,7,0.0,2,1.0,1.0,88878.15,0
+9524,15790322,Beneventi,660,France,Female,32.0,0,114668.89,1,1.0,0.0,84605.0,0
+9525,15739847,Sadlier,850,Germany,Male,38.0,5,146756.68,1,1.0,0.0,78268.61,0
+9526,15699415,Lewis,618,France,Female,46.0,6,150213.71,1,1.0,0.0,120668.46,1
+9527,15665521,Chiazagomekpele,642,Germany,Male,18.0,-42,111183.53,2,,1.0,10063.75,0
+9528,15682868,Elliott,850,France,Female,40.0,9,99816.46,1,1.0,1.0,163989.66,1
+9529,15584462,Liang,739,France,Male,34.0,9,0.0,1,-9999,0.0,60584.33,0
+9530,15661708,She,508,France,Female,41.0,5,0.0,2,1.0,1.0,94170.84,0

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8581,15801915,Rendall,529,France,Female,31.0,6,152310.55,1,,0.0,13054.25,INVALID
+8582,15580213,McIntyre,585,France,Female,43.0,2,0.0,not_a_number,ERR_379,0.0,ERR_146,0
+8583,15637947,Wei,668,Spain,Male,32.0,not_a_number,134446.04,1,0.0,1.0,111241.37,0
+8584,15715888,Allardyce,591,France,Female,ERR_482,2,142289.28,1,0.0,1.0,119638.85,0
+8585,15732967,Cremonesi,731,France,Male,19.0,6,0.0,2,1.0,1.0,151581.79,0
+8586,15737047,Weatherford,754,France,Female,45.0,6,0.0,1,1.0,0.0,73881.68,1
+8587,15766667,Jen,650,Germany,Female,46.0,9,149003.76,2,1.0,0.0,176902.83,0
+8588,15649457,Macleod,588,Germany,Male,41.0,2,131341.46,2,0.0,1.0,7034.94,0
+8589,,Mironova,712,Spain,Female,29.0,7,not_a_number,1,1.0,0.0,122547.58,0
+8590,15637829,Sharpe,691,France,Female,34.0,7,0.0,2,0.0,1.0,161559.12,0

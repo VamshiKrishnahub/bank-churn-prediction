@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+3731,15689152,Loggia,683,Spain,Male,38.0,3,126152.84,1,0.0,0.0,15378.75,0
+3732,15568573,Graham,554,Germany,Female,51.0,7,105701.91,1,0.0,1.0,179797.79,1
+3733,15689598,Dean,722,France,Male,46.0,6,0.0,1,1.0,1.0,93917.68,1
+3734,15713374,Jarvis,689,Germany,Male,67.0,9,157094.78,1,1.0,1.0,99490.01,0
+3735,15679733,Haugh,796,Germany,Male,40.0,2,113228.38,2,1.0,1.0,46415.09,0
+3736,15802823,Micklem,447,France,Female,32.0,10,0.0,1,1.0,1.0,151815.76,0
+3737,15607748,Bennett,498,Germany,Male,37.0,8,108432.88,2,1.0,1.0,14865.05,0
+3738,15607577,Roberts,663,Spain,Male,27.0,8,0.0,1,1.0,1.0,188007.99,0
+3739,15813697,Onyekaozulu,498,Germany,Female,44.0,2,120702.67,2,1.0,1.0,98175.74,0
+3740,15801125,Kegley,627,France,Female,32.0,1,0.0,1,1.0,0.0,106851.7,-9999

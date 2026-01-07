@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+301,15803976,Efremov,694,France,Female,31.0,10,0.0,2,1.0,0.0,160990.27,0
+302,15682541,Hartley,616,Spain,Female,36.0,6,132311.71,1,0.0,0.0,15462.84,0
+303,15695699,Calabrese,687,France,Male,35.0,8,0.0,2,1.0,0.0,10334.05,0
+304,15624188,Chiu,712,France,Female,33.0,6,0.0,2,1.0,1.0,190686.16,0
+305,15812191,Brennan,553,France,Male,33.0,4,118082.89,1,0.0,0.0,94440.45,0
+306,15636673,Onwuatuegwu,667,France,Male,31.0,1,119266.69,1,1.0,1.0,28257.63,0
+307,15594898,Hewitt,731,France,Male,43.0,2,0.0,1,1.0,1.0,170034.95,1
+308,15660211,Shih,629,Germany,Male,35.0,7,156847.29,2,1.0,0.0,31824.29,0
+309,15773972,Balashov,614,France,Male,50.0,4,137104.47,1,1.0,0.0,127166.49,1
+310,15746726,Doyle,438,Germany,Male,31.0,8,78398.69,1,1.0,0.0,44937.01,0

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+311,15712287,Pokrovskii,652,France,Female,80.0,4,0.0,2,1.0,1.0,188603.07,0
+312,15702919,Collins,729,Germany,Male,30.0,6,63669.42,1,1.0,0.0,145111.37,0
+313,15674398,Russo,642,France,Male,38.0,3,0.0,2,0.0,0.0,171463.83,0
+314,15797960,Skinner,806,Germany,Female,59.0,0,135296.33,1,1.0,0.0,182822.5,0
+315,15631868,Robertson,744,Spain,Male,36.0,2,153804.44,1,1.0,1.0,87213.33,0
+316,15581539,Atkinson,474,Spain,Male,37.0,3,0.0,2,0.0,0.0,57175.32,0
+317,15662736,Doyle,559,France,Male,49.0,2,147069.78,1,1.0,0.0,120540.83,1
+318,15666252,Ritchie,706,Spain,Male,42.0,9,0.0,2,1.0,1.0,28714.34,0
+319,15677512,McEncroe,628,ERR_759,Female,22.0,3,0.0,1,UNKNOWN,0.0,85426.28,INVALID
+320,15626114,Pearson,429,France,Male,24.0,4,95741.75,1,1.0,0.0,46170.75,0

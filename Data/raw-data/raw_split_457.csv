@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+4561,15694518,Kodilinyechukwu,624,Spain,Female,36.0,0,0.0,2,1.0,0.0,111605.9,0
+4562,15638028,Ifeanyichukwu,562,Germany,INVALID,31.0,4,127237.25,2,0.0,1.0,143317.42,0
+4563,15696826,Yermakova,678,,Male,36.0,1,117864.85,2,1.0,0.0,27619.06,0
+4564,15694376,Sullivan,705,Germany,Female,64.0,3,153469.26,3,0.0,0.0,146573.66,1
+4565,15669204,Grant,650,Germany,Male,23.0,4,93911.3,2,1.0,0.0,69055.45,0
+4566,15773779,Jacka,593,Spain,Female,46.0,2,76597.79,1,1.0,1.0,54453.72,0
+4567,15580682,Tsai,652,France,Female,40.0,4,79927.36,2,1.0,1.0,33524.6,0
+4568,15768530,Emery,554,Spain,Female,27.0,4,0.0,2,1.0,1.0,135083.73,0
+4569,15672875,Piccio,584,Germany,Male,32.0,8,40172.91,1,1.0,1.0,137439.34,0
+4570,15617082,Sanders,516,France,Male,ERR_624,not_a_number,115195.58,1,,1.0,11205.5,0

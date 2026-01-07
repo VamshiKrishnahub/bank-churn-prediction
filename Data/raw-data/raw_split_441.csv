@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+4401,15567063,Manna,766,Germany,Female,34.0,6,106434.94,1,0.0,1.0,137995.66,1
+4402,15689633,Toomey,845,Spain,Female,38.0,2,112803.92,1,1.0,0.0,179631.85,0
+4403,15720637,Bell,710,Germany,Female,46.0,10,120530.34,1,1.0,0.0,166586.99,1
+4404,15616859,Bonwick,602,Germany,Female,43.0,2,113641.49,4,1.0,0.0,115116.35,1
+4405,15766166,Folliero,604,Spain,Male,43.0,2,145081.72,1,1.0,1.0,23881.62,0
+4406,15617655,Holt,564,Spain,Female,35.0,9,0.0,2,1.0,1.0,105837.38,0
+4407,15623450,Brown,637,Germany,Female,27.0,7,135842.89,1,1.0,1.0,101418.05,0
+4408,15796612,Ch'ang,527,France,Female,31.0,1,ERR_959,1,1.0,0.0,182266.01,0
+4409,15795963,Fiorentini,687,France,Male,34.0,UNKNOWN,129895.19,1,0.0,1.0,28698.17,0
+,15784491,Middleton,756,Germany,Male,41.0,6,149049.92,1,0.0,1.0,50422.36,1

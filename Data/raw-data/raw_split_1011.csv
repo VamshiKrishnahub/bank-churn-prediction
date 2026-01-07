@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+1244,15593331,Sidorov,693,Germany,Male,25.0,6,146580.69,1,0.0,1.0,14633.35,0
+1244,15593331,Sidorov,693,Germany,Male,25.0,6,146580.69,1,0.0,1.0,14633.35,0
+4205,15798834,Chien,573,France,Male,27.0,2,128243.03,1,-42,1.0,11631.34,0
+3071,15794661,Liu,674,Spain,Male,32.0,2,0.0,2,1.0,ERR_976,140579.17,0
+8375,15646720,Tsui,628,Spain,Female,55.0,7,0.0,3,1.0,0.0,85890.75,
+7646,15698522,Thomas,660,Germany,Male,-9999,9,134599.33,2,1.0,0.0,183095.87,INVALID
+3689,15662578,Dettmann,679,Germany,Male,35.0,1,110245.13,1,1.0,1.0,178291.09,0
+1441,15796334,Chukwualuka,558,Germany,Male,39.0,10,144757.02,1,1.0,0.0,22878.16,1
+1441,15796334,Chukwualuka,558,Germany,Male,39.0,10,144757.02,1,1.0,0.0,22878.16,1
+400,15646372,Outhwaite,616,France,Female,66.0,1,135842.41,1,1.0,0.0,183840.51,1

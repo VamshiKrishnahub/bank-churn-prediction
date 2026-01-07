@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6721,15647207,Onwuemelie,609,France,Male,26.0,7,0.0,2,1.0,0.0,98463.99,0
+6722,15715638,Ch'ang,824,Germany,Male,77.0,3,27517.15,2,0.0,1.0,2746.41,0
+6723,99999,Clendinnen,662,France,Male,29.0,5,147092.65,1,1.0,0.0,10928.3,0
+6724,15766810,Onyemauchechi,99999,Germany,Female,-42,2,92246.14,2,0.0,,91346.03,0
+6725,15756625,Crawford,752,France,Female,41.0,8,0.0,2,1.0,0.0,139844.04,1
+6726,15639552,Mellor,603,Germany,Female,40.0,8,148897.02,1,0.0,0.0,105052.9,0
+6727,15633213,Rizzo,628,Spain,Male,50.0,8,0.0,1,0.0,0.0,144366.83,1
+6728,15610416,Christie,745,France,Female,36.0,9,0.0,1,1.0,0.0,19605.18,1
+not_a_number,15715208,Watkins,804,Germany,Female,33.0,,138335.96,,1.0,1.0,80483.76,0
+6730,15619608,Ojiofor,454,Germany,Female,50.0,10,92895.56,1,1.0,0.0,154344.0,1

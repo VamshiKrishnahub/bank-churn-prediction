@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6401,15585907,Collier,676,Spain,Female,30.0,5,0.0,2,0.0,0.0,179066.58,0
+6402,15579040,Hs?,556,France,Female,46.0,10,0.0,2,0.0,0.0,,0
+6403,15804211,Oluchukwu,719,France,Male,36.0,3,155423.17,1,1.0,1.0,199841.32,0
+6404,15736126,Sung,850,Germany,Male,55.0,0,98710.89,1,1.0,1.0,83617.17,1
+6405,15745399,Marino,649,Spain,Female,49.0,2,0.0,1,1.0,0.0,84863.85,1
+6406,15760749,Vinogradov,509,Spain,Male,41.0,7,126683.8,1,0.0,1.0,114775.53,0
+6407,15763381,Burns,684,ERR_607,Male,33.0,4,140700.61,1,1.0,0.0,103557.93,0
+6408,15657829,,806,Germany,Male,30.0,8,168078.83,not_a_number,1.0,0.0,-42,1
+6409,15738497,Chukwujamuike,729,Spain,Male,44.0,4,107726.93,2,1.0,0.0,153064.87,0
+6410,15690695,Flynn,###,France,Female,33.0,9,0.0,2,1.0,not_a_number,38784.42,ERR_388

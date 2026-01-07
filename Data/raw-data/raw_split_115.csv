@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+1141,15566251,Ferrari,618,France,Female,37.0,5,96652.86,1,1.0,0.0,98686.4,1
+1142,15716134,Russo,617,France,Male,40.0,5,190008.32,2,1.0,1.0,107047.92,0
+99999,15763625,ERR_553,793,Spain,Male,41.0,,0.0,2,1.0,0.0,152153.74,0
+1144,15605965,Henderson,630,France,Male,43.0,9,0.0,2,1.0,1.0,34338.04,0
+1145,15694821,Hardy,765,Germany,Male,43.0,4,148962.76,1,0.0,1.0,173878.87,1
+1146,15601688,Piccio,546,France,Male,28.0,8,0.0,1,1.0,0.0,159254.29,0
+1147,15575581,Dickson,614,Germany,Female,30.0,3,131344.52,2,1.0,0.0,54776.64,0
+1148,15671209,Holden,593,Germany,Female,29.0,5,101713.84,3,1.0,0.0,134594.99,0
+1149,INVALID,Hsieh,613,Spain,Male,34.0,3,0.0,1,1.0,1.0,41724.72,0
+1150,15694188,Doherty,655,ERR_321,Male,38.0,4,0.0,2,0.0,0.0,110527.71,0

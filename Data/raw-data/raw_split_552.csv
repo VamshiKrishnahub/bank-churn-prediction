@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5511,15636330,Ch'in,588,Germany,Female,48.0,1,143279.58,2,1.0,0.0,31580.8,1
+5512,15714970,Holbrook,667,Germany,Male,32.0,0,103846.65,1,1.0,0.0,20560.69,0
+5513,15653784,Solomina,627,France,Male,37.0,2,125190.86,1,0.0,1.0,84584.69,0
+5514,15693543,McDonald,708,France,Female,33.0,8,0.0,2,0.0,1.0,15246.83,0
+UNKNOWN,15773283,,641,France,Male,65.0,6,38340.02,1,1.0,0.0,32607.77,1
+5516,15742534,Faulk,527,Germany,Female,28.0,2,123802.98,2,1.0,1.0,155846.69,0
+5517,15569878,Dale,592,France,Male,37.0,3,96651.03,1,1.0,1.0,3232.82,0
+5518,15729454,Gorbunov,465,France,Male,33.0,8,0.0,2,1.0,0.0,177668.55,0
+5519,15578375,Farrell,628,France,Male,39.0,6,0.0,2,0.0,0.0,134441.6,0
+5520,15785559,De Luca,678,France,Male,43.0,1,133237.21,1,1.0,-42,111032.79,1

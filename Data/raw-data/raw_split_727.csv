@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7261,15571081,Hansen,773,France,Female,41.0,7,190238.93,1,1.0,1.0,57549.65,0
+7262,15734578,Craig,,France,Female,53.0,1,113537.73,1,0.0,1.0,28367.21,0
+7263,15579583,Hall,641,Spain,Female,40.0,4,101090.27,1,1.0,1.0,51703.09,0
+7264,15622729,Sun,649,France,Female,46.0,2,0.0,2,1.0,1.0,66602.7,0
+not_a_number,15662189,Durant,434,Spain,Male,33.0,3,0.0,ERR_862,1.0,1.0,2739.71,0
+7266,15692718,Jackson,738,France,Female,38.0,7,0.0,2,0.0,0.0,69227.42,0
+7267,15762716,Chigozie,762,Spain,Female,60.0,10,168920.75,-9999,1.0,0.0,31445.03,1
+7268,15724851,Farmer,507,Germany,Male,31.0,9,111589.67,1,1.0,0.0,150037.19,0
+7269,15587266,Douglas,606,Germany,Female,27.0,6,172310.33,1,0.0,1.0,111448.92,0
+7270,15675926,Ardis,655,Germany,Male,34.0,7,118028.35,1,1.0,0.0,51226.32,1

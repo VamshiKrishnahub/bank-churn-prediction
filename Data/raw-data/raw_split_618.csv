@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6171,15611157,McElhone,709,France,Female,32.0,2,87814.89,1,1.0,0.0,138578.37,0
+6172,15673837,Ko,617,Spain,Male,61.0,3,113858.95,1,1.0,1.0,38129.22,0
+6173,15656822,Day,568,Germany,Male,43.0,5,ERR_332,4,1.0,1.0,107155.4,1
+6174,15580560,Harris,769,France,Female,73.0,1,0.0,1,1.0,1.0,29792.11,0
+6175,15760641,Gerald,608,Germany,Male,26.0,1,106648.98,1,0.0,1.0,UNKNOWN,0
+6176,15587584,Nebeuwa,503,Spain,Male,31.0,4,0.0,2,1.0,1.0,21645.06,0
+6177,15604146,Kaodilinakachukwu,608,Germany,Female,38.0,8,103653.51,2,1.0,1.0,137079.86,0
+6178,15813974,Maruff,731,Germany,Male,37.0,3,116880.53,1,0.0,0.0,172718.35,1
+6179,not_a_number,Howe,850,Germany,Female,40.0,4,97990.49,2,0.0,0.0,not_a_number,0
+6180,15759741,Knepper,591,Germany,Female,34.0,4,150635.3,1,1.0,1.0,99999,0

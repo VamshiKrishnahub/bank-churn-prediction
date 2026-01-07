@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5931,15645744,Chukwudi,826,France,Female,30.0,5,0.0,2,0.0,1.0,157397.57,0
+5932,15566988,Iqbal,656,Germany,Female,46.0,7,141535.52,1,1.0,0.0,50595.15,1
+5933,15749300,Teng,-42,France,Female,47.0,2,139914.27,1,1.0,not_a_number,50390.98,0
+5934,15594340,Tao,569,France,Male,41.0,INVALID,120243.49,1,1.0,0.0,163150.03,1
+5935,15607065,Chinedum,765,France,Male,34.0,9,91835.16,1,0.0,0.0,138280.17,0
+5936,15778089,Stevenson,544,Spain,Male,37.0,2,0.0,2,INVALID,0.0,135067.02,0
+5937,15773723,Duncan,588,Spain,Female,22.0,9,67178.19,1,1.0,1.0,163534.75,1
+5938,15697035,Garrett,740,Spain,Female,31.0,8,0.0,2,0.0,0.0,86657.48,0
+5939,15679668,Yao,850,Spain,Male,99999,7,115378.94,1,0.0,1.0,162087.82,0
+5940,15709861,He,766,Germany,Male,30.0,4,127786.28,2,1.0,1.0,28879.3,0

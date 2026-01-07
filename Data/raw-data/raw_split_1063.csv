@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5429,15623082,Ch'ang,507,France,Female,35.0,2,0.0,2,UNKNOWN,0.0,97633.93,0
+8798,15630466,Maclean,797,France,Male,45.0,8,0.0,1,0.0,0.0,125110.02,0
+618,15766575,Larionova,612,Germany,Female,62.0,8,140745.33,1,1.0,0.0,-9999,1
+704,15566292,Okwuadigbo,574,Spain,Male,36.0,1,0.0,2,0.0,1.0,71709.12,0
+9011,15786463,Hsing,645,Germany,Female,59.0,8,121669.93,2,0.0,0.0,91.75,1
+8620,15661830,Lucciano,750,Spain,Female,36.0,6,0.0,2,1.0,1.0,59816.41,0
+8622,15673820,UNKNOWN,568,France,Male,33.0,UNKNOWN,0.0,2,1.0,0.0,143450.61,0
+7973,15806929,Ch'ien,751,Germany,Male,36.0,5,73194.99,1,1.0,1.0,89222.66,0
+8890,15777046,Parry,580,France,Female,39.0,9,128362.59,1,1.0,0.0,86044.98,0
+5111,15682547,Murphy,682,France,Female,33.0,8,74963.5,1,1.0,1.0,32770.56,0

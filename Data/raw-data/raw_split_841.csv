@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8401,15632069,Kazantsev,776,France,Male,39.0,8,125211.55,2,1.0,0.0,144496.07,0
+8402,15663134,Uspenskaya,535,Spain,Male,58.0,1,0.0,2,1.0,1.0,11779.98,1
+8403,ERR_861,Coombes,549,Germany,Male,36.0,6,139422.37,1,0.0,0.0,83983.39,1
+8404,15707219,Hopman,844,France,Female,28.0,4,0.0,not_a_number,0.0,1.0,123318.37,0
+ERR_291,15709232,McKay,586,Germany,,47.0,5,157099.47,2,1.0,1.0,65481.86,0
+8406,15801351,Milanesi,583,France,Male,40.0,3,0.0,2,1.0,0.0,47728.0,0
+8407,15578747,Chineze,701,Spain,Male,26.0,5,83600.24,1,0.0,1.0,59195.05,0
+8408,15675626,Dawson,726,France,Male,28.0,2,0.0,1,0.0,0.0,98060.51,0
+8409,15583736,Shih,829,Germany,Male,36.0,4,81795.74,2,1.0,0.0,90106.94,0
+8410,15590011,Hughes,749,Spain,Male,38.0,9,129378.32,1,1.0,-42,13549.34,0

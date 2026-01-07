@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8301,15802625,Hardy,733,Germany,Male,48.0,7,85915.52,1,1.0,1.0,23860.5,0
+8302,15766017,Brookman,615,Germany,Male,58.0,###,72309.3,1,1.0,1.0,85687.09,1
+8303,15762172,Kerr,ERR_566,France,Female,39.0,2,0.0,2,1.0,0.0,179451.42,0
+8304,15728333,McBurney,521,France,Male,43.0,8,0.0,1,1.0,1.0,93180.09,0
+8305,15792868,Mickey,675,France,Male,69.0,,0.0,2,1.0,0.0,157097.09,0
+8306,15605698,Harrison,746,France,Male,58.0,3,0.0,3,1.0,1.0,80344.96,1
+8307,15777060,Olszewski,770,France,Female,33.0,4,0.0,1,1.0,0.0,26080.54,1
+8308,15626243,Chijioke,618,France,Male,30.0,3,133844.22,1,99999,1.0,31406.93,0
+8309,15719898,Young,556,France,Male,36.0,7,154872.08,2,1.0,1.0,32044.64,0
+8310,15599976,Bellasis,749,France,Female,27.0,9,0.0,2,1.0,0.0,132734.87,0

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7891,15665783,Ts'ui,565,France,Male,49.0,7,0.0,2,1.0,1.0,89609.26,0
+7892,UNKNOWN,Chibuzo,678,Germany,Male,48.0,2,101099.9,2,0.0,1.0,193476.04,0
+7893,15707025,Fang,648,Spain,Female,31.0,5,0.0,2,1.0,1.0,5199.02,0
+7894,15647807,Wyckoff,642,France,Male,40.0,8,109219.83,1,1.0,0.0,52827.51,0
+7895,15718281,Muir,706,Germany,Male,67.0,1,123276.69,2,1.0,1.0,86507.88,1
+7896,15660571,Halpern,668,Spain,Male,43.0,10,113034.31,1,1.0,1.0,100423.88,0
+7897,15727857,Flynn,635,Spain,Male,41.0,1,0.0,2,1.0,0.0,175611.5,0
+7898,15639252,Shao,603,Spain,Male,30.0,6,129548.5,2,1.0,1.0,19282.85,0
+7899,15628144,Soares,635,France,Female,72.0,4,74812.84,1,0.0,1.0,27448.33,0
+7900,15683560,Gallo,642,France,Female,40.0,7,0.0,2,1.0,0.0,183963.34,0

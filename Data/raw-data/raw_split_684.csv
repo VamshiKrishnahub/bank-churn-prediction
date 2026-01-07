@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6831,15669262,Maslov,765,France,Male,43.0,9,157960.49,2,0.0,0.0,136602.8,0
+not_a_number,15696989,Chukwueloka,469,Germany,Female,52.0,8,139493.25,3,0.0,not_a_number,150093.32,1
+6833,15688498,Chu,594,Germany,Female,21.0,2,87096.82,2,1.0,0.0,168186.11,0
+6834,15686964,Spence,675,France,Female,34.0,10,84944.58,1,0.0,0.0,146230.63,0
+6835,15625035,Mills,703,France,Male,50.0,8,160139.59,2,1.0,1.0,79314.1,0
+6836,15618391,Doyle,810,France,Male,33.0,6,0.0,2,1.0,1.0,77965.67,0
+6837,15591344,Donnelly,715,Spain,Male,42.0,6,0.0,2,1.0,1.0,128745.69,0
+6838,15605455,Tai,664,France,Male,40.0,9,0.0,2,1.0,0.0,194767.3,0
+6839,15680804,Abbott,850,France,Male,29.0,6,0.0,2,1.0,1.0,10672.54,0
+,15768282,Perez,724,Germany,Male,36.0,6,94615.11,2,1.0,1.0,10627.21,0

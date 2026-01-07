@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6681,15588450,Chukwudi,633,France,Female,60.0,8,69365.25,1,1.0,1.0,10288.24,0
+6682,15736717,Ma,602,France,Male,not_a_number,7,155271.83,1,1.0,1.0,179446.31,0
+6683,15680683,Simmons,640,Spain,Male,29.0,5,197200.04,2,1.0,0.0,141453.62,0
+6684,15710316,Fang,454,Spain,Female,48.0,5,144837.79,1,1.0,1.0,93151.77,0
+6685,15746333,Blake,562,France,Female,57.0,3,0.0,3,1.0,0.0,6554.97,1
+6686,15606861,Tien,636,France,Male,34.0,8,0.0,2,1.0,0.0,38570.13,0
+6687,15641285,Yusupova,621,Spain,Male,50.0,3,163085.79,1,0.0,1.0,131048.36,0
+6688,15662908,Davidson,795,Germany,Male,38.0,7,UNKNOWN,2,99999,1.0,127068.92,0
+6689,15814267,Zhdanova,550,France,Male,22.0,6,154377.3,1,1.0,1.0,51721.52,0
+6690,15614923,Nielson,630,Spain,Male,41.0,7,107511.52,1,0.0,1.0,46156.87,0

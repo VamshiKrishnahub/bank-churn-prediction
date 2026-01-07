@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+not_a_number,15765257,Meng,564,Spain,Male,31.0,5,121461.87,1,1.0,1.0,20432.09,1
+1015,15585961,Talbot,496,Spain,Female,43.0,3,0.0,2,0.0,1.0,199505.53,0
+349,15735203,Seleznyov,654,Germany,Female,32.0,1,114510.85,1,1.0,1.0,126143.23,0
+4458,15743617,Chesnokova,713,Germany,Male,47.0,1,95994.98,1,1.0,0.0,197529.23,0
+4829,15592379,Walker,741,Spain,Female,42.0,9,121056.63,2,1.0,0.0,39122.58,0
+2795,15597930,Wilson,646,France,Male,52.0,,59669.43,1,0.0,0.0,172495.81,1
+3438,15619436,Pan,700,France,Female,32.0,3,0.0,1,0.0,0.0,95740.37,0
+3597,15707199,Cooper,643,France,Male,36.0,0,148159.71,1,0.0,0.0,99999,0
+2167,15780650,Biryukov,667,France,Male,40.0,9,0.0,1,1.0,1.0,96670.2,0
+8856,15689953,Toscani,697,Spain,Male,43.0,10,128226.37,1,0.0,0.0,188486.94,0

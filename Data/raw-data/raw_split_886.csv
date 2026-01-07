@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8851,15590201,Fiorentini,500,Spain,Female,50.0,5,0.0,4,1.0,1.0,83866.35,1
+8852,15590828,Chidimma,782,Germany,Male,42.0,7,126428.38,1,1.0,0.0,39830.1,0
+8853,15752097,Chiazagomekpere,708,Spain,Male,38.0,8,99640.89,1,1.0,0.0,12429.22,0
+8854,15800031,Laura,681,France,Male,43.0,3,66338.68,1,1.0,1.0,18772.5,1
+8855,15630857,Wu,674,Spain,Female,39.0,6,0.0,2,1.0,1.0,9574.83,0
+8856,15689953,Toscani,697,Spain,Male,43.0,10,128226.37,1,0.0,0.0,188486.94,0
+8857,15759733,McMillan,774,France,Female,26.0,5,0.0,2,1.0,1.0,64716.08,0
+8858,15810826,Chiekwugo,624,France,Male,36.0,6,0.0,2,0.0,0.0,84749.96,0
+8859,15668009,Hendley,747,Spain,Male,37.0,1,0.0,2,0.0,1.0,180551.76,0
+8860,15743456,Birnie,715,France,Female,32.0,10,0.0,2,1.0,0.0,60907.49,0

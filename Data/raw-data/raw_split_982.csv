@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9811,15705994,Udinese,712,Spain,Male,27.0,10,not_a_number,1,1.0,,94544.88,0
+9812,15772421,Tretiakov,645,Germany,Female,31.0,1,,1,1.0,1.0,2850.01,0
+9813,15711572,O'Kane,705,Germany,Female,31.0,9,110941.93,2,1.0,0.0,163484.8,0
+9814,15620936,Vasilyeva,590,Spain,Female,29.0,10,99250.08,1,1.0,1.0,129629.41,ERR_974
+9815,15600106,Wei,631,France,Male,36.0,1,0.0,2,0.0,0.0,133141.34,0
+9816,15745431,Chinonyelum,604,France,Male,34.0,7,0.0,2,1.0,1.0,188078.55,0
+9817,15649508,Chin,643,Spain,Male,48.0,8,0.0,2,1.0,0.0,174729.3,0
+9818,15812611,Lorimer,690,Spain,Female,30.0,5,0.0,2,0.0,1.0,78700.03,0
+9819,15619699,Yeh,558,France,Male,31.0,7,0.0,1,1.0,0.0,198269.08,0
+9820,15813946,Duffy,637,Germany,Male,51.0,1,104682.83,1,1.0,0.0,55266.96,1

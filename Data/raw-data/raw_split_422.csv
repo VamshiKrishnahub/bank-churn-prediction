@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+4211,15731117,Kao,437,Spain,Male,28.0,2,109161.25,1,1.0,0.0,152987.42,0
+4212,15615207,Yeh,792,Spain,UNKNOWN,47.0,0,0.0,1,1.0,1.0,ERR_241,1
+4213,15773512,Bischof,627,Spain,Female,25.0,4,0.0,1,1.0,1.0,194313.93,0
+4214,15572145,Ashton,767,France,Female,34.0,8,0.0,2,1.0,0.0,94767.77,0
+4215,15642710,Napolitani,686,France,Male,26.0,7,0.0,2,1.0,0.0,1540.89,0
+4216,15574213,Wilson,789,France,Female,53.0,1,158271.74,1,1.0,1.0,5036.39,1
+4217,15718852,Uren,794,France,Male,56.0,9,96951.21,1,1.0,1.0,71776.76,0
+4218,15583840,Okechukwu,587,Germany,Male,35.0,5,121863.61,1,1.0,1.0,23481.69,1
+4219,15782418,Ku,589,Germany,Female,19.0,9,83495.11,1,1.0,1.0,143022.31,1
+4220,15813504,Onyemachukwu,543,Germany,Female,25.0,1,146566.01,1,0.0,1.0,161407.48,0

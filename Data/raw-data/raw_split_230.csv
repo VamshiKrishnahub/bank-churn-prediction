@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2291,15674880,Archer,658,Spain,Male,50.0,2,0.0,2,1.0,0.0,52137.73,0
+2292,15778157,Murray,598,Spain,Male,27.0,8,90721.52,2,1.0,0.0,109296.18,0
+2293,15779064,Chidiegwu,677,France,Male,27.0,2,0.0,2,1.0,1.0,20092.89,0
+2294,15801265,Tang,689,Spain,Female,45.0,0,57784.22,1,1.0,0.0,197804.0,1
+2295,15589204,Farrar,591,France,Male,33.0,9,131765.72,1,1.0,0.0,118782.06,0
+2296,15664543,Shaw,699,France,Male,40.0,7,0.0,1,0.0,1.0,152876.13,1
+2297,15582714,Napolitani,749,Germany,Male,47.0,9,110022.74,1,0.0,1.0,,1
+2298,15797595,Greenhalgh,709,France,Female,40.0,9,131569.63,1,1.0,1.0,103970.58,0
+2299,15614034,Martin,607,Germany,Male,61.0,2,164523.5,2,1.0,1.0,35786.76,0
+2300,15763171,Hu,650,Germany,Female,25.0,2,114330.95,1,1.0,1.0,25325.07,0

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9011,15786463,Hsing,645,Germany,Female,59.0,8,121669.93,2,0.0,0.0,91.75,1
+9012,15717498,Boni,775,France,Male,42.0,6,133970.22,2,0.0,1.0,187839.9,0
+9013,15718406,Marshall,540,France,Male,41.0,3,0.0,2,1.0,0.0,121098.65,0
+9014,15799468,Catchpole,591,France,Female,34.0,3,96127.27,1,0.0,0.0,30972.06,0
+9015,15626383,Tang,596,Spain,Male,60.0,7,121907.97,1,0.0,1.0,30314.04,0
+9016,15597385,Siddons,573,Spain,,41.0,5,ERR_194,2,0.0,1.0,14479.29,0
+9017,15570271,Wan,577,Spain,Male,31.0,6,0.0,1,1.0,1.0,196395.25,0
+9018,15690330,Efimov,830,Germany,Female,40.0,8,77701.64,1,0.0,1.0,19512.38,0
+9019,15680611,Rose,663,France,Male,67.0,9,0.0,3,1.0,1.0,72318.77,0
+9020,15810227,Fanucci,421,France,Male,34.0,2,0.0,2,1.0,1.0,96615.23,0

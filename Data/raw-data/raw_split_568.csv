@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5671,15709653,Hamilton,497,France,Male,32.0,8,0.0,2,1.0,0.0,67364.42,0
+5672,15805104,Smith,743,France,Female,73.0,6,0.0,2,0.0,1.0,107867.38,0
+5673,15622442,Mazzi,619,France,Male,29.0,5,0.0,2,1.0,0.0,194310.1,0
+5674,15572801,Krischock,639,Spain,Male,34.0,5,139393.19,2,0.0,0.0,33950.08,0
+5675,15767598,Kent,540,Spain,Male,28.0,8,0.0,2,0.0,0.0,197588.32,0
+5676,15757897,Binder,766,France,Female,26.0,3,104258.8,1,1.0,1.0,428.23,0
+5677,15568104,Zubarev,749,France,Female,26.0,6,0.0,2,0.0,1.0,34948.77,0
+5678,15763414,Degtyarev,655,Germany,Male,32.0,9,113447.01,1,1.0,0.0,82084.3,0
+5679,15732265,Obialo,630,France,Male,33.0,9,0.0,2,1.0,0.0,64804.59,0
+5680,15621974,UNKNOWN,778,,Female,33.0,4,111063.73,2,1.0,0.0,83556.65,0

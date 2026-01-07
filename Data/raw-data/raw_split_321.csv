@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+3201,15720745,Murray,635,Spain,Male,24.0,4,140197.18,1,1.0,1.0,142935.83,0
+3202,15637593,Greco,not_a_number,France,Male,20.0,6,0.0,2,1.0,0.0,195486.28,not_a_number
+3203,15598070,Marchesi,564,France,Female,33.0,4,135946.26,1,1.0,0.0,63170.0,0
+3204,15787550,Chao,719,France,Male,69.0,ERR_415,0.0,2,1.0,1.0,58320.06,0
+3205,15603942,Hawthorn,547,Germany,Male,50.0,3,81290.02,3,0.0,1.0,177747.03,1
+3206,15733973,Bibi,850,France,Female,42.0,8,0.0,1,1.0,0.0,19632.64,1
+3207,15596761,Hawdon,515,Germany,Male,60.0,9,113715.36,1,1.0,0.0,18424.24,1
+3208,15652400,Moss,667,Spain,Male,56.0,2,168883.08,,0.0,1.0,18897.78,0
+3209,15717893,Briggs,607,Germany,Male,36.0,UNKNOWN,143421.74,1,1.0,0.0,97879.02,0
+3210,15622585,McIntyre,525,France,Male,26.0,7,153644.39,1,1.0,not_a_number,63197.88,0

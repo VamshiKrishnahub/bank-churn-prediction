@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5201,15641298,Corones,512,Germany,Male,42.0,9,93955.83,2,1.0,0.0,14828.54,0
+5202,15625675,Clements,569,France,Male,36.0,1,67087.69,1,1.0,0.0,154775.7,0
+5203,15713354,Morrice,597,Germany,Female,22.0,6,101528.61,1,1.0,0.0,70529.0,1
+5204,15633866,Hsiung,ERR_455,Germany,Male,30.0,1,110824.52,1,1.0,1.0,57896.27,-42
+5205,15704231,Barrett,430,France,Female,33.0,8,0.0,1,1.0,1.0,69759.91,0
+5206,15793116,Kanayochukwu,756,France,Male,not_a_number,8,179960.2,###,1.0,0.0,89938.08,0
+5207,,Tardent,493,France,Male,38.0,3,134006.77,1,1.0,0.0,89578.32,0
+5208,15751022,Bowhay,777,Germany,Female,37.0,10,121532.17,2,1.0,1.0,73464.88,0
+5209,15664737,Lei,779,Spain,Female,38.0,7,0.0,2,1.0,1.0,138542.87,0
+5210,15681126,Baker,702,Spain,Female,38.0,2,0.0,1,1.0,1.0,161888.63,0

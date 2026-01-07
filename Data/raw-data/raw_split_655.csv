@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6541,15656322,Sandover,571,Germany,Male,33.0,3,71843.15,1,1.0,0.0,26772.04,0
+6542,15685564,Nnamutaezinwa,748,Spain,Male,35.0,5,105492.53,1,not_a_number,1.0,150057.2,99999
+6543,15785831,Sinclair,591,France,Male,35.0,7,183027.25,1,1.0,1.0,56028.79,0
+6544,15796218,Wei,814,Germany,Male,29.0,1,131968.57,2,1.0,1.0,147693.92,0
+6545,15716218,Higgins,709,France,Female,45.0,3,104118.5,1,0.0,1.0,174032.0,0
+6546,15572735,Chang,433,Spain,Male,27.0,2,0.0,2,1.0,1.0,153698.65,0
+6547,15633840,Henderson,781,France,Male,20.0,0,125023.1,2,1.0,1.0,108301.45,0
+6548,15608760,Cox,656,France,Female,30.0,4,74323.2,1,1.0,1.0,22929.08,0
+6549,15627848,Tsui,683,France,Male,38.0,7,109346.13,2,1.0,0.0,102665.92,0
+UNKNOWN,15792029,Lee,620,France,Male,32.0,6,0.0,2,1.0,0.0,56139.09,0

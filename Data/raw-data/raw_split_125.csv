@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+1241,15617934,Septimus,579,France,Male,36.0,9,99999,1,1.0,1.0,not_a_number,0
+1242,15760774,Hargraves,519,France,Female,21.0,1,146329.57,2,1.0,1.0,194867.27,0
+1243,15813132,Chukwukadibia,696,Germany,Male,30.0,4,114027.7,1,1.0,1.0,193716.56,0
+1244,15593331,Sidorov,693,Germany,Male,25.0,6,146580.69,1,0.0,1.0,14633.35,0
+1245,15616709,Bunton,587,Germany,Female,38.0,0,132122.42,2,0.0,0.0,31730.32,0
+1246,15658052,Cameron,626,France,Female,44.0,10,81553.93,1,1.0,0.0,20063.63,1
+1247,15721189,Kung,666,France,Female,66.0,7,0.0,2,1.0,1.0,99792.82,0
+1248,15711288,Hay,512,France,Male,24.0,6,0.0,2,1.0,0.0,37654.31,0
+1249,15770030,Conti,689,Spain,Female,28.0,3,0.0,2,1.0,1.0,192449.02,0
+1250,15803681,Sims,803,France,Female,26.0,4,0.0,2,1.0,1.0,181208.47,0

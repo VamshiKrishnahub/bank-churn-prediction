@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2301,15647266,Y?an,651,Spain,Female,45.0,10,135923.16,1,1.0,0.0,18732.84,0
+2302,15757577,Odili,676,France,Female,61.0,8,0.0,2,1.0,1.0,118522.73,0
+2303,15736656,H?,723,France,Female,49.0,4,0.0,2,0.0,1.0,89972.25,0
+2304,15635078,Chiemela,714,Spain,Male,45.0,0,124693.48,1,0.0,1.0,187194.15,0
+2305,15680141,Yuan,759,Spain,Female,35.0,7,###,1,1.0,INVALID,106785.7,
+2306,15576945,Clements,582,France,Male,29.0,0,0.0,1,1.0,0.0,142516.35,0
+2307,15602034,Kolesnikov,697,France,Female,34.0,2,126558.92,1,1.0,0.0,73334.43,0
+2308,15732020,Rutherford,610,Germany,Male,57.0,6,106938.11,2,0.0,1.0,186612.47,0
+2309,15698839,Hsiung,488,Germany,Female,33.0,4,140002.35,1,1.0,0.0,123613.81,0
+2310,15621210,Angelo,599,Germany,Male,46.0,9,123444.72,1,1.0,1.0,31368.08,1

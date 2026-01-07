@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7671,15711759,Wilkins,576,France,Female,29.0,5,108541.04,1,1.0,1.0,126469.09,0
+7672,15615296,Rice,405,France,Male,39.0,10,0.0,1,1.0,0.0,160810.85,1
+7673,15699294,Pope,555,France,Male,30.0,1,0.0,2,0.0,0.0,88146.86,0
+7674,15788634,Romani,750,Spain,Female,37.0,2,113817.06,1,0.0,0.0,88333.74,0
+7675,15660871,Ch'ang,665,France,Male,28.0,8,137300.23,1,1.0,0.0,90174.83,0
+7676,15618258,Chizuoke,640,Spain,Male,37.0,5,158024.38,1,1.0,0.0,81298.09,0
+7677,15722535,Ireland,457,France,Female,33.0,7,127837.54,1,0.0,1.0,60013.17,0
+7678,15711977,ERR_856,695,France,Male,36.0,4,161533.0,1,1.0,not_a_number,100940.91,0
+7679,15690169,Meng,645,France,Male,ERR_299,7,161171.7,2,1.0,0.0,12599.94,1
+7680,15790689,Hibbins,647,Spain,Male,32.0,9,80958.36,1,1.0,1.0,128590.73,0

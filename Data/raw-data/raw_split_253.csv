@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2521,15751561,Meng,498,Germany,Male,61.0,7,102453.26,1,1.0,0.0,187247.56,1
+UNKNOWN,15739068,Nwoye,638,Germany,Male,25.0,4,148045.45,2,1.0,1.0,114722.42,0
+2523,15758056,Calabresi,558,France,Male,35.0,1,0.0,2,0.0,0.0,111687.57,0
+2524,15742269,Milano,756,France,Female,24.0,1,0.0,2,1.0,0.0,184182.25,0
+2525,15726490,Kirby,782,Spain,Male,52.0,ERR_755,0.0,1,not_a_number,1.0,52759.82,1
+2526,15738411,Ho,505,France,Male,34.0,10,104498.79,1,0.0,1.0,126451.14,0
+2527,15727919,Chukwuemeka,671,Spain,Female,29.0,6,0.0,2,0.0,0.0,12048.67,0
+2528,15709396,Hale,801,France,Male,42.0,6,0.0,2,1.0,1.0,95804.33,0
+2529,-9999,K?,604,France,Male,26.0,8,149542.52,2,0.0,1.0,197911.52,-42
+2530,15621653,Rice,716,France,Female,29.0,10,87946.39,99999,1.0,not_a_number,182531.74,0

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5041,15749727,Chukwufumnanya,829,Spain,Male,50.0,7,0.0,2,0.0,1.0,178458.86,0
+ERR_462,15619238,Allan,567,Spain,Male,29.0,8,0.0,2,1.0,0.0,UNKNOWN,INVALID
+not_a_number,15743817,Findlay,850,France,Female,33.0,3,0.0,2,1.0,1.0,11159.19,0
+5044,15718454,Ch'eng,712,Spain,Female,44.0,ERR_292,0.0,2,0.0,0.0,45738.94,0
+5045,15789498,Miller,562,France,Male,30.0,3,111099.79,2,0.0,0.0,140650.19,0
+not_a_number,15744691,Tsai,755,France,Female,29.0,3,0.0,3,1.0,0.0,4733.94,0
+5047,15708289,Graham,793,Spain,Male,25.0,3,100913.57,1,0.0,0.0,10579.72,0
+5048,15790412,Norton,471,Spain,Male,26.0,8,not_a_number,2,1.0,1.0,179655.87,0
+5049,15741416,Yegorov,707,France,Male,42.0,2,16893.59,1,1.0,1.0,77502.56,0
+5050,15598894,Holt,784,Spain,Male,38.0,10,122267.85,1,0.0,0.0,145759.93,0

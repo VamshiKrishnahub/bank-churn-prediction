@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+4931,15569670,Alexeyeva,627,Germany,Male,30.0,6,ERR_525,1,1.0,1.0,118029.09,0
+4932,15772341,Hs?eh,682,Germany,Male,81.0,6,122029.15,1,1.0,1.0,50783.88,0
+4933,15661548,Ferri,683,France,Female,29.0,0,157829.12,1,0.0,0.0,129891.66,0
+4934,15787597,Hsu,420,Germany,Female,31.0,1,108377.75,2,1.0,1.0,9904.63,0
+4935,15806913,Bishop,670,France,Female,54.0,2,95507.12,1,1.0,1.0,63213.31,0
+4936,15804862,Toscani,505,Germany,Male,43.0,6,127146.68,1,0.0,0.0,137565.87,0
+4937,15792986,T'ao,580,Germany,Male,24.0,1,133811.78,-9999,1.0,0.0,17185.95,1
+4938,15638329,Philip,577,France,Male,36.0,3,121092.47,2,0.0,1.0,143783.46,0
+4939,15727703,Li Fonti,773,Germany,Male,34.0,ERR_170,126979.75,1,0.0,0.0,36823.28,0
+4940,15606273,Rene,-9999,France,Male,37.0,5,144235.73,2,0.0,0.0,154957.66,

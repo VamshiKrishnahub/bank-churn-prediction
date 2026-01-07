@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+341,15745844,Kerr,642,Germany,Female,40.0,6,129502.49,2,0.0,1.0,86099.23,1
+342,15786170,Tien,659,France,Male,31.0,4,118342.26,1,0.0,0.0,161574.19,0
+343,15681081,Marrero,545,Spain,Female,47.0,5,0.0,2,1.0,1.0,38970.14,0
+INVALID,15664772,White,543,France,Male,22.0,8,0.0,2,0.0,0.0,127587.22,0
+345,15785869,Pisano,718,France,Female,25.0,7,0.0,2,1.0,0.0,30380.12,0
+346,15763859,Brown,840,France,Female,43.0,7,0.0,2,1.0,0.0,-42,not_a_number
+347,15798834,Freeman,630,Germany,Female,34.0,9,106937.05,2,1.0,0.0,,0
+348,15747358,Russell,643,Germany,Male,59.0,3,170331.37,1,1.0,1.0,32171.79,0
+349,15735203,Seleznyov,654,Germany,Female,32.0,1,114510.85,1,1.0,1.0,126143.23,0
+350,15576256,Yusupova,582,France,Male,39.0,5,0.0,2,1.0,1.0,129892.93,0

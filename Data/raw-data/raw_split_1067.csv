@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8096,15584620,Su,850,Germany,Female,36.0,6,143644.16,1,1.0,0.0,22102.25,1
+252,15753754,Morrison,587,Spain,Female,34.0,1,0.0,2,1.0,1.0,97932.68,not_a_number
+4848,15624596,Trentini,534,France,Female,23.0,5,104822.45,1,0.0,1.0,160176.47,0
+2895,15644119,Sochima,531,France,Male,31.0,3,0.0,1,1.0,1.0,42589.33,0
+1789,15725355,Morey,439,France,Female,43.0,8,0.0,1,0.0,1.0,104889.3,0
+1319,15665077,Vogel,598,France,Female,43.0,5,0.0,3,1.0,1.0,100722.72,1
+9499,15701932,Millar,586,France,Female,52.0,6,140900.97,1,1.0,1.0,67288.89,0
+6908,15661433,Zetticci,519,France,Male,34.0,5,0.0,1,1.0,0.0,68479.6,0
+5966,15644132,Mancini,724,France,Female,30.0,9,142475.87,1,1.0,1.0,107848.24,0
+7819,15637977,Barese,542,Germany,Male,25.0,8,139330.1,1,0.0,0.0,54372.37,0

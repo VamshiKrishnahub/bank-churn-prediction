@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+3511,15800814,Palerma,534,France,Male,35.0,2,81951.74,2,1.0,0.0,115668.53,0
+3512,15674727,Lazarev,777,UNKNOWN,Female,,5,147531.82,1,1.0,1.0,38819.45,0
+3513,15657779,Boylan,806,Spain,Male,18.0,3,0.0,2,1.0,1.0,86994.54,0
+not_a_number,15801395,Warren,790,France,Female,33.0,10,135120.72,1,0.0,0.0,195204.99,0
+3515,15757911,Trevisani,643,Spain,Female,32.0,2,0.0,1,0.0,0.0,131301.74,0
+3516,15665340,Trevisano,584,Spain,Female,37.0,8,0.0,2,0.0,1.0,100835.19,0
+3517,15787151,Liao,638,France,Female,34.0,7,0.0,2,1.0,1.0,198969.78,0
+3518,15757821,Burgess,771,Spain,Male,18.0,1,0.0,2,0.0,0.0,41542.95,0
+3519,15600688,Liston,600,France,Female,39.0,5,0.0,2,0.0,0.0,118272.07,0
+3520,15594878,Thompson,661,Spain,Female,41.0,5,28082.95,1,1.0,0.0,69586.27,1

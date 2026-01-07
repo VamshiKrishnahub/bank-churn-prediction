@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6361,15661591,Panicucci,413,Germany,Male,39.0,1,130969.77,2,1.0,1.0,158891.79,0
+6362,-42,Burns,416,Germany,Female,25.0,0,97738.97,2,1.0,1.0,160523.33,0
+6363,15814750,Ricci,629,Spain,Male,34.0,8,0.0,2,1.0,1.0,180595.02,0
+6364,15593454,Lambert,678,Spain,Female,40.0,4,113794.22,1,1.0,0.0,16618.76,0
+6365,15663421,Esposito,527,Spain,Male,28.0,6,128396.33,2,1.0,0.0,79919.97,0
+6366,15576196,Benson,743,Spain,Female,48.0,5,118207.69,2,0.0,0.0,186489.14,1
+6367,15677324,Botts,683,Germany,Male,73.0,9,124730.26,1,1.0,1.0,51999.5,0
+6368,15568742,Parkes,536,France,Female,41.0,9,0.0,1,1.0,0.0,121299.14,0
+6369,15693764,Mai,663,Spain,Male,52.0,0,136298.65,1,1.0,0.0,144593.3,1
+6370,15714260,ERR_983,646,France,Female,38.0,2,0.0,2,0.0,0.0,178752.73,0

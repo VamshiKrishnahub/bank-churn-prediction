@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6851,15579526,O'Meara,551,France,Male,42.0,1,50194.59,1,1.0,1.0,23399.58,0
+,15779103,Cantamessa,527,,Female,39.0,9,96748.89,2,1.0,-9999,94711.43,0
+6853,15738715,Alexander,600,France,Female,37.0,4,0.0,3,1.0,0.0,7312.25,1
+6854,15593943,Chinagorom,685,France,Female,43.0,1,132667.17,1,1.0,1.0,41876.98,0
+6855,15754574,Tomlinson,738,Spain,Male,36.0,5,0.0,2,1.0,1.0,96881.32,0
+6856,15737814,Lo,not_a_number,France,Male,41.0,2,127087.06,1,1.0,,102402.91,1
+6857,15670889,Nwachukwu,528,France,Male,34.0,1,125566.9,1,1.0,1.0,176763.27,0
+6858,15629299,Yang,546,Germany,Female,52.0,1,106074.89,1,1.0,1.0,23548.45,1
+6859,15771569,Bage,576,Germany,Male,46.0,4,137367.94,1,1.0,1.0,33450.11,0
+6860,15811927,Marcelo,733,France,Female,38.0,3,157658.36,1,0.0,0.0,19658.43,0

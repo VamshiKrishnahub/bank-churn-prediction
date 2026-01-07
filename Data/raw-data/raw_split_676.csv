@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6751,INVALID,Riley,618,France,Female,not_a_number,2,0.0,4,0.0,0.0,111097.39,1
+6752,15735636,Toscano,604,France,Female,53.0,2,121389.78,1,1.0,1.0,48201.64,1
+6753,15619083,Oluchukwu,624,###,Male,38.0,7,123906.55,1,1.0,0.0,135096.78,0
+6754,15568449,Fu,661,Spain,Male,38.0,7,143006.7,1,1.0,1.0,15650.89,0
+6755,15688085,Warner,627,Spain,Female,28.0,3,157597.61,1,0.0,1.0,34097.22,0
+6756,15683483,Fleming,812,Spain,Male,38.0,3,127117.8,2,1.0,1.0,174822.74,0
+6757,15659567,Ch'iu,473,France,Female,39.0,9,117103.26,2,1.0,1.0,85937.52,1
+6758,15766667,Langler,717,Spain,Male,36.0,2,102989.83,2,0.0,1.0,49185.57,0
+6759,15624975,Angelo,693,Spain,Male,28.0,1,145118.83,1,0.0,1.0,77742.38,0
+6760,15660878,T'ien,705,France,Male,92.0,1,126076.24,2,1.0,1.0,34436.83,0

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2221,not_a_number,Lee,714,Germany,Female,49.0,5,140510.89,1,1.0,0.0,141914.94,0
+2222,15736069,Hsing,767,Germany,Female,35.0,6,132253.22,1,1.0,0.0,115566.57,1
+2223,15763662,Longo,711,Germany,Male,43.0,2,39043.29,2,1.0,1.0,175423.69,0
+2224,15615575,Vial,722,France,Male,34.0,8,0.0,2,1.0,1.0,133447.49,0
+2225,15691723,Chukwudi,631,Spain,Male,55.0,9,99685.06,1,1.0,0.0,114474.98,0
+2226,15774098,Grant,701,Germany,Male,38.0,3,125385.49,2,0.0,1.0,52044.66,0
+2227,15750808,Ma,790,Spain,Male,46.0,2,131365.37,2,1.0,1.0,180290.68,0
+2228,15744368,Sun,633,Spain,Male,58.0,6,98308.51,1,1.0,1.0,132034.13,0
+2229,15610594,Moss,644,France,Female,37.0,8,0.0,2,1.0,0.0,20968.88,0
+2230,15756125,Booth,757,Spain,Male,44.0,5,140856.16,2,1.0,0.0,158735.1,0

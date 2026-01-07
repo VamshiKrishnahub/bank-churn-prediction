@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8241,15708504,Wong,790,Germany,Male,50.0,8,121438.58,1,1.0,1.0,176471.78,1
+8242,15592451,Lombardi,565,France,Male,32.0,9,0.0,2,1.0,0.0,5388.3,0
+8243,99999,Obialo,478,France,Female,50.0,2,0.0,,0.0,1.0,93332.64,1
+8244,15572174,Mazzi,825,France,Male,29.0,3,148874.01,2,0.0,1.0,71192.82,0
+8245,15656330,Von Doussa,528,Spain,Female,32.0,0,68138.37,1,1.0,1.0,170309.19,0
+8246,15569626,Miller,577,Spain,Male,35.0,5,110080.3,1,1.0,1.0,109794.31,0
+8247,15610226,Miracle,663,France,Male,24.0,7,0.0,2,1.0,1.0,166310.82,0
+8248,15637366,Su,505,Germany,Female,25.0,5,114268.85,2,1.0,1.0,126728.27,0
+8249,15778049,Wyatt,633,Germany,Male,29.0,6,117412.35,1,0.0,0.0,30338.94,0
+8250,15727421,Anayolisa,586,France,Female,38.0,6,0.0,2,1.0,1.0,37935.83,0

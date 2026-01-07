@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8001,15629002,Hamilton,747,Germany,Male,36.0,8,102603.3,2,1.0,1.0,180693.61,0
+8002,15654211,Nnachetam,707,Spain,Male,32.0,9,0.0,2,1.0,0.0,126475.79,0
+8003,15753895,Blue,590,Spain,Male,37.0,1,0.0,2,0.0,0.0,133535.99,0
+99999,15595426,Madukwe,603,Spain,Male,57.0,6,105000.85,2,1.0,1.0,87412.24,1
+8005,15645815,Mills,615,France,Male,45.0,5,0.0,2,1.0,1.0,164886.64,0
+8006,15632848,Ferrari,634,France,Female,36.0,1,69518.95,1,1.0,0.0,116238.39,0
+8007,15703068,Nixon,716,Germany,Male,41.0,8,126145.54,2,1.0,1.0,138051.19,0
+8008,15791513,Manfrin,647,France,Male,41.0,4,138937.35,1,1.0,1.0,101617.64,1
+8009,15587210,McCartney,591,Germany,Female,44.0,10,113581.98,1,1.0,0.0,1985.41,0
+ERR_282,15793803,Robinson,574,France,Male,34.0,1,112572.39,1,0.0,0.0,165626.6,0

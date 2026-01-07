@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9621,15620557,Ni,561,Spain,Male,37.0,4,101470.29,1,0.0,1.0,88838.14,0
+9622,15639549,Jen,718,Germany,Female,33.0,4,70541.06,1,0.0,0.0,88592.8,0
+9623,15618750,Phillips,590,France,Male,31.0,8,112211.61,1,1.0,0.0,26261.42,0
+9624,15796790,Amaechi,573,France,Female,47.0,8,154543.98,1,1.0,0.0,29586.73,0
+9625,15668309,Maslow,350,France,Female,40.0,0,111098.85,1,1.0,1.0,172321.21,-42
+9626,15732437,Rowley,504,Germany,Female,44.0,0,131873.07,2,1.0,1.0,158036.72,1
+9627,15584091,Chukwuemeka,813,Spain,Male,27.0,1,137275.36,1,0.0,1.0,115733.16,0
+9628,15689322,Bevan,641,Spain,Male,31.0,3,153316.14,1,1.0,0.0,59927.99,0
+9629,15596624,Topp,662,France,Female,22.0,9,0.0,2,1.0,1.0,44377.65,0
+9630,15601977,Burgoyne,497,Spain,Male,44.0,2,121250.04,1,0.0,1.0,79691.4,0

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7541,15735330,Sung,553,France,Male,37.0,1,0.0,1,1.0,0.0,30461.55,0
+7542,15649430,White,723,France,Male,28.0,4,0.0,2,1.0,1.0,123885.88,0
+7543,15768777,Wang,507,Spain,Female,34.0,4,0.0,2,1.0,1.0,60688.38,0
+-42,15777893,Davide,777,France,Male,43.0,1,0.0,2,1.0,###,21785.91,0
+7545,15791326,Nnamdi,-9999,INVALID,Male,34.0,3,0.0,1,ERR_836,0.0,188135.69,0
+7546,15615176,Welsh,732,France,Male,26.0,7,0.0,2,1.0,0.0,154364.66,0
+7547,15735221,Sousa,697,France,Female,42.0,10,0.0,2,1.0,0.0,61312.15,0
+7548,15617991,Andrews,555,France,Male,29.0,4,128744.04,1,1.0,1.0,47454.93,0
+7549,15658504,Chiawuotu,584,Germany,Female,62.0,9,137727.34,2,0.0,1.0,121102.9,0
+,15785705,Thomson,705,Germany,Female,44.0,10,106731.58,1,1.0,0.0,137419.87,-9999

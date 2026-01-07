@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9071,15656937,Johnston,468,Spain,Male,26.0,1,131643.25,1,1.0,0.0,64436.16,0
+9072,15610643,De Luca,435,Germany,Male,44.0,3,151739.65,1,1.0,0.0,167461.5,0
+9073,15777315,Hill,529,France,Male,43.0,6,93616.35,2,0.0,0.0,98348.66,0
+9074,15611058,Eluemuno,702,Germany,Female,60.0,not_a_number,138597.54,2,1.0,1.0,41536.59,1
+9075,15630413,Howarth,608,France,Female,41.0,5,0.0,2,1.0,1.0,72462.25,0
+9076,15635942,Thomson,576,France,Male,40.0,9,0.0,2,1.0,0.0,112465.19,1
+9077,15764708,King,not_a_number,France,Female,27.0,1,85225.21,1,not_a_number,1.0,64511.44,0
+9078,15810732,Grant,730,France,Female,36.0,8,148749.29,2,1.0,0.0,91830.75,0
+9079,15705448,Gilbert,647,Germany,Male,52.0,7,130013.12,1,1.0,1.0,190806.36,1
+9080,15730488,Richmond,516,Spain,Female,27.0,1,0.0,1,0.0,1.0,112311.15,0

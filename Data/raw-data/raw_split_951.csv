@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9501,15666453,Obidimkpa,739,Spain,Female,27.0,8,98926.4,1,not_a_number,1.0,106969.98,0
+9502,15634146,Hou,835,Germany,Male,18.0,2,142872.36,1,1.0,1.0,117632.63,0
+9503,15686743,Moody,790,Spain,Male,29.0,3,46057.96,2,1.0,1.0,189777.66,0
+9504,15698792,Keldie,671,France,Female,48.0,6,119769.77,1,0.0,1.0,66032.65,0
+9505,15591724,Liu,560,,,not_a_number,5,143244.97,1,1.0,0.0,98661.27,0
+9506,15571281,Ts'ao,651,France,Male,28.0,10,79562.98,1,1.0,1.0,74687.37,0
+9507,15704844,Walker,682,France,Male,69.0,6,0.0,2,0.0,1.0,149604.18,0
+9508,15728885,Defalco,808,France,Male,41.0,0,0.0,1,1.0,1.0,79888.78,0
+9509,15618950,Lo Duca,644,Spain,Male,26.0,8,not_a_number,2,1.0,1.0,138775.69,0
+9510,15609804,Hyde,688,France,Male,29.0,1,0.0,2,1.0,0.0,154695.57,0

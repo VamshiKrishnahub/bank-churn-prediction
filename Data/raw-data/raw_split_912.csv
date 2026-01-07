@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9111,15727391,Collier,###,Germany,Male,29.0,9,144553.5,UNKNOWN,1.0,0.0,not_a_number,0
+9112,15711062,Thomas,633,Germany,Male,40.0,5,86172.81,2,1.0,1.0,117279.49,0
+9113,15567339,Shaw,735,France,Male,73.0,ERR_669,0.0,1,1.0,1.0,114283.33,not_a_number
+9114,15760662,Francis,521,Germany,Female,29.0,2,87212.8,1,1.0,1.0,994.86,0
+9115,15605737,George,541,France,Male,36.0,5,0.0,2,1.0,0.0,124795.84,0
+9116,15692977,Ikenna,612,Germany,Female,36.0,2,130700.92,2,0.0,0.0,77592.8,0
+9117,15672082,Schatz,562,France,Male,62.0,3,0.0,2,1.0,0.0,105986.01,0
+9118,15600280,Tao,703,France,Female,32.0,6,0.0,2,0.0,0.0,33606.52,0
+9119,15804052,Scott,710,Spain,Male,not_a_number,6,0.0,2,1.0,1.0,134188.11,0
+9120,15576065,Sims,731,Spain,Female,40.0,5,171325.98,1,1.0,1.0,159718.27,1

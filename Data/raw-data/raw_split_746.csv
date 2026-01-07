@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7451,15679801,Hsueh,712,Spain,Female,39.0,5,163097.55,2,1.0,1.0,23702.42,0
+7452,15673907,Alexander,659,France,Male,20.0,8,0.0,2,0.0,0.0,112572.02,0
+7453,15636562,Muravyova,573,Spain,Male,44.0,-42,0.0,2,0.0,0.0,not_a_number,0
+7454,15702571,Wright,778,Germany,Female,35.0,1,151958.19,3,1.0,1.0,131238.37,1
+7455,15627365,Calabresi,732,France,Male,###,0,0.0,2,1.0,1.0,184350.78,0
+7456,15748499,Johnson,550,Germany,Male,33.0,4,118400.91,1,0.0,1.0,13999.64,1
+7457,15598614,Lucchesi,790,Spain,Male,20.0,8,0.0,2,1.0,0.0,168152.76,0
+7458,15668889,Galgano,665,Germany,Female,43.0,2,116322.27,4,1.0,0.0,35640.12,1
+7459,15799217,Grigoryeva,728,Spain,Female,43.0,5,0.0,1,1.0,1.0,120088.17,0
+7460,15583724,Raymond,645,Spain,Female,29.0,4,0.0,2,1.0,1.0,74346.11,0

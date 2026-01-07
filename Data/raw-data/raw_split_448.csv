@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+INVALID,ERR_130,Linton,516,Germany,Female,53.0,1,156674.2,1,1.0,0.0,118502.34,1
+4472,15642824,Onyekaozulu,826,Spain,Female,56.0,8,174506.1,2,0.0,1.0,161802.82,1
+4473,15683524,Tobenna,660,Germany,Female,23.0,6,166070.48,2,0.0,0.0,90494.72,0
+4474,15713532,Wang,646,Germany,Female,29.0,4,105957.44,1,1.0,0.0,15470.91,0
+4475,15719827,O'Donnell,767,France,Male,36.0,3,0.0,1,0.0,0.0,65147.27,0
+4476,15578435,Langlands,640,France,Male,40.0,,110340.68,1,1.0,1.0,157886.6,0
+4477,15723028,Smith,778,France,Male,33.0,1,0.0,2,1.0,0.0,85439.73,0
+4478,15595609,Sykes,679,Germany,Male,52.0,9,135870.01,2,0.0,0.0,54038.62,0
+4479,15622443,Marshall,549,France,Male,31.0,4,0.0,2,0.0,1.0,25684.85,0
+4480,15579112,Gibson,598,France,Male,47.0,2,0.0,2,1.0,1.0,186116.54,0

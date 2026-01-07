@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8291,15731267,Rizzo,797,France,Male,37.0,4,75263.7,1,1.0,0.0,85801.77,0
+8292,15742879,Boni,668,Spain,Male,38.0,1,147904.31,1,1.0,1.0,69370.05,0
+8293,15757015,ERR_402,783,Germany,Female,41.0,5,106640.5,1,1.0,0.0,176945.96,0
+8294,15604482,Lu,766,Germany,Female,28.0,4,90696.78,1,0.0,UNKNOWN,21597.2,0
+8295,15569430,Burrows,704,Spain,Female,36.0,2,175509.8,2,1.0,0.0,152039.67,0
+8296,15617304,Ershova,722,France,Male,40.0,6,0.0,2,1.0,1.0,111893.09,0
+8297,15704466,Udokamma,692,France,Female,34.0,7,0.0,2,1.0,0.0,195074.62,0
+8298,15664681,Aitken,584,France,Female,not_a_number,2,114321.28,2,0.0,0.0,15959.01,0
+8299,15605534,Turnbull,-9999,Germany,UNKNOWN,51.0,4,95560.04,1,0.0,0.0,72628.84,1
+8300,15792473,Reilly,598,Germany,Female,50.0,5,88379.81,3,0.0,1.0,64157.24,1

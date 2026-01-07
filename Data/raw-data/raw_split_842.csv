@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8411,ERR_950,Clark,743,France,Female,46.0,9,0.0,1,1.0,0.0,113436.08,0
+8412,15719479,Chukwuhaenye,619,Spain,Female,56.0,7,0.0,2,1.0,1.0,42442.21,0
+8413,15575147,Wall,699,France,Male,22.0,9,99339.0,1,1.0,0.0,68297.61,1
+8414,15597309,Howell,749,Spain,Male,36.0,7,0.0,2,0.0,0.0,80134.65,0
+8415,15648367,Lo,600,Germany,Female,29.0,6,74430.1,2,1.0,1.0,96051.1,0
+8416,15758031,Lazarev,760,Spain,Male,38.0,3,91241.85,1,0.0,1.0,80682.35,0
+ERR_585,15751771,Lowe,528,Germany,Male,32.0,2,99092.45,1,0.0,1.0,111149.98,0
+8418,15689288,Folliero,630,France,Female,26.0,5,0.0,2,1.0,0.0,182612.38,0
+UNKNOWN,ERR_644,Han,683,Germany,Female,39.0,2,100062.16,2,1.0,0.0,109201.43,0
+8420,15775809,Holloway,677,Germany,Female,26.0,6,98723.67,1,0.0,1.0,151146.67,0

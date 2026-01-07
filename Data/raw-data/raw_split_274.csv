@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2731,15730339,Bell,670,Spain,Male,30.0,3,133446.34,1,0.0,0.0,3154.95,0
+2732,15712584,Liao,670,France,Female,33.0,7,0.0,2,1.0,1.0,88187.81,0
+2733,15592816,Udokamma,623,Germany,Female,48.0,1,108076.33,1,1.0,0.0,118855.26,1
+2734,15641480,Sinnett,571,France,Male,32.0,5,131354.25,1,1.0,0.0,125256.53,0
+2735,15708505,Palerma,641,Germany,Female,37.0,7,62974.64,2,0.0,1.0,39016.43,0
+2736,15791131,Chimaijem,551,Germany,Female,30.0,2,143340.44,1,1.0,0.0,145796.49,0
+2737,15618225,Porter,741,Germany,Male,36.0,8,116993.43,2,1.0,0.0,168816.22,0
+2738,15644724,Fan,472,France,Male,31.0,4,58662.92,2,0.0,1.0,73322.0,0
+2739,15662098,Palmer,650,Spain,Male,41.0,3,128808.65,3,0.0,0.0,113677.53,1
+2740,15723894,Younger,625,France,Male,45.0,7,137555.44,1,0.0,0.0,124607.7,0

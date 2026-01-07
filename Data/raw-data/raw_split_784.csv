@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7831,15600173,Manna,595,France,Female,33.0,9,0.0,2,1.0,1.0,41447.86,0
+7832,15567486,Fennescey,749,France,Male,42.0,2,56726.83,,0.0,1.0,185543.35,0
+7833,15664849,Colon,573,Spain,Male,46.0,3,65269.23,1,0.0,1.0,189988.65,1
+7834,15762455,Yeh,624,Spain,Male,33.0,6,66220.17,1,0.0,1.0,170819.01,0
+7835,15797165,Bergamaschi,703,France,Male,56.0,9,0.0,1,0.0,0.0,85547.33,1
+7836,15730793,Matveyeva,665,ERR_480,Female,41.0,8,96147.55,ERR_239,1.0,0.0,137037.97,0
+7837,15780492,Ignatyeva,648,France,Male,42.0,4,0.0,2,1.0,0.0,19283.14,0
+7838,15678497,Lederer,850,Spain,Male,48.0,2,0.0,1,1.0,0.0,169425.3,1
+7839,15588560,Nwabugwu,569,Germany,Female,32.0,8,145330.43,1,1.0,1.0,132038.65,0
+7840,15769959,Abramowitz,566,UNKNOWN,Female,21.0,ERR_157,0.0,2,1.0,1.0,3626.47,0

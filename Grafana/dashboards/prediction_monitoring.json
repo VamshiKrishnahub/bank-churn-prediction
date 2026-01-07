@@ -1,953 +1,388 @@
 {
-  "id": null,
-  "uid": "prediction-monitoring-final",
-  "title": "Data Drift & Prediction Issues Dashboard",
-  "tags": ["ml", "predictions", "data-drift", "model-monitoring"],
-  "timezone": "browser",
-  "schemaVersion": 38,
-  "version": 3,
-  "refresh": "30s",
-  "time": {
-    "from": "now-2h",
-    "to": "now"
-  },
-  "timepicker": {
-    "refresh_intervals": ["10s", "30s", "1m", "5m"],
-    "time_options": ["5m", "15m", "1h", "6h", "12h", "24h"]
-  },
-  "templating": {
-    "list": []
-  },
-  "annotations": {
-    "list": [
+    "id": null,
+    "uid": "prediction-monitoring",
+    "title": "Dashboard 2: Prediction Monitoring",
+    "tags": ["predictions", "data-drift"],
+    "timezone": "browser",
+    "schemaVersion": 38,
+    "version": 1,
+    "refresh": "30s",
+    "time": {
+      "from": "now-2h",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": ["10s", "30s", "1m", "5m"],
+      "time_options": ["5m", "15m", "1h", "6h", "12h", "24h"]
+    },
+    "panels": [
       {
-        "builtIn": 1,
-        "datasource": {
-          "type": "grafana",
-          "uid": "-- Grafana --"
-        },
-        "enable": true,
-        "hide": true,
-        "iconColor": "rgba(0, 211, 255, 1)",
-        "name": "Annotations & Alerts",
-        "type": "dashboard"
-      }
-    ]
-  },
-  "panels": [
-    {
-      "id": 1,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 0
-      },
-      "type": "timeseries",
-      "title": " Prediction Volume by Source (Last 2 Hours)",
-      "description": "INSIGHT: Detect pipeline failures. If scheduled predictions drop to 0, prediction DAG is broken. If webapp drops, user engagement issues.",
-      "datasource": {
-        "type": "postgres",
-        "uid": "defence_db"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "rawSql": "SELECT \n  DATE_TRUNC('minute', created_at) AS time,\n  COUNT(*) FILTER (WHERE source = 'webapp') AS \"Webapp Predictions\",\n  COUNT(*) FILTER (WHERE source = 'scheduled') AS \"Scheduled Predictions\"\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '2 hours'\nGROUP BY time\nORDER BY time ASC",
-          "format": "time_series"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "drawStyle": "line",
-            "lineInterpolation": "smooth",
-            "lineWidth": 2,
-            "fillOpacity": 20,
-            "showPoints": "auto",
-            "spanNulls": false
+        "id": 1,
+        "gridPos": {"h": 9, "w": 12, "x": 0, "y": 0},
+        "type": "timeseries",
+        "title": "Graph 1: Churn Rate - Current vs Past (Baseline Comparison)",
+        "description": "Shows current rate vs 24h ago vs training baseline (20%).",
+        "datasource": {"type": "postgres", "uid": "defence_db"},
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "SELECT \n  NOW() AS time,\n  ROUND((COUNT(*) FILTER (WHERE prediction = 1)::DECIMAL / NULLIF(COUNT(*), 0)) * 100, 1) AS value,\n  'Current (Last 10min)' AS metric\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '10 minutes'",
+            "format": "table"
           },
-          "color": {
-            "mode": "palette-classic"
+          {
+            "refId": "B",
+            "rawSql": "SELECT \n  NOW() AS time,\n  ROUND((COUNT(*) FILTER (WHERE prediction = 1)::DECIMAL / NULLIF(COUNT(*), 0)) * 100, 1) AS value,\n  'Yesterday Same Time' AS metric\nFROM predictions\nWHERE created_at BETWEEN NOW() - INTERVAL '24 hours 10 minutes' AND NOW() - INTERVAL '24 hours'",
+            "format": "table"
           },
-          "unit": "short",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "yellow",
-                "value": 1
-              },
-              {
-                "color": "green",
-                "value": 10
-              }
-            ]
+          {
+            "refId": "C",
+            "rawSql": "SELECT \n  NOW() AS time,\n  20.0 AS value,\n  'Training Baseline (20%)' AS metric",
+            "format": "table"
+          },
+          {
+            "refId": "D",
+            "rawSql": "SELECT \n  NOW() AS time,\n  ROUND((COUNT(*) FILTER (WHERE prediction = 1)::DECIMAL / NULLIF(COUNT(*), 0)) * 100, 1) AS value,\n  'Last 24h Average' AS metric\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '24 hours'",
+            "format": "table"
           }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Webapp Predictions"
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "lineWidth": 2,
+              "fillOpacity": 0,
+              "showPoints": "always",
+              "pointSize": 10
             },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Scheduled Predictions"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "green",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "options": {
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        },
-        "legend": {
-          "showLegend": true,
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      }
-    },
-    {
-      "id": 2,
-      "gridPos": {
-        "h": 8,
-        "w": 6,
-        "x": 12,
-        "y": 0
-      },
-      "type": "gauge",
-      "title": " Churn Rate (Last 1 Hour)",
-      "description": "INSIGHT: Expected 15-25%. RED if 0% or 100% (model stuck). ORANGE if <5% or >60% (model degraded).",
-      "datasource": {
-        "type": "postgres",
-        "uid": "defence_db"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "rawSql": "SELECT \n  ROUND((COUNT(*) FILTER (WHERE prediction = 1)::DECIMAL / NULLIF(COUNT(*), 0)) * 100, 1) AS value\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '1 hour'",
-          "format": "table"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "unit": "percent",
-          "min": 0,
-          "max": 100,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 0
-              },
-              {
-                "color": "orange",
-                "value": 5
-              },
-              {
-                "color": "green",
-                "value": 15
-              },
-              {
-                "color": "green",
-                "value": 25
-              },
-              {
-                "color": "orange",
-                "value": 40
-              },
-              {
-                "color": "red",
-                "value": 60
-              }
-            ]
-          },
-          "mappings": []
-        }
-      },
-      "options": {
-        "orientation": "auto",
-        "showThresholdLabels": true,
-        "showThresholdMarkers": true
-      }
-    },
-    {
-      "id": 8,
-      "gridPos": {
-        "h": 8,
-        "w": 6,
-        "x": 18,
-        "y": 0
-      },
-      "type": "stat",
-      "title": " Total Predictions (Last 1h)",
-      "description": "INSIGHT: Monitor throughput. RED if <10 (low volume), GREEN if >100 (healthy pipeline).",
-      "datasource": {
-        "type": "postgres",
-        "uid": "defence_db"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "rawSql": "SELECT COUNT(*) AS value FROM predictions WHERE created_at > NOW() - INTERVAL '1 hour'",
-          "format": "table"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 10
-              },
-              {
-                "color": "yellow",
-                "value": 50
-              },
-              {
-                "color": "green",
-                "value": 100
-              }
-            ]
-          },
-          "unit": "short"
-        }
-      },
-      "options": {
-        "graphMode": "area",
-        "colorMode": "background",
-        "justifyMode": "center",
-        "textMode": "value_and_name"
-      }
-    },
-    {
-      "id": 3,
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 8
-      },
-      "type": "barchart",
-      "title": " Age Distribution Drift (Last 2h vs Last 10min)",
-      "description": "INSIGHT: Compare age distribution. Significant differences indicate DATA DRIFT. Example: Training had 35-44 peak, serving has 55-64 peak = distribution shift.",
-      "datasource": {
-        "type": "postgres",
-        "uid": "defence_db"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "rawSql": "WITH baseline_data AS (\n  SELECT \n    'Baseline (Last 2h)' AS dataset,\n    CASE \n      WHEN age < 25 THEN '18-24'\n      WHEN age < 35 THEN '25-34'\n      WHEN age < 45 THEN '35-44'\n      WHEN age < 55 THEN '45-54'\n      WHEN age < 65 THEN '55-64'\n      ELSE '65+'\n    END AS age_group,\n    COUNT(*) AS count\n  FROM predictions\n  WHERE created_at BETWEEN NOW() - INTERVAL '2 hours' AND NOW() - INTERVAL '1 hour'\n  GROUP BY dataset, age_group\n),\ncurrent_data AS (\n  SELECT \n    'Current (Last 10min)' AS dataset,\n    CASE \n      WHEN age < 25 THEN '18-24'\n      WHEN age < 35 THEN '25-34'\n      WHEN age < 45 THEN '35-44'\n      WHEN age < 55 THEN '45-54'\n      WHEN age < 65 THEN '55-64'\n      ELSE '65+'\n    END AS age_group,\n    COUNT(*) AS count\n  FROM predictions\n  WHERE created_at > NOW() - INTERVAL '10 minutes'\n  GROUP BY dataset, age_group\n)\nSELECT \n  age_group AS metric,\n  SUM(CASE WHEN dataset = 'Baseline (Last 2h)' THEN count ELSE 0 END) AS \"Baseline\",\n  SUM(CASE WHEN dataset = 'Current (Last 10min)' THEN count ELSE 0 END) AS \"Current\"\nFROM (\n  SELECT * FROM baseline_data\n  UNION ALL\n  SELECT * FROM current_data\n) combined\nGROUP BY age_group\nORDER BY age_group",
-          "format": "table"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Baseline"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Current"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "orange",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "options": {
-        "orientation": "auto",
-        "xTickLabelRotation": 0,
-        "stacking": "none",
-        "showValue": "auto",
-        "barWidth": 0.8,
-        "groupWidth": 0.7,
-        "legend": {
-          "showLegend": true,
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      }
-    },
-    {
-      "id": 4,
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 12,
-        "y": 8
-      },
-      "type": "piechart",
-      "title": " Geography Distribution (Last 1 Hour)",
-      "description": "INSIGHT: Monitor categorical drift. If training was 33% each country but serving shows 100% France = DRIFT ALERT.",
-      "datasource": {
-        "type": "postgres",
-        "uid": "defence_db"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "rawSql": "SELECT \n  geography AS metric,\n  COUNT(*) AS value\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '1 hour'\nGROUP BY geography\nORDER BY value DESC",
-          "format": "table"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "France"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Spain"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "red",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Germany"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "yellow",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "options": {
-        "pieType": "pie",
-        "displayLabels": ["name", "percent"],
-        "legend": {
-          "showLegend": true,
-          "displayMode": "table",
-          "placement": "right",
-          "values": ["value", "percent"]
-        },
-        "tooltip": {
-          "mode": "single"
-        }
-      }
-    },
-    {
-      "id": 5,
-      "gridPos": {
-        "h": 8,
-        "w": 6,
-        "x": 0,
-        "y": 17
-      },
-      "type": "stat",
-      "title": " Average Age (Last 1h)",
-      "description": "INSIGHT: Training baseline ~40 years. RED if <30 or >65 (age drift). ORANGE if 30-35 or 55-65 (warning).",
-      "datasource": {
-        "type": "postgres",
-        "uid": "defence_db"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "rawSql": "SELECT ROUND(AVG(age)::NUMERIC, 1) AS value FROM predictions WHERE created_at > NOW() - INTERVAL '1 hour'",
-          "format": "table"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "unit": "year",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 30
-              },
-              {
-                "color": "green",
-                "value": 35
-              },
-              {
-                "color": "green",
-                "value": 50
-              },
-              {
-                "color": "orange",
-                "value": 55
-              },
-              {
-                "color": "red",
-                "value": 65
-              }
-            ]
-          },
-          "mappings": [],
-          "decimals": 1
-        }
-      },
-      "options": {
-        "graphMode": "area",
-        "colorMode": "background",
-        "justifyMode": "center",
-        "textMode": "value_and_name"
-      }
-    },
-    {
-      "id": 9,
-      "gridPos": {
-        "h": 8,
-        "w": 6,
-        "x": 6,
-        "y": 17
-      },
-      "type": "stat",
-      "title": " Avg Balance (Last 1h)",
-      "description": "INSIGHT: Monitor balance drift. Training avg ~75K. Alert if significantly different.",
-      "datasource": {
-        "type": "postgres",
-        "uid": "defence_db"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "rawSql": "SELECT ROUND(AVG(balance)::NUMERIC, 0) AS value FROM predictions WHERE created_at > NOW() - INTERVAL '1 hour'",
-          "format": "table"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "unit": "currencyUSD",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 40000
-              },
-              {
-                "color": "green",
-                "value": 60000
-              },
-              {
-                "color": "green",
-                "value": 100000
-              },
-              {
-                "color": "orange",
-                "value": 120000
-              }
-            ]
-          },
-          "decimals": 0
-        }
-      },
-      "options": {
-        "graphMode": "area",
-        "colorMode": "background",
-        "justifyMode": "center",
-        "textMode": "value_and_name"
-      }
-    },
-    {
-      "id": 10,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 17
-      },
-      "type": "timeseries",
-      "title": " Gender Distribution Over Time (Last 2h)",
-      "description": "INSIGHT: Detect gender drift. Training was ~50/50. If serving shifts to 80/20, data distribution changed.",
-      "datasource": {
-        "type": "postgres",
-        "uid": "defence_db"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "rawSql": "SELECT \n  DATE_TRUNC('minute', created_at) AS time,\n  COUNT(*) FILTER (WHERE gender = 'Male') AS \"Male\",\n  COUNT(*) FILTER (WHERE gender = 'Female') AS \"Female\"\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '2 hours'\nGROUP BY time\nORDER BY time ASC",
-          "format": "time_series"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "drawStyle": "line",
-            "lineInterpolation": "smooth",
-            "lineWidth": 2,
-            "fillOpacity": 20,
-            "showPoints": "never"
-          },
-          "color": {
-            "mode": "palette-classic"
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Male"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Female"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "purple",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "options": {
-        "tooltip": {
-          "mode": "multi"
-        },
-        "legend": {
-          "showLegend": true,
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      }
-    },
-    {
-      "id": 6,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 25
-      },
-      "type": "table",
-      "title": "️ Recent Prediction Errors (Last 30 Min)",
-      "description": "INSIGHT: Debug pipeline failures. RED errors = critical (API/file issues), ORANGE = warnings (column issues).",
-      "datasource": {
-        "type": "postgres",
-        "uid": "defence_db"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "rawSql": "SELECT \n  TO_CHAR(timestamp, 'HH24:MI:SS') AS \"Time\",\n  file_name AS \"File\",\n  error_type AS \"Error Type\",\n  SUBSTRING(error_message, 1, 60) AS \"Message\"\nFROM prediction_errors\nWHERE timestamp > NOW() - INTERVAL '30 minutes'\n  AND error_type != 'prediction_success'\nORDER BY timestamp DESC\nLIMIT 15",
-          "format": "table"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Error Type"
-            },
-            "properties": [
-              {
-                "id": "custom.cellOptions",
-                "value": {
-                  "type": "color-background"
-                }
-              },
-              {
-                "id": "mappings",
-                "value": [
-                  {
-                    "type": "value",
-                    "options": {
-                      "api_error": {
-                        "color": "red",
-                        "text": "🔴 API Error"
-                      }
-                    }
-                  },
-                  {
-                    "type": "value",
-                    "options": {
-                      "column_error": {
-                        "color": "orange",
-                        "text": "🟠 Column Error"
-                      }
-                    }
-                  },
-                  {
-                    "type": "value",
-                    "options": {
-                      "file_missing": {
-                        "color": "red",
-                        "text": "🔴 File Missing"
-                      }
-                    }
-                  },
-                  {
-                    "type": "value",
-                    "options": {
-                      "request_fail": {
-                        "color": "red",
-                        "text": "🔴 Request Failed"
-                      }
-                    }
-                  },
-                  {
-                    "type": "value",
-                    "options": {
-                      "empty_file": {
-                        "color": "orange",
-                        "text": "🟠 Empty File"
-                      }
-                    }
-                  },
-                  {
-                    "type": "value",
-                    "options": {
-                      "read_error": {
-                        "color": "red",
-                        "text": "🔴 Read Error"
-                      }
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      "options": {
-        "showHeader": true,
-        "sortBy": []
-      }
-    },
-    {
-      "id": 7,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 25
-      },
-      "type": "timeseries",
-      "title": " Prediction Class Distribution Over Time (Last 2h)",
-      "description": "INSIGHT: Stacked histogram. If only one color visible = MODEL STUCK. Healthy: Both classes predicted continuously.",
-      "datasource": {
-        "type": "postgres",
-        "uid": "defence_db"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "rawSql": "SELECT \n  DATE_TRUNC('minute', created_at) AS time,\n  COUNT(*) FILTER (WHERE prediction = 1) AS \"Will Churn\",\n  COUNT(*) FILTER (WHERE prediction = 0) AS \"Will Not Churn\"\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '2 hours'\nGROUP BY time\nORDER BY time ASC",
-          "format": "time_series"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "drawStyle": "bars",
-            "lineWidth": 1,
-            "fillOpacity": 70,
-            "showPoints": "never",
-            "stacking": {
-              "mode": "normal",
-              "group": "A"
+            "color": {"mode": "palette-classic"},
+            "unit": "percent",
+            "min": 0,
+            "max": 100,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"color": "red", "value": null},
+                {"color": "red", "value": 0},
+                {"color": "orange", "value": 5},
+                {"color": "green", "value": 15},
+                {"color": "green", "value": 25},
+                {"color": "orange", "value": 40},
+                {"color": "red", "value": 60}
+              ]
             }
           },
-          "color": {
-            "mode": "palette-classic"
-          },
-          "unit": "short"
+          "overrides": [
+            {
+              "matcher": {"id": "byName", "options": "Current (Last 10min)"},
+              "properties": [
+                {"id": "color", "value": {"fixedColor": "blue", "mode": "fixed"}},
+                {"id": "custom.lineWidth", "value": 4}
+              ]
+            },
+            {
+              "matcher": {"id": "byName", "options": "Yesterday Same Time"},
+              "properties": [
+                {"id": "color", "value": {"fixedColor": "orange", "mode": "fixed"}},
+                {"id": "custom.lineStyle", "value": {"dash": [10, 5], "fill": "dash"}}
+              ]
+            },
+            {
+              "matcher": {"id": "byName", "options": "Training Baseline (20%)"},
+              "properties": [
+                {"id": "color", "value": {"fixedColor": "green", "mode": "fixed"}},
+                {"id": "custom.lineStyle", "value": {"dash": [2, 5], "fill": "dot"}},
+                {"id": "custom.lineWidth", "value": 3}
+              ]
+            },
+            {
+              "matcher": {"id": "byName", "options": "Last 24h Average"},
+              "properties": [
+                {"id": "color", "value": {"fixedColor": "purple", "mode": "fixed"}},
+                {"id": "custom.lineStyle", "value": {"dash": [5, 5], "fill": "dash"}}
+              ]
+            }
+          ]
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Will Churn"
+        "options": {
+          "tooltip": {"mode": "multi"},
+          "legend": {"showLegend": true, "displayMode": "table", "placement": "bottom", "calcs": ["lastNotNull"]}
+        },
+        "alert": {
+          "name": "Model Stuck - Predicting Zero Alert",
+          "conditions": [
+            {
+              "evaluator": {"params": [1], "type": "lt"},
+              "operator": {"type": "or"},
+              "query": {"params": ["A", "10m", "now"]},
+              "reducer": {"params": [], "type": "avg"},
+              "type": "query"
             },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "red",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Will Not Churn"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "green",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
+            {
+              "evaluator": {"params": [99], "type": "gt"},
+              "operator": {"type": "or"},
+              "query": {"params": ["A", "10m", "now"]},
+              "reducer": {"params": [], "type": "avg"},
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "5m",
+          "frequency": "1m",
+          "message": "CRITICAL: Model appears STUCK! Predicting 0% or 100% churn. Expected 15-25%. Model needs immediate investigation.",
+          "noDataState": "no_data",
+          "notifications": []
+        }
       },
-      "options": {
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
+      {
+        "id": 2,
+        "gridPos": {"h": 9, "w": 12, "x": 12, "y": 0},
+        "type": "barchart",
+        "title": "Graph 2: Age Distribution",
+        "description": "Training data age distribution vs current serving data.",
+        "datasource": {"type": "postgres", "uid": "defence_db"},
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "WITH training_baseline AS (\n  SELECT '18-24' AS age_group, 15 AS count UNION ALL\n  SELECT '25-34', 25 UNION ALL\n  SELECT '35-44', 30 UNION ALL\n  SELECT '45-54', 20 UNION ALL\n  SELECT '55-64', 8 UNION ALL\n  SELECT '65+', 2\n),\nserving_current AS (\n  SELECT \n    CASE \n      WHEN age < 25 THEN '18-24'\n      WHEN age < 35 THEN '25-34'\n      WHEN age < 45 THEN '35-44'\n      WHEN age < 55 THEN '45-54'\n      WHEN age < 65 THEN '55-64'\n      ELSE '65+'\n    END AS age_group,\n    COUNT(*) AS count\n  FROM predictions\n  WHERE created_at > NOW() - INTERVAL '10 minutes'\n  GROUP BY age_group\n)\nSELECT \n  COALESCE(t.age_group, s.age_group) AS metric,\n  COALESCE(t.count, 0) AS \"Training Baseline\",\n  COALESCE(s.count, 0) AS \"Current Serving\"\nFROM training_baseline t\nFULL OUTER JOIN serving_current s ON t.age_group = s.age_group\nORDER BY \n  CASE COALESCE(t.age_group, s.age_group)\n    WHEN '18-24' THEN 1\n    WHEN '25-34' THEN 2\n    WHEN '35-44' THEN 3\n    WHEN '45-54' THEN 4\n    WHEN '55-64' THEN 5\n    WHEN '65+' THEN 6\n  END",
+            "format": "table"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {"color": {"mode": "palette-classic"}},
+          "overrides": [
+            {
+              "matcher": {"id": "byName", "options": "Training Baseline"},
+              "properties": [{"id": "color", "value": {"fixedColor": "blue", "mode": "fixed"}}]
+            },
+            {
+              "matcher": {"id": "byName", "options": "Current Serving"},
+              "properties": [{"id": "color", "value": {"fixedColor": "orange", "mode": "fixed"}}]
+            }
+          ]
         },
-        "legend": {
-          "showLegend": true,
-          "displayMode": "list",
-          "placement": "bottom"
+        "options": {
+          "orientation": "auto",
+          "xTickLabelRotation": 0,
+          "stacking": "none",
+          "showValue": "auto",
+          "barWidth": 0.8,
+          "groupWidth": 0.7,
+          "legend": {"showLegend": true, "displayMode": "list", "placement": "bottom"}
+        },
+        "alert": {
+          "name": "Age Data Drift Alert",
+          "conditions": [
+            {
+              "evaluator": {"params": [55], "type": "gt"},
+              "operator": {"type": "and"},
+              "query": {"params": ["A", "10m", "now"]},
+              "reducer": {"params": [], "type": "avg"},
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "5m",
+          "frequency": "1m",
+          "message": "DATA DRIFT WARNING: Average age in serving data significantly higher than training baseline. Model may underperform on current population.",
+          "noDataState": "ok",
+          "notifications": []
+        }
+      },
+      {
+        "id": 3,
+        "gridPos": {"h": 8, "w": 24, "x": 0, "y": 9},
+        "type": "timeseries",
+        "title": "Graph 3: Prediction Class Distribution - Aggregated Over Time (Last 2h)",
+        "description": "Aggregated histogram showing Churn vs No-Churn predictions per minute.",
+        "datasource": {"type": "postgres", "uid": "defence_db"},
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "SELECT \n  DATE_TRUNC('minute', created_at) AS time,\n  SUM(CASE WHEN prediction = 1 THEN 1 ELSE 0 END) AS \"Will Churn (1)\",\n  SUM(CASE WHEN prediction = 0 THEN 1 ELSE 0 END) AS \"Will Not Churn (0)\"\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '2 hours'\nGROUP BY time\nORDER BY time ASC",
+            "format": "time_series"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "bars",
+              "lineWidth": 1,
+              "fillOpacity": 80,
+              "showPoints": "never",
+              "stacking": {"mode": "normal", "group": "A"}
+            },
+            "color": {"mode": "palette-classic"},
+            "unit": "short"
+          },
+          "overrides": [
+            {
+              "matcher": {"id": "byName", "options": "Will Churn (1)"},
+              "properties": [{"id": "color", "value": {"fixedColor": "red", "mode": "fixed"}}]
+            },
+            {
+              "matcher": {"id": "byName", "options": "Will Not Churn (0)"},
+              "properties": [{"id": "color", "value": {"fixedColor": "green", "mode": "fixed"}}]
+            }
+          ]
+        },
+        "options": {
+          "tooltip": {"mode": "multi", "sort": "desc"},
+          "legend": {
+            "showLegend": true,
+            "displayMode": "table",
+            "placement": "bottom",
+            "calcs": ["sum", "mean", "max"]
+          }
+        },
+        "alert": {
+          "name": "Model Always Predicting Same Class Alert",
+          "conditions": [
+            {
+              "evaluator": {"params": [5], "type": "lt"},
+              "operator": {"type": "or"},
+              "query": {"params": ["A", "15m", "now"]},
+              "reducer": {"params": [], "type": "sum"},
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "10m",
+          "frequency": "2m",
+          "message": "CRITICAL: Model predicting only ONE class! Less than 5 predictions of one class in 15min. Model is stuck or broken. Immediate attention required!",
+          "noDataState": "alerting",
+          "notifications": []
+        }
+      },
+      {
+        "id": 4,
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 17},
+        "type": "timeseries",
+        "title": "Graph 4: Balance Drift - Training Baseline vs Serving Trend (Unique)",
+        "description": "Monitors average balance over time against training baseline ($75k).",
+        "datasource": {"type": "postgres", "uid": "defence_db"},
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "SELECT \n  DATE_TRUNC('minute', created_at) AS time,\n  AVG(balance)::NUMERIC(10,0) AS value\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '2 hours'\nGROUP BY time\nORDER BY time ASC",
+            "format": "time_series"
+          },
+          {
+            "refId": "B",
+            "rawSql": "SELECT \n  DATE_TRUNC('minute', created_at) AS time,\n  75000 AS value\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '2 hours'\nGROUP BY time\nORDER BY time ASC\nLIMIT 1",
+            "format": "time_series"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "lineWidth": 2,
+              "fillOpacity": 20,
+              "showPoints": "auto"
+            },
+            "color": {"mode": "thresholds"},
+            "unit": "currencyUSD",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"color": "red", "value": null},
+                {"color": "orange", "value": 40000},
+                {"color": "yellow", "value": 60000},
+                {"color": "green", "value": 70000},
+                {"color": "green", "value": 90000},
+                {"color": "orange", "value": 120000}
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {"id": "byFrameRefID", "options": "B"},
+              "properties": [
+                {"id": "color", "value": {"fixedColor": "blue", "mode": "fixed"}},
+                {"id": "custom.lineStyle", "value": {"dash": [10, 5], "fill": "dash"}},
+                {"id": "custom.lineWidth", "value": 3},
+                {"id": "displayName", "value": "Training Baseline ($75k)"}
+              ]
+            },
+            {
+              "matcher": {"id": "byFrameRefID", "options": "A"},
+              "properties": [
+                {"id": "displayName", "value": "Current Serving Avg Balance"}
+              ]
+            }
+          ]
+        },
+        "options": {
+          "tooltip": {"mode": "multi"},
+          "legend": {"showLegend": true, "displayMode": "list", "placement": "bottom", "calcs": ["mean", "last"]}
+        }
+      },
+      {
+        "id": 5,
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 17},
+        "type": "timeseries",
+        "title": "Graph 5: Geography Distribution Drift Over Time",
+        "description": "Temporal categorical drift detection.",
+        "datasource": {"type": "postgres", "uid": "defence_db"},
+        "targets": [
+          {
+            "refId": "A",
+            "rawSql": "SELECT \n  DATE_TRUNC('minute', created_at) AS time,\n  ROUND((COUNT(*) FILTER (WHERE geography = 'France')::DECIMAL / NULLIF(COUNT(*), 0)) * 100, 1) AS \"France %\",\n  ROUND((COUNT(*) FILTER (WHERE geography = 'Spain')::DECIMAL / NULLIF(COUNT(*), 0)) * 100, 1) AS \"Spain %\",\n  ROUND((COUNT(*) FILTER (WHERE geography = 'Germany')::DECIMAL / NULLIF(COUNT(*), 0)) * 100, 1) AS \"Germany %\"\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '2 hours'\nGROUP BY time\nORDER BY time ASC",
+            "format": "time_series"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "lineWidth": 2,
+              "fillOpacity": 30,
+              "showPoints": "auto",
+              "stacking": {"mode": "percent", "group": "A"}
+            },
+            "color": {"mode": "palette-classic"},
+            "unit": "percent",
+            "min": 0,
+            "max": 100
+          },
+          "overrides": [
+            {
+              "matcher": {"id": "byName", "options": "France %"},
+              "properties": [{"id": "color", "value": {"fixedColor": "blue", "mode": "fixed"}}]
+            },
+            {
+              "matcher": {"id": "byName", "options": "Spain %"},
+              "properties": [{"id": "color", "value": {"fixedColor": "red", "mode": "fixed"}}]
+            },
+            {
+              "matcher": {"id": "byName", "options": "Germany %"},
+              "properties": [{"id": "color", "value": {"fixedColor": "yellow", "mode": "fixed"}}]
+            }
+          ]
+        },
+        "options": {
+          "tooltip": {"mode": "multi"},
+          "legend": {"showLegend": true, "displayMode": "list", "placement": "bottom", "calcs": ["mean", "last"]}
+        },
+        "alert": {
+          "name": "Geography Distribution Drift Alert",
+          "conditions": [
+            {
+              "evaluator": {"params": [70], "type": "gt"},
+              "operator": {"type": "or"},
+              "query": {"params": ["A", "10m", "now"]},
+              "reducer": {"params": [], "type": "avg"},
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "5m",
+          "frequency": "1m",
+          "message": "CATEGORICAL DRIFT: One geography dominating (>70%). Training was balanced at ~33% each. Serving data distribution has shifted significantly.",
+          "noDataState": "ok",
+          "notifications": []
         }
       }
-    },
-    {
-      "id": 11,
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 33
-      },
-      "type": "timeseries",
-      "title": " Credit Score Distribution Trend (Last 2h)",
-      "description": "INSIGHT: Monitor credit score drift. If average drops significantly = customer quality degrading.",
-      "datasource": {
-        "type": "postgres",
-        "uid": "defence_db"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "rawSql": "SELECT \n  DATE_TRUNC('minute', created_at) AS time,\n  AVG(credit_score)::NUMERIC(10,1) AS \"Avg Credit Score\",\n  MIN(credit_score) AS \"Min\",\n  MAX(credit_score) AS \"Max\"\nFROM predictions\nWHERE created_at > NOW() - INTERVAL '2 hours'\nGROUP BY time\nORDER BY time ASC",
-          "format": "time_series"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "drawStyle": "line",
-            "lineInterpolation": "smooth",
-            "lineWidth": 2,
-            "fillOpacity": 10,
-            "showPoints": "auto"
-          },
-          "color": {
-            "mode": "palette-classic"
-          },
-          "unit": "short",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 400
-              },
-              {
-                "color": "yellow",
-                "value": 600
-              },
-              {
-                "color": "green",
-                "value": 700
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Avg Credit Score"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "blue",
-                  "mode": "fixed"
-                }
-              },
-              {
-                "id": "custom.lineWidth",
-                "value": 3
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Min"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "red",
-                  "mode": "fixed"
-                }
-              },
-              {
-                "id": "custom.lineStyle",
-                "value": {
-                  "dash": [10, 5],
-                  "fill": "dash"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Max"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "green",
-                  "mode": "fixed"
-                }
-              },
-              {
-                "id": "custom.lineStyle",
-                "value": {
-                  "dash": [10, 5],
-                  "fill": "dash"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "options": {
-        "tooltip": {
-          "mode": "multi"
-        },
-        "legend": {
-          "showLegend": true,
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      }
-    }
-  ]
+    ],
+  "overwrite": true
 }

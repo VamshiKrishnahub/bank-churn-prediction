@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2411,15613326,Gow,596,France,Female,33.0,1,138162.81,1,1.0,0.0,85412.54,0
+2412,15739502,Amaechi,549,Germany,Female,31.0,9,135020.21,2,1.0,1.0,23343.18,0
+2413,15703177,Robe,754,France,Male,38.0,2,0.0,2,1.0,0.0,180698.32,0
+2414,15604073,Bibi,815,Germany,Female,25.0,8,135161.67,1,1.0,1.0,136071.05,0
+2415,15806027,Niu,556,France,Female,52.0,not_a_number,0.0,1,1.0,0.0,175149.2,1
+2416,15574886,Palerma,706,France,Male,32.0,6,94486.47,1,1.0,1.0,146949.74,0
+2417,15707120,Cocci,850,France,Male,46.0,9,117640.39,1,1.0,0.0,88920.68,0
+2418,15800845,Artemieva,732,Spain,Female,,8,not_a_number,1,1.0,1.0,45098.62,0
+2419,15603914,Arcuri,614,France,Male,40.0,6,0.0,1,1.0,1.0,20339.79,1
+2420,15722765,Owen,580,Spain,Female,57.0,0,136820.99,1,0.0,1.0,108528.74,0

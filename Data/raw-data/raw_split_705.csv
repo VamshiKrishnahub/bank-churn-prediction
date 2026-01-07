@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+7041,15655658,Bulgakov,678,France,Female,48.0,2,0.0,2,1.0,1.0,32301.88,0
+7042,15753591,He,438,France,Male,38.0,2,0.0,2,1.0,0.0,136859.55,0
+7043,15617348,Uchechukwu,544,France,Male,44.0,1,0.0,2,0.0,0.0,69244.24,0
+7044,15704581,Robertson,595,Germany,Male,34.0,2,87967.42,2,0.0,1.0,156309.52,0
+7045,15738487,Leworthy,678,France,Male,26.0,3,0.0,2,1.0,0.0,4989.33,0
+7046,15648069,Onyemachukwu,850,France,Female,36.0,6,0.0,2,1.0,1.0,190194.95,0
+7047,15737627,Rivero,589,Germany,Female,20.0,2,121093.29,2,1.0,0.0,3529.72,0
+7048,15731586,Lai,785,Spain,Female,31.0,2,121691.54,2,0.0,0.0,81778.72,0
+7049,15757467,Feng,563,Spain,Male,57.0,6,0.0,2,1.0,1.0,39297.48,0
+7050,15597709,Hornung,602,France,Female,39.0,6,154121.32,2,1.0,0.0,176614.86,1

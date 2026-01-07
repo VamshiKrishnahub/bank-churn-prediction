@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+4001,15600692,West,520,France,Male,38.0,5,0.0,2,1.0,0.0,163185.76,0
+4002,15792064,Pai,545,Germany,Male,53.0,5,114421.55,1,1.0,0.0,180598.28,1
+4003,15811486,Tang,634,Germany,Female,29.0,8,130036.21,2,0.0,1.0,69849.55,0
+4004,15626141,Fedorov,750,France,Female,26.0,1,151510.17,2,1.0,1.0,19921.72,0
+4005,15738546,Gboliwe,530,Spain,Female,41.0,4,0.0,2,0.0,1.0,147606.71,0
+4006,15677052,Ko,589,France,Female,59.0,2,0.0,2,1.0,1.0,126160.24,1
+4007,-9999,Le Gallienne,654,France,Male,37.0,6,83568.55,1,1.0,0.0,47046.72,0
+4008,15645496,Seleznyova,648,France,Female,43.0,7,139972.18,1,1.0,0.0,143668.58,0
+4009,15612505,Joseph,835,Spain,Male,45.0,3,100212.13,1,1.0,0.0,152577.62,0
+4010,15708513,Bevan,ERR_598,France,Female,39.0,1,90217.07,1,1.0,0.0,not_a_number,0

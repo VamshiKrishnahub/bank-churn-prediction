@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5571,15645847,P'eng,569,Germany,Male,35.0,2,109196.66,3,1.0,0.0,109393.19,1
+5572,15708867,Niu,684,Spain,Female,38.0,3,134168.5,3,1.0,0.0,3966.5,1
+5573,15613140,Mellor,565,France,Male,34.0,6,0.0,1,1.0,1.0,63173.64,0
+5574,15628893,Power,681,France,Male,29.0,8,0.0,1,1.0,0.0,66367.33,0
+5575,15764073,Arcuri,503,Spain,Female,36.0,9,0.0,2,1.0,1.0,16274.67,0
+5576,15782879,Lang,656,France,Male,40.0,2,0.0,2,1.0,1.0,180553.48,0
+5577,15635964,Eve,566,Germany,Male,65.0,4,120100.41,1,1.0,0.0,107563.16,1
+5578,15726087,Ch'in,592,France,Female,62.0,5,0.0,1,1.0,1.0,100941.57,0
+5579,15726313,Napolitani,687,Spain,Female,50.0,5,0.0,2,1.0,0.0,110230.4,0
+5580,15578073,Barker,686,Spain,Male,22.0,8,0.0,2,UNKNOWN,0.0,not_a_number,0

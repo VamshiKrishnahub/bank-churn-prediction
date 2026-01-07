@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8541,15728709,Shih,484,Germany,Male,40.0,7,106901.42,2,0.0,0.0,118045.98,0
+8542,15724181,Hudson,647,Spain,Male,47.0,5,105603.21,2,1.0,1.0,157360.9,0
+8543,15647546,Carvosso,688,Germany,Female,40.0,8,150679.71,2,0.0,1.0,196226.38,0
+8544,15702601,Wyatt,680,Germany,Male,30.0,4,108300.27,2,0.0,1.0,44384.57,1
+8545,15567725,Kodilinyechukwu,689,France,Female,46.0,7,52016.08,2,1.0,1.0,72993.65,0
+8546,15674179,Vorobyova,513,Germany,Male,34.0,7,60515.13,1,0.0,0.0,124571.09,0
+8547,15686957,Piccio,553,Germany,Male,35.0,2,158584.28,2,1.0,0.0,43640.16,0
+8548,15717010,Hsing,689,Germany,Male,47.0,not_a_number,118812.5,2,0.0,0.0,31121.42,0
+8549,15806546,Lucas,517,Spain,Male,46.0,4,0.0,1,1.0,0.0,22372.78,0
+8550,15632850,T'ang,731,France,Male,37.0,8,0.0,2,1.0,1.0,170338.35,0

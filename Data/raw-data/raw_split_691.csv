@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6901,15806922,Bergamaschi,674,Spain,Female,41.0,4,126605.14,1,1.0,1.0,166694.93,0
+6902,15637522,Shubina,507,France,Female,31.0,0,106942.08,1,0.0,1.0,44001.11,0
+6903,15636548,Lung,457,Spain,Male,44.0,7,0.0,2,0.0,0.0,185992.36,0
+6904,15566891,Kinder,584,Germany,Female,41.0,3,88594.93,1,1.0,0.0,178997.89,0
+6905,15627185,Terry,744,Germany,Male,29.0,6,123737.04,2,1.0,0.0,141558.04,0
+6906,15754012,Shepherdson,687,France,Female,35.0,1,110752.15,2,1.0,1.0,-9999,0
+6907,15627514,Short,688,Spain,Female,46.0,3,0.0,2,0.0,1.0,104902.68,0
+6908,15661433,Zetticci,ERR_842,France,Male,34.0,5,0.0,1,1.0,0.0,68479.6,0
+6909,15610653,ERR_281,not_a_number,Spain,Female,38.0,5,0.0,2,1.0,1.0,1271.51,0
+6910,15667002,Knight,INVALID,Spain,Male,43.0,5,0.0,2,1.0,not_a_number,29346.1,0

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8451,15710053,Neumayer,667,Germany,Female,44.0,5,140406.68,,0.0,,57164.19,0
+8452,15580043,Murray,575,Spain,Female,22.0,8,105229.34,1,1.0,1.0,34397.08,0
+8453,15601410,Tien,744,Spain,Female,46.0,1,0.0,3,1.0,1.0,177431.59,1
+8454,15684669,Parkes,567,France,Female,41.0,9,137891.35,1,ERR_231,0.0,142009.46,1
+8455,15619083,Yip,502,France,Female,35.0,6,0.0,2,1.0,1.0,80618.47,0
+8456,15605461,Ingle,609,France,Female,53.0,UNKNOWN,0.0,2,1.0,1.0,124218.27,0
+8457,15730705,Chidubem,715,France,Male,37.0,9,165252.52,1,1.0,0.0,85286.3,0
+8458,15749688,Lu,541,France,Male,32.0,8,0.0,2,0.0,0.0,40889.14,0
+8459,15728542,Vorobyova,850,France,Female,71.0,4,0.0,2,1.0,1.0,107236.87,0
+,15682454,Chiedozie,595,Spain,Male,23.0,7,0.0,2,1.0,1.0,168085.97,not_a_number

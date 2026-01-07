@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5621,15752409,Grant,553,France,Male,31.0,6,0.0,2,0.0,0.0,124596.63,0
+5622,15807524,Chukwuma,569,France,Female,44.0,4,0.0,2,0.0,0.0,134394.78,0
+5623,15766649,Vincent,670,France,Male,38.0,10,89416.99,1,0.0,0.0,144275.39,0
+5624,15696812,Lazareva,586,Spain,Male,42.0,6,0.0,2,1.0,1.0,123410.23,0
+5625,15784148,Ch'ien,617,Spain,Female,45.0,1,0.0,1,1.0,0.0,143298.06,0
+5626,15663234,Bishop,508,France,Female,60.0,7,143262.04,1,1.0,1.0,129562.74,0
+5627,15741417,Chibuzo,624,Spain,Female,35.0,7,119656.45,2,1.0,1.0,4595.05,0
+5628,15695174,Chang,654,France,Male,29.0,4,132954.64,1,1.0,1.0,146715.07,0
+5629,15665168,Calabrese,681,Germany,Female,44.0,3,105206.7,2,1.0,1.0,163558.36,0
+5630,15601503,Tokaryev,578,Spain,Male,28.0,4,0.0,2,0.0,0.0,6947.09,0

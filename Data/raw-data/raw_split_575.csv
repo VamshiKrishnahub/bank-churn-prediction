@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5741,15568885,Scott,620,Germany,Female,34.0,8,102251.57,1,1.0,0.0,120672.09,0
+5742,15725036,Jideofor,709,France,Male,42.0,9,118546.71,1,0.0,1.0,77142.85,0
+5743,15632665,Yevseyev,832,France,Male,61.0,2,0.0,1,0.0,1.0,127804.66,1
+5744,15571476,Kelly,635,Spain,Male,38.0,0,103257.14,1,0.0,0.0,158344.63,0
+5745,15776850,Smith,749,Spain,Female,43.0,1,124209.02,1,1.0,1.0,167179.48,0
+5746,15623649,Ogle,629,Spain,Male,32.0,3,0.0,2,1.0,1.0,15404.64,0
+5747,15751131,Moss,836,Spain,Female,41.0,7,150302.84,1,1.0,1.0,156036.19,0
+5748,15688128,Loggia,542,Spain,Male,34.0,8,108653.93,1,0.0,1.0,144725.14,0
+5749,15678412,Nwankwo,645,France,Female,45.0,8,85325.93,1,0.0,0.0,22558.74,0
+5750,15770291,Allan,844,France,Female,29.0,8,0.0,2,0.0,0.0,147342.03,0

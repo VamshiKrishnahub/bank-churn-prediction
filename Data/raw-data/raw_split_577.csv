@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+5761,not_a_number,Austin,528,Spain,Male,23.0,###,104744.89,1,1.0,0.0,170262.97,0
+5762,15749119,Santiago,710,France,Female,31.0,3,0.0,2,1.0,1.0,112289.06,0
+5763,15756535,Chibugo,733,Germany,Male,39.0,5,91538.51,1,1.0,1.0,-42,0
+5764,15700965,Toscano,724,France,Female,32.0,6,0.0,2,1.0,1.0,150026.79,0
+5765,15791851,Afanasyeva,726,France,Female,34.0,0,185734.75,1,1.0,1.0,102036.82,0
+5766,15717156,Sokolov,520,France,Male,30.0,3,143396.54,2,1.0,1.0,898.51,0
+5767,15740846,Wei,556,France,Male,40.0,5,125909.85,1,1.0,1.0,95124.4,0
+5768,15573284,Olisanugo,579,France,Female,45.0,2,0.0,2,0.0,0.0,11514.39,0
+5769,15729083,Gorman,674,France,Male,36.0,2,154525.7,1,0.0,1.0,27468.72,0
+5770,15611612,Priestley,570,France,Female,29.0,0,0.0,1,1.0,0.0,37092.43,0

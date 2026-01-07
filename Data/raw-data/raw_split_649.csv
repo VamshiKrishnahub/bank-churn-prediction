@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+6481,15693704,Tsou,679,France,Female,24.0,6,114948.76,2,0.0,1.0,135768.25,0
+6482,15664752,Jack,606,Germany,Male,39.0,8,136000.45,2,1.0,0.0,31708.53,0
+6483,15628292,Lucchesi,850,France,Male,32.0,4,156001.68,2,1.0,1.0,151677.31,0
+6484,15621195,Ch'eng,619,Germany,Male,41.0,3,147974.16,2,1.0,0.0,170518.83,0
+6485,15668629,Saunders,719,Spain,Male,44.0,2,0.0,2,1.0,0.0,196582.19,0
+6486,15635197,Glover,640,Germany,Male,26.0,5,90402.77,1,1.0,1.0,3298.65,0
+6487,ERR_118,Tung,710,France,Male,40.0,5,0.0,2,0.0,0.0,162878.96,0
+6488,15574283,Padovano,580,France,Male,31.0,2,0.0,2,0.0,1.0,64014.24,0
+6489,15598097,Johnstone,550,France,Male,44.0,9,0.0,2,1.0,0.0,26257.01,0
+6490,15711352,Endrizzi,841,France,Female,31.0,3,162701.65,2,1.0,1.0,126794.56,0

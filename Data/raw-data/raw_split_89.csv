@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+881,15585362,Simmons,749,France,Female,60.0,6,0.0,1,1.0,0.0,17978.68,1
+882,15571928,Fraser,679,France,Female,43.0,4,0.0,3,1.0,0.0,115136.51,1
+883,15785519,May,565,France,Male,36.0,6,106192.1,1,1.0,0.0,149575.59,0
+884,15743007,Seabrook,643,France,Female,45.0,4,45144.43,1,1.0,0.0,60917.24,1
+885,15777211,Herrera,515,France,Male,65.0,7,92113.61,1,1.0,1.0,142548.33,0
+886,15721935,Kincaid,521,France,Male,25.0,7,0.0,2,1.0,1.0,157878.67,0
+887,15591711,Sleeman,739,Spain,Male,38.0,0,128366.44,1,1.0,0.0,12796.43,0
+888,15625021,Hung,585,France,Male,42.0,2,0.0,2,1.0,1.0,18657.77,0
+889,15702968,Artemieva,733,Germany,Male,74.0,3,106545.53,1,1.0,1.0,134589.58,0
+890,15600462,Barwell,542,France,Female,43.0,8,145618.37,1,0.0,1.0,10350.74,0

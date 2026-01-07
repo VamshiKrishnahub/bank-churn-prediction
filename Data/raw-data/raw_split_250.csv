@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2491,15633141,Robinson,696,Germany,Female,35.0,4,174902.26,1,1.0,not_a_number,69079.85,0
+2492,15659736,###,612,Spain,Female,26.0,4,0.0,2,1.0,not_a_number,179780.74,0
+2493,15778155,T'ien,520,Germany,Female,31.0,3,108914.17,1,1.0,1.0,183572.39,1
+2494,15715920,De Bernales,782,Spain,Male,23.0,10,98052.66,1,1.0,,142587.32,0
+2495,15671917,Wade,666,France,Male,46.0,5,123873.19,1,1.0,1.0,177844.06,0
+2496,15666548,Chung,466,Germany,Female,56.0,2,111920.13,3,1.0,0.0,197634.11,1
+2497,15625623,Stevenson,567,France,Female,45.0,4,0.0,2,0.0,1.0,121053.19,0
+2498,15748123,Chienezie,613,France,Male,20.0,3,0.0,2,1.0,1.0,149613.77,0
+2499,15614934,Cashin,718,France,Male,37.0,8,0.0,2,1.0,1.0,INVALID,0
+2500,,Seppelt,614,France,Female,37.0,8,75150.34,4,not_a_number,1.0,###,1

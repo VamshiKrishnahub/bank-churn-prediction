@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8141,not_a_number,Han,605,France,Female,-9999,6,0.0,1,0.0,1.0,690.84,0
+8142,15571843,Lawrence,486,Spain,Male,24.0,1,0.0,1,1.0,0.0,98802.76,0
+8143,15752502,Cooke,615,France,Male,41.0,4,130385.82,1,0.0,1.0,130661.95,0
+8144,15609058,Wan,676,France,Male,23.0,1,107787.47,1,0.0,1.0,116378.82,0
+8145,15775108,Lo Duca,571,France,ERR_718,34.0,1,99325.04,2,0.0,1.0,,0
+8146,15708904,Yermakova,850,France,Female,37.0,9,0.0,1,0.0,0.0,100101.06,0
+8147,15600086,Combs,717,France,Male,48.0,7,123764.95,1,1.0,1.0,169952.82,0
+8148,15814675,Chien,642,Germany,Female,39.0,8,128264.03,1,1.0,0.0,61792.76,1
+8149,15572777,Meng,780,Spain,Male,47.0,7,86006.21,1,1.0,1.0,37973.13,0
+8150,15585106,Calabresi,492,Germany,Female,not_a_number,8,57068.43,2,1.0,0.0,188974.81,0

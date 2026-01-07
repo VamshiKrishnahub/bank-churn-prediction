@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+8879,15675794,Hsing,645,Germany,Male,47.0,9,152076.93,1,1.0,0.0,121840.2,1
+8879,15675794,Hsing,645,Germany,Male,47.0,not_a_number,152076.93,1,1.0,0.0,121840.2,1
+7601,15762392,Ilyina,683,Spain,Male,30.0,1,,1,1.0,1.0,65035.02,0
+7718,15787196,T'ien,692,Spain,Male,46.0,2,0.0,2,1.0,1.0,105983.09,0
+7718,15787196,T'ien,692,Spain,Male,46.0,2,0.0,2,1.0,1.0,105983.09,0
+558,15634844,Miller,598,Germany,Male,41.0,3,91536.93,1,1.0,0.0,191468.78,1
+1362,15589018,Judd,578,France,Male,32.0,4,0.0,,1.0,1.0,141822.8,0
+9620,15779973,Gibbons,684,Germany,Male,35.0,3,99967.76,1,1.0,1.0,176882.08,0
+6313,15648136,Green,658,Germany,Female,28.0,9,152812.58,1,ERR_542,0.0,166682.57,0
+8594,15722037,Alvarez,610,Germany,Male,36.0,7,115462.02,1,0.0,1.0,,0

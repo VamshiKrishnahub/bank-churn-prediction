@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+1801,15794122,Otutodilinna,713,France,Female,59.0,3,0.0,2,1.0,1.0,62700.08,0
+1802,15774931,She,452,France,Male,30.0,7,112935.87,1,1.0,1.0,99017.34,0
+1803,15779247,Pai,683,Spain,Female,24.0,8,98567.1,1,1.0,0.0,187987.01,0
+1804,15707078,Kruglov,577,France,Female,26.0,1,180530.51,1,0.0,0.0,123454.62,0
+1805,15605263,Chin,552,France,Male,33.0,5,140931.57,1,0.0,1.0,ERR_898,0
+1806,15607381,King,769,Germany,Female,31.0,7,148913.72,2,1.0,0.0,53817.23,0
+1807,15683471,Hansen,691,France,Male,38.0,7,0.0,2,0.0,0.0,81617.4,0
+1808,15605037,Ting,818,ERR_572,Female,49.0,2,0.0,1,0.0,1.0,192298.84,1
+1809,15576085,Stone,739,France,Male,41.0,5,0.0,2,0.0,0.0,143882.25,0
+1810,15770435,McLean,639,France,Female,50.0,6,115335.32,2,1.0,1.0,53130.41,0

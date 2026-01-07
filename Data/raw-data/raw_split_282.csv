@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2811,15595388,Yeh,594,France,Female,30.0,10,0.0,2,1.0,1.0,124071.71,0
+2812,15699550,Babbage,695,Spain,Female,34.0,9,0.0,2,1.0,1.0,67502.12,0
+2813,15581620,Franklin,597,France,Male,28.0,2,0.0,3,1.0,ERR_679,,0
+2814,15600934,Randell,758,France,Female,52.0,7,125095.94,1,1.0,0.0,171189.83,1
+2815,15738672,Paterson,737,Germany,Female,40.0,2,162485.8,2,1.0,0.0,149381.32,0
+2816,15721307,Pickering,694,Germany,Male,37.0,1,95668.82,2,1.0,0.0,100335.55,0
+2817,15619280,Uspensky,683,France,Male,25.0,4,0.0,2,1.0,0.0,152698.24,0
+2818,15768244,Macleod,538,Spain,Female,30.0,8,0.0,2,1.0,1.0,41192.95,0
+2819,15806837,Nnaife,669,France,Male,37.0,4,0.0,1,1.0,0.0,132540.33,0
+2820,15643496,Randolph,730,INVALID,Female,34.0,5,74197.38,UNKNOWN,1.0,0.0,96875.52,0

@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+9421,15637324,Kay,657,France,Female,28.0,7,0.0,2,0.0,1.0,5177.62,0
+9422,15589589,Bryan,613,France,Male,34.0,5,144094.2,1,1.0,0.0,44510.26,0
+not_a_number,15778936,Ingamells,701,France,Male,33.0,9,147510.34,1,1.0,0.0,190611.92,0
+9424,15757385,Milne,578,Spain,Female,28.0,8,161592.76,1,1.0,0.0,177834.79,0
+9425,15666200,Lombardo,689,France,Female,40.0,1,0.0,2,1.0,1.0,119446.64,0
+9426,15683977,Owens,687,Spain,Female,72.0,4,0.0,2,1.0,1.0,50267.69,0
+9427,,Charlton,499,Spain,Female,53.0,ERR_970,75225.53,2,0.0,0.0,144849.1,1
+9428,15584812,Overby,693,Spain,Female,ERR_431,0,0.0,2,0.0,99999,,0
+9429,15752984,Chifley,737,France,Female,70.0,9,87542.89,2,1.0,1.0,42576.86,0
+9430,15577913,Oliver,651,France,Female,32.0,8,144581.96,1,1.0,1.0,87609.5,0

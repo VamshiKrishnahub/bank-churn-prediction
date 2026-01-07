@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+3121,15694879,Reeves,590,Spain,Female,23.0,7,0.0,2,1.0,0.0,196789.9,0
+3122,15593715,Castiglione,634,Germany,Male,27.0,3,107027.52,1,1.0,0.0,173425.68,0
+3123,15575002,Ferguson,676,France,Male,29.0,4,140720.93,,1.0,0.0,36221.18,0
+3124,15622171,Nnamdi,642,France,Male,30.0,8,80964.57,2,1.0,0.0,174738.2,0
+3125,15795224,Wu,760,France,,39.0,6,178585.46,1,1.0,0.0,67131.3,1
+3126,15685346,Chu,736,Spain,Female,26.0,4,135889.13,1,1.0,1.0,165692.03,0
+3127,15691808,King,656,France,Male,43.0,7,134919.85,1,1.0,0.0,194691.95,0
+3128,15721007,Charlton,776,Germany,Male,33.0,8,115130.34,1,0.0,0.0,129525.5,1
+3129,15794253,Marsh,832,Spain,Female,34.0,6,138190.13,2,0.0,1.0,146511.2,0
+3130,15694453,Walker,631,Germany,Male,37.0,9,131519.49,2,1.0,1.0,51752.18,0

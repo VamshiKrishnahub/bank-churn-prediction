@@ -1,0 +1,11 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+2681,15813532,Burns,625,France,Female,39.0,5,0.0,2,1.0,0.0,32615.21,0
+2682,15576760,Onodugoadiegbemma,ERR_622,Germany,Male,not_a_number,5,73088.06,2,0.0,0.0,196142.26,0
+2683,15732102,Darling,656,Germany,Female,27.0,3,150905.03,2,1.0,0.0,16998.72,0
+2684,15739046,Maggard,850,Spain,Female,23.0,9,143054.85,1,0.0,1.0,62980.96,0
+2685,15631927,Thomas,574,Spain,Female,28.0,7,0.0,2,0.0,0.0,185660.3,0
+2686,15672115,Lettiere,679,France,Male,60.0,6,0.0,2,1.0,1.0,77331.77,0
+2687,15618765,Ponomaryov,530,Germany,Female,42.0,0,99948.45,1,0.0,1.0,97338.62,0
+2688,15679148,Oliver,508,France,Male,44.0,3,115451.05,2,0.0,0.0,67234.33,0
+2689,15728474,Chienezie,558,Germany,Male,32.0,4,108235.91,1,1.0,1.0,143783.28,0
+2690,15636999,Mao,414,France,Male,38.0,8,0.0,1,0.0,1.0,77661.12,1
