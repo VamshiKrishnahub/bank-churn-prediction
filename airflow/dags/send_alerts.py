@@ -4,13 +4,6 @@ from pathlib import Path
 
 
 def send_teams_alert(validation: dict, report_path: str):
-    """
-    Send Teams alert for data validation issues
-
-    Args:
-        validation: Dict containing validation results with 'errors' list
-        report_path: URL to the HTML validation report (internal Docker URL)
-    """
 
     webhook = os.environ.get("TEAMS_WEBHOOK")
     if not webhook:
@@ -21,32 +14,24 @@ def send_teams_alert(validation: dict, report_path: str):
     errors = validation.get("errors", [])
     file_name = Path(validation["file_path"]).name
 
-    # Convert internal Docker URL to external accessible URL
-    # Replace 'fastapi:8000' with 'localhost:8000' for external access
-    # If you have a public domain, replace localhost with your domain
     external_report_url = report_path.replace("http://fastapi:8000", "http://localhost:8000")
 
-    # If you're deploying to a server with a public IP or domain, use this instead:
-    # PUBLIC_HOST = os.getenv("PUBLIC_HOST", "localhost:8000")
-    # external_report_url = report_path.replace("http://fastapi:8000", f"http://{PUBLIC_HOST}")
 
     print(f" Sending Teams alert")
     print(f"   Internal URL: {report_path}")
     print(f"   External URL: {external_report_url}")
 
-    # Build error summary - handle both 'criticality' and 'severity' keys
     if errors:
         error_lines = []
         for e in errors:
             error_type = e.get('type', 'unknown')
-            # Try 'severity' first (new format), fall back to 'criticality' (old format)
+
             severity = e.get('severity', e.get('criticality', 'unknown'))
             error_lines.append(f"- **{error_type}** ({severity})")
         error_summary = "\n".join(error_lines)
     else:
         error_summary = " No validation errors."
 
-    # Determine color based on criticality
     if criticality == "HIGH":
         theme_color = "E81123"  # Red
     elif criticality == "MEDIUM":

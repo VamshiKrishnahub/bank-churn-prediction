@@ -1,11 +1,11 @@
 RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
 7171,15621244,Gallo,678,France,Male,36.0,0,107379.68,1,1.0,1.0,84460.18,0
-7172,15621021,Waterhouse,637,Germany,Male,30.0,6,122641.56,2,1.0,0.0,65618.01,0
-7173,15682540,Cremonesi,602,France,Female,33.0,8,0.0,99999,1.0,1.0,112928.74,-9999
-7174,15636521,Feng,744,Spain,Female,not_a_number,INVALID,,1,1.0,1.0,142210.94,0
-7175,15785339,H?,UNKNOWN,France,Female,50.0,9,117565.03,not_a_number,0.0,0.0,82559.77,0
+7172,15744273,Waterhouse,637,Germany,Male,30.0,6,not_a_number,2,1.0,0.0,65618.01,
+7173,15682540,Cremonesi,602,France,Female,33.0,8,0.0,2,1.0,1.0,112928.74,0
+7174,15636521,Feng,744,Spain,Female,30.0,1,124037.28,1,1.0,1.0,142210.94,0
+7175,15785339,H?,640,France,Female,50.0,9,117565.03,2,0.0,0.0,82559.77,0
 7176,15638983,Jara,684,France,Female,38.0,5,133189.4,1,0.0,0.0,127388.06,0
 7177,15654625,Wilson,495,Germany,Male,39.0,8,120252.02,2,1.0,1.0,10160.23,0
 7178,15697310,O'Callaghan,559,Germany,Female,28.0,3,152264.81,1,0.0,0.0,64242.31,0
-7179,15678210,Robson,684,France,Male,38.0,5,105069.98,2,1.0,1.0,198355.28,0
+-9999,15773456,Robson,684,France,Male,38.0,5,105069.98,2,1.0,1.0,198355.28,0
 7180,15575438,Pease,613,France,Male,42.0,7,115076.06,1,1.0,1.0,79323.61,0

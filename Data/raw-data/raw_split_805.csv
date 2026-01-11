@@ -1,11 +1,11 @@
 RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
-8041,15627439,Pickering,624,Spain,Female,36.0,10,0.0,2,0.0,1.0,186180.42,0
+8041,UNKNOWN,Pickering,624,Spain,Female,36.0,10,0.0,2,0.0,not_a_number,186180.42,0
 8042,15701439,Fanucci,698,Spain,Female,50.0,1,0.0,4,1.0,0.0,88566.9,1
-8043,15785352,Chang,606,France,Male,37.0,6,82373.94,1,0.0,0.0,172526.9,1
+8043,15785352,Chang,606,France,Male,37.0,6,82373.94,1,0.0,,172526.9,1
 8044,15616525,Sopuluchi,720,Spain,Male,31.0,4,141356.47,1,0.0,0.0,137985.69,0
 8045,15717489,Martin,835,France,Male,23.0,9,0.0,1,1.0,0.0,19793.73,1
-8046,15795737,McNaughtan,771,Spain,Female,47.0,3,72664.0,2,1.0,1.0,107874.39,0
+8046,15721207,McNaughtan,771,Spain,Female,47.0,3,72664.0,2,INVALID,1.0,107874.39,0
 8047,15693877,Stewart,811,France,Female,47.0,3,123365.34,2,0.0,0.0,171995.34,0
 8048,15576111,Reagan,734,Germany,Male,33.0,5,121898.58,1,1.0,0.0,61829.89,0
-8049,15595713,Heller,,Spain,Male,33.0,6,0.0,1,1.0,1.0,31728.35,
-8050,15808868,Nwokeocha,652,France,Female,31.0,3,103696.97,3,,0.0,155221.05,1
+8049,-42,Heller,548,Spain,Male,33.0,6,0.0,1,1.0,not_a_number,31728.35,-42
+8050,15808868,Nwokeocha,652,France,Female,31.0,###,###,3,0.0,0.0,ERR_367,1

@@ -1,7 +1,7 @@
 RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
-2041,15626684,Huang,547,France,Female,38.0,5,167539.97,1,0.0,1.0,159207.34,0
+2041,15652069,Huang,,France,Female,38.0,5,167539.97,1,0.0,1.0,159207.34,0
 2042,15709846,Yeh,840,France,Female,39.0,1,94968.97,1,1.0,0.0,84487.62,0
-2043,15635459,Shih,667,Germany,Female,27.0,3,106116.5,2,1.0,0.0,3674.71,0
+2043,15635459,Shih,667,Germany,,27.0,3,106116.5,2,1.0,0.0,3674.71,0
 2044,15642544,Henderson,723,France,Male,34.0,5,0.0,2,0.0,1.0,12092.03,0
 2045,15566494,Fang,487,France,Male,45.0,2,0.0,2,1.0,0.0,77475.73,0
 2046,15655238,Dellucci,668,France,Female,31.0,9,0.0,2,0.0,0.0,41291.73,0

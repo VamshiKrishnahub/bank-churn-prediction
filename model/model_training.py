@@ -13,14 +13,12 @@ df = pd.read_csv(data_path)
 
 print(" Data loaded successfully. Shape:", df.shape)
 
-# === 2️⃣ Encode categorical features ===
 geo_enc = LabelEncoder()
 gen_enc = LabelEncoder()
 
 df["Geography"] = geo_enc.fit_transform(df["Geography"])
 df["Gender"] = gen_enc.fit_transform(df["Gender"])
 
-# === 3️⃣ Define features and target ===
 features = [
     "CreditScore", "Geography", "Gender", "Age", "Tenure",
     "Balance", "NumOfProducts", "HasCrCard", "IsActiveMember", "EstimatedSalary"
@@ -30,14 +28,11 @@ target = "Exited"
 X = df[features]
 y = df[target]
 
-# === 4️⃣ Scale numerical features ===
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-# === 5️⃣ Split data ===
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
 
-# === 6️⃣ Train model (RandomForest Classifier) ===
 model = RandomForestClassifier(
     n_estimators=200,       # number of trees
     max_depth=None,         # let it grow fully
@@ -46,7 +41,6 @@ model = RandomForestClassifier(
 )
 model.fit(X_train, y_train)
 
-# === 7️⃣ Evaluate model ===
 y_pred_train = model.predict(X_train)
 y_pred_test = model.predict(X_test)
 
@@ -57,10 +51,9 @@ print(f"\n Model Training Complete!")
 print(f"Training Accuracy: {train_acc * 100:.2f}%")
 print(f"Testing Accuracy:  {test_acc * 100:.2f}%\n")
 
-print("📊 Classification Report:\n", classification_report(y_test, y_pred_test))
-print("📈 Confusion Matrix:\n", confusion_matrix(y_test, y_pred_test))
+print(" Classification Report:\n", classification_report(y_test, y_pred_test))
+print(" Confusion Matrix:\n", confusion_matrix(y_test, y_pred_test))
 
-# === 8️⃣ Save model and encoders ===
 save_dir = os.path.dirname(__file__)
 
 joblib.dump(model, os.path.join(save_dir, "churn_model.pkl"))

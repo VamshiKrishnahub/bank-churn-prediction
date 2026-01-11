@@ -1,11 +1,11 @@
 RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
-4771,15761506,Russell,615,Spain,Male,not_a_number,5,0.0,2,1.0,0.0,159920.92,0
-4772,15728693,Chiebuka,580,Germany,Female,36.0,3,74974.89,1,ERR_317,1.0,12099.67,0
+4771,###,Russell,615,###,Male,19.0,5,0.0,2,1.0,0.0,159920.92,-9999
+4772,15716619,Chiebuka,580,Germany,Female,36.0,3,74974.89,1,1.0,1.0,12099.67,0
 4773,15788367,Ellis,487,Spain,Male,44.0,6,61691.45,1,1.0,1.0,53087.98,0
 4774,15709451,Gordon,646,Germany,Female,35.0,1,121952.75,2,1.0,1.0,142839.82,0
 4775,15640421,Conway,811,France,Female,35.0,7,0.0,1,1.0,1.0,178.19,0
 4776,15580068,Buccho,526,Spain,Male,35.0,5,0.0,2,1.0,1.0,105618.14,0
-4777,15677123,Aksyonova,767,Spain,Male,37.0,7,-9999,2,1.0,1.0,24734.25,0
-###,15619801,Batty,548,France,Female,33.0,1,80107.83,2,0.0,not_a_number,82245.67,0
+4777,15677123,Aksyonova,767,Spain,Male,37.0,7,0.0,2,1.0,1.0,24734.25,0
+4778,15619801,Batty,548,France,Female,33.0,1,80107.83,2,0.0,1.0,82245.67,0
 4779,15582246,Rowe,737,Spain,Female,45.0,2,0.0,2,0.0,1.0,177695.67,0
 4780,15711843,Pisani,613,Germany,Male,40.0,1,147856.82,3,0.0,0.0,107961.11,1

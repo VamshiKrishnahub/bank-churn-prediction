@@ -15,6 +15,7 @@ import numpy as np
 import great_expectations as ge
 from great_expectations.data_context import FileDataContext
 from great_expectations.core.batch import RuntimeBatchRequest
+from great_expectations.checkpoint import SimpleCheckpoint
 
 from database.db import (
     Base,
@@ -56,6 +57,19 @@ dag = DAG(
 )
 
 
+def clean_for_json(obj):
+    if isinstance(obj, dict):
+        return {k: clean_for_json(v) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [clean_for_json(item) for item in obj]
+    elif isinstance(obj, float):
+        if np.isnan(obj) or np.isinf(obj):
+            return None
+        return obj
+    else:
+        return obj
+
+
 @task(dag=dag)
 def read_data() -> str:
     print(f"\n{'=' * 60}")
@@ -74,7 +88,7 @@ def read_data() -> str:
 
     chosen = random.choice(available)
 
-    print(f" Selected: {chosen.name}")
+    print(f"📄 Selected: {chosen.name}")
     print(f"   Total files available: {len(available)}")
     print(f"{'=' * 60}\n")
 
@@ -83,7 +97,6 @@ def read_data() -> str:
 
 @task(dag=dag)
 def validate_data(file_path: str) -> Dict:
-    """Validate data using Great Expectations with native Data Docs"""
 
     print(f"\n{'=' * 60}")
     print("TASK 2: Validating data with Great Expectations")
@@ -98,8 +111,177 @@ def validate_data(file_path: str) -> Dict:
     if df.empty:
         raise AirflowSkipException(" Empty file")
 
-    # Use simple GE for validation
-    ge_df = ge.from_pandas(df)
+    # Load GE context using get_context() - more robust than FileDataContext
+    print("📁 Loading GE context...")
+
+    # Your structure: /opt/airflow/Data/great_expectations/gx/great_expectations.yml
+    ge_gx_dir = GE_DIR / "gx"
+    ge_config_path = ge_gx_dir / "great_expectations.yml"
+
+    if ge_config_path.exists():
+        print(f"   Found config at: {ge_config_path}")
+
+        # Use get_context() which is smarter about finding configs
+        try:
+            from great_expectations.data_context import get_context
+            context = get_context(context_root_dir=str(ge_gx_dir))
+            print(" GE context loaded successfully")
+        except Exception as e:
+            print(f" Failed to load with get_context: {e}")
+
+
+            try:
+                context = FileDataContext(GE_DIR)
+                print(" GE context loaded from parent directory")
+            except Exception as e2:
+                print(f" All methods failed:")
+                print(f"   get_context: {e}")
+                print(f"   FileDataContext: {e2}")
+                raise Exception(f"Could not load GE context. Please check your GE setup at {GE_DIR}")
+    else:
+        raise Exception(f"GE config not found at {ge_config_path}. Please check your GE setup.")
+
+    # Configure Data Docs to save in reports/data_docs directory (separate from data_docs_ge)
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    data_docs_path = REPORTS_DIR / "data_docs"
+
+    print(f" Configuring Data Docs to: {data_docs_path}")
+    try:
+        context_config = context.get_config()
+        context_config.data_docs_sites = {
+            "local_site": {
+                "class_name": "SiteBuilder",
+                "store_backend": {
+                    "class_name": "TupleFilesystemStoreBackend",
+                    "base_directory": str(data_docs_path)
+                },
+                "site_index_builder": {
+                    "class_name": "DefaultSiteIndexBuilder"
+                }
+            }
+        }
+        context._project_config = context_config
+        print(" Data Docs configured")
+    except Exception as e:
+        print(f" Data Docs config warning: {e}")
+
+    # Get datasource and create batch request
+    datasource_name = "pandas_datasource"
+    data_connector_name = "runtime_data_connector"
+
+    run_id = f"run_{uuid.uuid4().hex[:8]}"
+    file_name = Path(file_path).name
+
+    batch_request = RuntimeBatchRequest(
+        datasource_name=datasource_name,
+        data_connector_name=data_connector_name,
+        data_asset_name="churn_data",
+        runtime_parameters={"batch_data": df},
+        batch_identifiers={
+            "batch_id": Path(file_path).stem,
+            "file_name": file_name  # Use file_name instead of run_id to match datasource config
+        }
+    )
+
+    # Get expectation suite
+    suite_name = "churn_data_validation_suite"
+    suite = context.get_expectation_suite(suite_name)
+    print(f" Using suite: {suite_name}")
+
+    # Create checkpoint with UpdateDataDocsAction to generate HTML validation report
+    checkpoint_name = f"validation_checkpoint_{run_id}"
+    checkpoint = SimpleCheckpoint(
+        name=checkpoint_name,
+        data_context=context,
+        action_list=[
+            {
+                "name": "store_validation_result",
+                "action": {"class_name": "StoreValidationResultAction"}
+            },
+            {
+                "name": "update_data_docs",
+                "action": {
+                    "class_name": "UpdateDataDocsAction",
+                    "site_names": ["local_site"]
+                }
+            }
+        ]
+    )
+
+    print(" Running validation with checkpoint...")
+    checkpoint_result = checkpoint.run(
+        validations=[
+            {
+                "batch_request": batch_request,
+                "expectation_suite_name": suite_name
+            }
+        ]
+    )
+
+    validation_result = list(checkpoint_result.run_results.values())[0]["validation_result"]
+    print(" Validation completed")
+
+    # Build Data Docs to generate HTML
+    print(" Building Data Docs HTML...")
+    context.build_data_docs(site_names=["local_site"])
+    print(" Data Docs built")
+
+    # Get validation report URL
+    report_url = None
+
+    try:
+        # Method 1: Get URL from checkpoint result identifiers
+        ids = checkpoint_result.list_validation_result_identifiers()
+        print(f" Found {len(ids)} validation result identifier(s)")
+
+        if ids:
+            docs_urls = context.get_docs_sites_urls(resource_identifier=ids[0])
+            print(f" Docs URLs: {docs_urls}")
+
+            if docs_urls and docs_urls[0].get("site_url"):
+                site_url = docs_urls[0]["site_url"]
+                print(f" Site URL: {site_url}")
+
+                if site_url.startswith("file://"):
+                    file_path_str = site_url.replace("file://", "")
+                    file_path_obj = Path(file_path_str)
+
+                    try:
+                        # Get path relative to REPORTS_DIR
+                        relative_path = file_path_obj.relative_to(REPORTS_DIR)
+                        report_url = f"{FASTAPI_REPORT_URL}/{relative_path.as_posix()}"
+                        print(f" Report URL generated: {report_url}")
+                    except ValueError:
+                        print(f" File not in reports directory: {file_path_str}")
+
+    except Exception as e:
+        print(f" Error getting URL from identifiers: {e}")
+        import traceback
+        traceback.print_exc()
+
+    # Method 2: Fallback - manually find the HTML file
+    if not report_url:
+        print(" Attempting manual HTML search...")
+
+        validations_path = data_docs_path / "local_site" / "validations" / suite_name
+
+        if validations_path.exists():
+            html_files = list(validations_path.rglob("*.html"))
+            print(f" Found {len(html_files)} HTML file(s)")
+
+            if html_files:
+                # Get most recent HTML file
+                latest_html = max(html_files, key=lambda p: p.stat().st_mtime)
+                relative_path = latest_html.relative_to(REPORTS_DIR)
+                report_url = f"{FASTAPI_REPORT_URL}/{relative_path.as_posix()}"
+                print(f" Found HTML manually: {report_url}")
+        else:
+            print(f" Validations path doesn't exist: {validations_path}")
+
+    if report_url:
+        print(f" Final GE Data Docs validation report URL: {report_url}")
+    else:
+        print(" Could not generate Data Docs report URL")
 
     errors: List[Dict] = []
     results: List[Dict] = []
@@ -108,43 +290,38 @@ def validate_data(file_path: str) -> Dict:
 
     def serialize(obj):
         if hasattr(obj, "to_json_dict"):
-            return obj.to_json_dict()
+            result = obj.to_json_dict()
+            return clean_for_json(result)
         if isinstance(obj, dict):
-            return obj
+            return clean_for_json(obj)
         return {"raw": str(obj)}
 
-    def check(name: str, severity: str, description: str, fn):
-        nonlocal criticality
-        try:
-            out = fn()
-        except Exception as exc:
-            out = {"success": False, "error": str(exc)}
+    # Extract results from GE validation
+    for result in validation_result.results:
+        result_dict = serialize(result.result if hasattr(result, 'result') else {})
 
-        out = serialize(out)
+        meta = result.expectation_config.meta or {}
+        severity = meta.get("severity", "medium")
+
         results.append({
-            "check": name,
-            "description": description,
+            "check": result.expectation_config.expectation_type,
+            "description": str(result.expectation_config.kwargs),
             "severity": severity,
-            "result": out
+            "result": result_dict
         })
 
-        if not out.get("success", False):
+        if not result.success:
             errors.append({
-                "type": name,
-                "message": description,
+                "type": result.expectation_config.expectation_type,
+                "message": str(result.expectation_config.kwargs),
                 "severity": severity,
-                "details": out
+                "details": result_dict
             })
+
             if severity_rank[severity] > severity_rank[criticality]:
                 criticality = severity
 
-    # Required columns
     required = ["Age", "Gender", "Geography", "EstimatedSalary"]
-
-    # 1. Missing column checks
-    for col in required:
-        check("missing_column", "high", f"Column '{col}' must exist",
-              lambda col=col: ge_df.expect_column_to_exist(col))
 
     if not all(c in df.columns for c in required):
         return {
@@ -156,46 +333,9 @@ def validate_data(file_path: str) -> Dict:
             "expectations": results,
             "bad_row_indices": list(range(len(df))),
             "good_row_indices": [],
-            "ge_report_url": None
+            "ge_report_url": report_url
         }
 
-    # 2-10. All validation checks
-    for col in required:
-        check("missing_value", "medium", f"Column '{col}' cannot have nulls",
-              lambda col=col: ge_df.expect_column_values_to_not_be_null(col))
-
-    def check_age_numeric():
-        age_num = pd.to_numeric(df["Age"], errors="coerce")
-        non_num = age_num.isna() & df["Age"].notna()
-        return {"success": int(non_num.sum()) == 0, "details": {"non_numeric_age_count": int(non_num.sum())}}
-
-    check("value_error", "high", "Age must be numeric", check_age_numeric)
-    check("out_of_range_age", "high", "Age must be 0-120",
-          lambda: ge_df.expect_column_values_to_be_between("Age", 0, 120))
-    check("out_of_range_income", "high", "EstimatedSalary must be 0-1,000,000",
-          lambda: ge_df.expect_column_values_to_be_between("EstimatedSalary", 0, 1_000_000))
-    check("categorical_error_gender", "high", "Gender must be Male/Female",
-          lambda: ge_df.expect_column_values_to_be_in_set("Gender", ["Male", "Female"]))
-    check("categorical_error_geography", "medium", "Geography must be France/Spain/Germany",
-          lambda: ge_df.expect_column_values_to_be_in_set("Geography", ["France", "Spain", "Germany"]))
-
-    dup_rows = df.duplicated(keep=False)
-    check("duplicate_row", "medium", "No duplicate rows",
-          lambda: {"success": int(dup_rows.sum()) == 0, "details": {"duplicate_count": int(dup_rows.sum())}})
-
-    if "CustomerId" in df.columns:
-        dup_id = df["CustomerId"].duplicated(keep=False)
-        check("duplicate_id", "medium", "CustomerId must be unique",
-              lambda: {"success": int(dup_id.sum()) == 0, "details": {"duplicate_id_count": int(dup_id.sum())}})
-
-    format_mask = df.apply(
-        lambda col: col.astype(str).str.contains(r'^(ERR_|INVALID)', regex=True, na=False)
-    ).any(axis=1)
-
-    check("format_error", "medium", "No ERR_ prefixed or INVALID values",
-          lambda: {"success": not bool(format_mask.any()), "details": {"format_error_rows": int(format_mask.sum())}})
-
-    # Calculate bad rows
     bad_mask = pd.Series(False, index=df.index)
     bad_mask |= df[required].isnull().any(axis=1)
 
@@ -212,6 +352,9 @@ def validate_data(file_path: str) -> Dict:
     if "CustomerId" in df.columns:
         bad_mask |= df["CustomerId"].duplicated(keep=False)
 
+    format_mask = df.apply(
+        lambda col: col.astype(str).str.contains(r'^(ERR_|INVALID)', regex=True, na=False)
+    ).any(axis=1)
     bad_mask |= format_mask
 
     numeric_cols = ["HasCrCard", "IsActiveMember", "NumOfProducts", "CreditScore", "Tenure", "Balance"]
@@ -223,42 +366,32 @@ def validate_data(file_path: str) -> Dict:
     bad_idx = df.index[bad_mask].tolist()
     good_idx = df.index[~bad_mask].tolist()
 
-    # Generate Great Expectations Data Docs HTML report
-    report_url = None
-    try:
 
-        suite = ge_df.get_expectation_suite()
-
-
-        docs_dir = REPORTS_DIR / "data_docs_ge"
-        docs_dir.mkdir(parents=True, exist_ok=True)
-
-        from great_expectations.render.renderer import ExpectationSuitePageRenderer
-        from great_expectations.render.view import DefaultJinjaPageView
-
-
-        renderer = ExpectationSuitePageRenderer()
-        document = renderer.render(suite)
+    if len(bad_idx) > 0:
+        errors.append({
+            "type": "row_level_validation",
+            "message": f"{len(bad_idx)} rows failed validation (duplicates, format errors, etc.)",
+            "severity": "medium",
+            "details": {
+                "invalid_row_count": len(bad_idx),
+                "total_rows": len(df),
+                "checks": "duplicates, format_errors, data_type_errors"
+            }
+        })
 
 
-        view = DefaultJinjaPageView()
-        html = view.render(document)
+    total_errors = len(errors)
 
-        report_filename = f"{uuid.uuid4().hex}.html"
-        report_path = REPORTS_DIR / report_filename
-        report_path.write_text(html, encoding="utf-8")
-
-        report_url = f"{FASTAPI_REPORT_URL}/{report_filename}"
-        print(f" Great Expectations Data Docs report created: {report_filename}")
-
-    except Exception as e:
-        print(f" Could not create GE Data Docs report: {e}")
-        import traceback
-        traceback.print_exc()
+    if total_errors >= 3:
+        criticality = "high"
+    elif total_errors == 2:
+        criticality = "medium"
+    else:  # 0 or 1 error
+        criticality = "low"
 
     print(f" Valid: {len(good_idx)} |  Invalid: {len(bad_idx)}")
-    print(f" Criticality: {criticality.upper()}")
-    print(f" Errors found: {len(errors)}")
+    print(f" Criticality: {criticality.upper()} (based on {total_errors} error(s))")
+    print(f" Errors found: {total_errors}")
     print(f"{'=' * 60}\n")
 
     return {
@@ -331,7 +464,6 @@ def save_statistics(validation: Dict):
 
 @task(dag=dag)
 def split_and_save(validation: Dict):
-
 
     print(f"\n{'=' * 60}")
     print("TASK 5: Splitting and archiving")

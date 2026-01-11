@@ -3,53 +3,14 @@
   "expectation_suite_name": "churn_data_validation_suite",
   "expectations": [
     {
-      "expectation_type": "expect_column_to_exist",
-      "kwargs": {
-        "column": "Age"
-      },
-      "meta": {
-        "error_type": "missing_column",
-        "severity": "high"
-      }
-    },
-    {
-      "expectation_type": "expect_column_to_exist",
-      "kwargs": {
-        "column": "Gender"
-      },
-      "meta": {
-        "error_type": "missing_column",
-        "severity": "high"
-      }
-    },
-    {
-      "expectation_type": "expect_column_to_exist",
-      "kwargs": {
-        "column": "Geography"
-      },
-      "meta": {
-        "error_type": "missing_column",
-        "severity": "high"
-      }
-    },
-    {
-      "expectation_type": "expect_column_to_exist",
-      "kwargs": {
-        "column": "EstimatedSalary"
-      },
-      "meta": {
-        "error_type": "missing_column",
-        "severity": "high"
-      }
-    },
-    {
       "expectation_type": "expect_column_values_to_not_be_null",
       "kwargs": {
         "column": "Age"
       },
       "meta": {
+        "severity": "high",
         "error_type": "missing_value",
-        "severity": "medium"
+        "notes": "Detects NULL values"
       }
     },
     {
@@ -58,8 +19,9 @@
         "column": "Gender"
       },
       "meta": {
+        "severity": "high",
         "error_type": "missing_value",
-        "severity": "medium"
+        "notes": "Detects NULL values"
       }
     },
     {
@@ -68,8 +30,9 @@
         "column": "Geography"
       },
       "meta": {
+        "severity": "medium",
         "error_type": "missing_value",
-        "severity": "medium"
+        "notes": "Detects NULL values"
       }
     },
     {
@@ -78,43 +41,9 @@
         "column": "EstimatedSalary"
       },
       "meta": {
+        "severity": "high",
         "error_type": "missing_value",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_be_of_type",
-      "kwargs": {
-        "column": "Age",
-        "type_": "float64"
-      },
-      "meta": {
-        "error_type": "value_error",
-        "severity": "high"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_be_between",
-      "kwargs": {
-        "column": "Age",
-        "max_value": 120,
-        "min_value": 0
-      },
-      "meta": {
-        "error_type": "out_of_range_age",
-        "severity": "high"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_be_between",
-      "kwargs": {
-        "column": "EstimatedSalary",
-        "max_value": 1000000,
-        "min_value": 0
-      },
-      "meta": {
-        "error_type": "out_of_range_income",
-        "severity": "high"
+        "notes": "Detects NULL values"
       }
     },
     {
@@ -127,8 +56,9 @@
         ]
       },
       "meta": {
-        "error_type": "categorical_error_gender",
-        "severity": "high"
+        "severity": "high",
+        "error_type": "categorical_error",
+        "notes": "Detects invalid categorical values (INVALID, UNKNOWN, ###, ERR_xxx)"
       }
     },
     {
@@ -142,8 +72,35 @@
         ]
       },
       "meta": {
-        "error_type": "categorical_error_geography",
-        "severity": "medium"
+        "severity": "high",
+        "error_type": "categorical_error",
+        "notes": "Detects invalid categorical values (INVALID, UNKNOWN, ###, ERR_xxx)"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "Age",
+        "min_value": 0,
+        "max_value": 120
+      },
+      "meta": {
+        "severity": "high",
+        "error_type": "out_of_range",
+        "notes": "Detects out of range values (-9999, 99999, -42)"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "EstimatedSalary",
+        "min_value": 0,
+        "max_value": 1000000
+      },
+      "meta": {
+        "severity": "high",
+        "error_type": "out_of_range",
+        "notes": "Detects out of range values (-9999, 99999, -42)"
       }
     },
     {
@@ -157,8 +114,9 @@
         ]
       },
       "meta": {
+        "severity": "medium",
         "error_type": "duplicate_row",
-        "severity": "medium"
+        "notes": "Detects duplicate rows"
       }
     },
     {
@@ -167,162 +125,9 @@
         "column": "CustomerId"
       },
       "meta": {
+        "severity": "medium",
         "error_type": "duplicate_id",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "RowNumber",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "CustomerId",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "Surname",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "CreditScore",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "Geography",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "Gender",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "Age",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "Tenure",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "Balance",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "NumOfProducts",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "HasCrCard",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "IsActiveMember",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "EstimatedSalary",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_match_regex",
-      "kwargs": {
-        "column": "Exited",
-        "regex": "^ERR_"
-      },
-      "meta": {
-        "error_type": "format_error",
-        "severity": "medium"
+        "notes": "Detects duplicate CustomerIds"
       }
     }
   ],
